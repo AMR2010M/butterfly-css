@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flamingo 500 Dynamic Blocks Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Link to your external Flamingo CSS file -->
+    <link rel="stylesheet" href="https://685729125b22ba1892bfdb50--tubular-basbousa-c9e2fe.netlify.app/float.css">
+    <style>
+        /* Simple CSS for overall page layout and base block appearance */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Soft blue-gray background */
+            color: #334e68;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6600FF 0%, #FF6FD8 100%);
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 25px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller blocks, more fit */
+            gap: 25px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Base styling for each generated block (simple CSS) */
+        .dynamic-block {
+            min-height: 150px; /* Ensure blocks are visible */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* To stack text and button */
+            border-radius: 12px;
+            position: relative; /* For copy button positioning */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 1.1em;
+            text-align: center;
+            padding: 10px; /* A bit of internal padding */
+            overflow: hidden; /* Crucial for containing pseudo-elements like balls/confetti */
+        }
+
+        /* Styling for copy button */
+        .copy-button {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: rgba(0, 176, 255, 0.8); /* Blue with transparency */
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.75em;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .dynamic-block:hover .copy-button {
+            opacity: 1; /* Show on hover */
+            transform: translateY(-2px);
+        }
+
+        .copy-button.copied {
+            background-color: #4CAF50; /* Green when copied */
+        }
+
+        /* Overrides for specific flamingo attributes that use pseudo-elements and need a relative parent */
+        /* These are NOT styling the block, but enabling the Flamingo effect */
+        [ball-move-1], [ball-move-2], [ball-move-3], [ball-move-4], [ball-move-5],
+        [birthday-paper], [lightfouce] {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ensure text in complex backgrounds is readable */
+        .dynamic-block span {
+            position: relative; /* To ensure text stays above pseudo-elements */
+            z-index: 1;
+            padding: 5px 10px; /* Small padding for readability */
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.2); /* Slight transparent background for text */
+            backdrop-filter: blur(2px); /* Blur behind text for contrast */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+            font-size: 0.9em;
+            margin-top: 50px;
+            background-color: #e0f7fa;
+            border-top: 1px solid #d0e0e8;
+            border-radius: 15px 15px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <h1 twhite>Flamingo's Playground: 500 Dynamic Blocks!</h1>
+            <p twhite>Explore an endless variety of designs, all powered by Flamingo CSS attributes.</p>
+        </header>
+
+        <section class="blocks-grid" id="dynamic-blocks-container">
+            <!-- Dynamic blocks will be injected here by JavaScript -->
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Flamingo CSS. Crafted with creativity by Amr Khaled (molwd 2010).</p>
+    </footer>
+
+    <script>
+        // Function to copy code to clipboard
+        function copyCode(button) {
+            const block = button.closest('.dynamic-block');
+            if (!block) return;
+
+            // Clone the block to get its current HTML with attributes
+            const tempDiv = document.createElement('div');
+            const clonedBlock = block.cloneNode(true);
+
+            // Remove the copy button itself from the cloned HTML
+            const clonedButton = clonedBlock.querySelector('.copy-button');
+            if (clonedButton) {
+                clonedButton.remove();
+            }
+            // Remove the inner <span> wrapper added by JS for readability
+            const innerSpan = clonedBlock.querySelector('span');
+            if (innerSpan && innerSpan.childElementCount === 0) { // Only remove if it doesn't contain other elements
+                 clonedBlock.textContent = innerSpan.textContent;
+            }
+
+
+            tempDiv.appendChild(clonedBlock);
+            const htmlToCopy = tempDiv.innerHTML.trim();
+
+            // Create a temporary textarea to hold the HTML and copy it
+            const textarea = document.createElement('textarea');
+            textarea.value = htmlToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+            } catch (err) {
+                console.error('Failed to copy code: ', err);
+                button.textContent = 'Error!';
+            }
+            document.body.removeChild(textarea);
+
+            setTimeout(() => {
+                button.textContent = 'Copy';
+                button.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Generate dynamic Flamingo blocks
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('dynamic-blocks-container');
+
+            const bgColors = [
+                'red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green',
+                'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'gray', 'blue-gray', 'black', 'white',
+                'red-50', 'red-100', 'red-200', 'red-300', 'red-400', 'red-500', 'red-600', 'red-700', 'red-800', 'red-900',
+                'blue-50', 'blue-100', 'blue-200', 'blue-300', 'blue-400', 'blue-500', 'blue-600', 'blue-700', 'blue-800', 'blue-900',
+                'green-50', 'green-100', 'green-200', 'green-300', 'green-400', 'green-500', 'green-600', 'green-700', 'green-800', 'green-900',
+                'purple-50', 'purple-100', 'purple-200', 'purple-300', 'purple-400', 'purple-500', 'purple-600', 'purple-700', 'purple-800', 'purple-900',
+                'gray-50', 'gray-100', 'gray-200', 'gray-300', 'gray-400', 'gray-500', 'gray-600', 'gray-700', 'gray-800', 'gray-900',
+                'gradient-1', 'gradient-2', 'gradient-3', 'gradient-4', 'gradient-5', 'gradient-6', 'gradient-7', 'gradient-8', 'gradient-9', 'gradient-10',
+                'coloring-1', 'coloring-2', 'coloring-3', 'coloring-4', 'coloring-5', 'coloring-6', 'coloring-7', 'coloring-8', 'coloring-9', 'coloring-10',
+                'coloring-11', 'coloring-12', 'coloring-13', 'coloring-14', 'coloring-15', 'coloring-16', 'coloring-17', 'coloring-18', 'coloring-19', 'coloring-20',
+                'coloring-21', 'coloring-22', 'coloring-23', 'coloring-24', 'coloring-25', 'coloring-26', 'coloring-27', 'coloring-28', 'coloring-29', 'coloring-30',
+                'coloring-31', 'coloring-32', 'coloring-33', 'coloring-34', 'coloring-35', 'coloring-36', 'coloring-37', 'coloring-38', 'coloring-39', 'coloring-40',
+                'coloring-41', 'coloring-42', 'coloring-43', 'coloring-44', 'coloring-45', 'coloring-46', 'coloring-47', 'coloring-48', 'coloring-49', 'coloring-50'
+            ];
+
+            const textColors = [
+                'twhite', 'tblack', 'tred-500', 'tblue-500', 'tgreen-500', 'tyellow-800', 'tpurple-500', 'tgray-800', 'tblue-gray-800', 'tcyan-500'
+            ];
+
+            const animations = [
+                'spin', 'bounce', 'pulse', 'swing', 'fadein', 'flip', 'shake', 'grow', 'shrink', 'slide-x', 'slide-y', ''
+            ];
+
+            const clipPaths = [
+                'circle', 'triangle', 'ellipse', 'square', 'rectangle', 'diamond', 'hexagon', 'parallelogram', 'star', 'trapezoid', 'sharp', 'wave', 'home', 'mobile', 'tv', 'slope', 'heart', 'broken', ''
+            ];
+
+            const hoverEffects = [
+                'hover-1', 'hover-2', 'hover-3', 'hover-4', 'hover-5', 'hover-6', 'hover-7', 'hover-8', 'hover-9', 'hover-10',
+                'hover-11', 'hover-12', 'hover-13', 'hover-14', 'hover-15', 'hover-16', 'hover-17', 'hover-18', 'hover-19', 'hover-20',
+                'hover-21', 'hover-22', 'hover-23', 'hover-24', 'hover-25', 'hover-26', 'hover-27', 'hover-28', 'hover-29',
+                'morph-hover="circle"', 'morph-hover="star"', 'morph-hover="hexagon"', 'morph-hover="diamond"', ''
+            ];
+
+            // Special pseudo-element animations
+            const pseudoElementEffects = ['ball-move', 'birthday-paper', 'lightfouce', ''];
+
+            const blockCount = 500;
+
+            for (let i = 0; i < blockCount; i++) {
+                const block = document.createElement('div');
+                block.classList.add('dynamic-block'); // Base simple CSS class
+
+                const appliedAttributes = [];
+
+                // Apply a random background color or gradient/coloring
+                const randomBg = bgColors[Math.floor(Math.random() * bgColors.length)];
+                if (randomBg) {
+                    if (randomBg.includes('gradient-') || randomBg.includes('coloring-')) {
+                        block.setAttribute(randomBg, '');
+                        appliedAttributes.push(randomBg);
+                    } else if (randomBg.includes('-')) { // For shades like red-500
+                        block.setAttribute(randomBg, '');
+                        appliedAttributes.push(randomBg);
+                    } else { // For basic colors like 'red'
+                        block.setAttribute(randomBg, '');
+                        appliedAttributes.push(randomBg);
+                    }
+                }
+
+                // Apply a random text color
+                const randomTextColor = textColors[Math.floor(Math.random() * textColors.length)];
+                if (randomTextColor) {
+                    block.setAttribute(randomTextColor, '');
+                    appliedAttributes.push(randomTextColor);
+                }
+
+                // Apply a random animation
+                const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+                if (randomAnimation) {
+                    block.setAttribute(randomAnimation, '');
+                    appliedAttributes.push(randomAnimation);
+                }
+
+                // Apply a random clip-path
+                const randomClipPath = clipPaths[Math.floor(Math.random() * clipPaths.length)];
+                if (randomClipPath) {
+                    block.setAttribute(randomClipPath, '');
+                    appliedAttributes.push(randomClipPath);
+                }
+
+                // Apply a random hover effect
+                const randomHover = hoverEffects[Math.floor(Math.random() * hoverEffects.length)];
+                if (randomHover) {
+                    const parts = randomHover.split('=');
+                    if (parts.length > 1) { // For morph-hover="shape"
+                        block.setAttribute(parts[0], parts[1].replace(/"/g, '')); // Set attribute value
+                    } else {
+                        block.setAttribute(randomHover, '');
+                    }
+                    appliedAttributes.push(randomHover);
+                }
+
+                // Randomly add a pseudo-element effect
+                const randomPseudo = pseudoElementEffects[Math.floor(Math.random() * pseudoElementEffects.length)];
+                if (randomPseudo) {
+                    if (randomPseudo === 'ball-move') {
+                        const ballNumber = Math.floor(Math.random() * 5) + 1;
+                        block.setAttribute(`ball-move-${ballNumber}`, '');
+                        appliedAttributes.push(`ball-move-${ballNumber}`);
+                    } else {
+                        block.setAttribute(randomPseudo, '');
+                        appliedAttributes.push(randomPseudo);
+                    }
+                }
+
+                // Set content
+                const contentSpan = document.createElement('span');
+                contentSpan.textContent = `Block ${i + 1}`;
+                block.appendChild(contentSpan);
+
+                // Add copy button
+                const copyBtn = document.createElement('button');
+                copyBtn.classList.add('copy-button');
+                copyBtn.textContent = 'Copy';
+                copyBtn.onclick = () => copyCode(copyBtn);
+                block.appendChild(copyBtn);
+
+                container.appendChild(block);
+            }
+        });
+    </script>
+</body>
+</html>

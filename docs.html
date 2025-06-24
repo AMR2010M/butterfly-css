@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flamingo CSS Framework Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <!-- Link to your external Flamingo CSS file -->
+    <link rel="stylesheet" href="https://685729125b22ba1892bfdb50--tubular-basbousa-c9e2fe.netlify.app/float.css">
+    <style>
+        /* Base styles for the documentation page layout and theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light cyan background for the body */
+            color: #263238; /* Dark grey for general text */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex; /* Use flexbox for main layout */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        .container {
+            flex-grow: 1; /* Allow container to take available space */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4FC3F7 0%, #00B0FF 100%); /* Blue gradient */
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 0 0 35px 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: headerFadeIn 1s ease-out;
+        }
+
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 800; /* Extra bold */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-top: 10px;
+        }
+
+        /* Main content area (for responsiveness) */
+        #main-content {
+            flex-grow: 1;
+            padding-left: 30px; /* Space for sidebar */
+        }
+
+        section {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #00B0FF; /* Bright blue for headings */
+            border-bottom: 3px solid #80D8FF; /* Lighter blue border */
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+            animation: headingSlideIn 0.8s ease-out;
+        }
+
+        @keyframes headingSlideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h3 {
+            color: #4FC3F7; /* Medium blue for subheadings */
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #e3f2fd; /* Very light blue for code snippets */
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.98em;
+            color: #0288D1; /* Darker blue text for inline code */
+            white-space: nowrap; /* Prevent inline code from wrapping */
+        }
+
+        pre {
+            background-color: #263238; /* Dark background for code blocks */
+            color: #e0f7fa; /* Light text for code blocks */
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.3);
+            line-height: 1.5;
+        }
+
+        .attribute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .attribute-item {
+            background-color: #fcfcfc;
+            border: 1px solid #e1f5fe; /* Light blue border */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .attribute-item:hover {
+            border-color: #90CAF9; /* Medium blue on hover */
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+        }
+
+        .attribute-item strong {
+            color: #00B0FF; /* Bright blue for attribute names */
+            font-size: 1.15em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .attribute-item p {
+            font-size: 1em;
+            margin: 0;
+            color: #455A64; /* Slightly darker grey for item text */
+        }
+
+        .example-box {
+            width: 100px;
+            height: 100px;
+            background-color: #00B0FF; /* Main blue for examples */
+            margin: 18px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden; /* For clip-path examples */
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .example-button {
+            margin: 8px;
+            font-size: 0.95em;
+            padding: 0.6em 1.5em;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: 3px 0 15px rgba(0,0,0,0.07);
+            border-right: 1px solid #e3f2fd; /* Light blue border */
+            position: sticky; /* Sticky sidebar */
+            top: 0;
+            align-self: flex-start; /* Align to the top of the flex container */
+            height: 100vh; /* Make sidebar full height */
+            overflow-y: auto; /* Enable scrolling for long content */
+            border-radius: 0 20px 20px 0;
+        }
+
+        .sidebar h3 {
+            color: #00B0FF; /* Bright blue for sidebar title */
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #80D8FF; /* Lighter blue separator */
+            padding-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #546E7A; /* Blue-grey for sidebar links */
+            padding: 10px 15px;
+            display: block;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            font-size: 1.05em;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #e1f5fe; /* Very light blue on hover */
+            color: #0288D1; /* Darker blue text on hover */
+            transform: translateX(5px);
+        }
+
+        .sidebar ul li a.active {
+            background-color: #00B0FF; /* Bright blue for active link */
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 176, 255, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column; /* Stack sidebar and main content vertically */
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static; /* Remove sticky on smaller screens */
+                border-right: none;
+                border-bottom: 1px solid #e3f2fd;
+                border-radius: 0;
+            }
+            #main-content {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h3>Documentation Sections</h3>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#layout-utilities">Layout Utilities</a></li>
+            <li><a href="#background-utilities">Background Utilities</a></li>
+            <li><a href="#clip-path-shapes">Clip-Path Shapes</a></li>
+            <li><a href="#animations">Standard Animations</a></li>
+            <li><a href="#coloring-animations">Coloring Animations</a></li>
+            <li><a href="#ball-animations">Floating Ball Animations</a></li>
+            <li><a href="#special-effects">Special Effects</a></li>
+            <li><a href="#rotate-utilities">Rotate Utilities</a></li>
+            <li><a href="#width-height-utilities">Width & Height Utilities</a></li>
+            <li><a href="#hover-effects">Hover Effects</a></li>
+            <li><a href="#gradients">Gradients</a></li>
+            <li><a href="#components">Components</a></li>
+            <li><a href="#background-colors">Background Colors</a></li>
+            <li><a href="#text-colors">Text Colors</a></li>
+        </ul>
+    </aside>
+
+    <div id="main-content">
+        <header>
+            <h1>Flamingo CSS Framework</h1>
+            <p>A lightweight, attribute-based CSS framework by Amr Khaled.</p>
+        </header>
+
+        <main class="container">
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>
+                    Flamingo CSS is a lightweight, attribute-based CSS framework designed to simplify common styling tasks and add engaging visual effects to your web projects. By simply adding specific attributes to your HTML elements, you can apply predefined styles for backgrounds, shapes, animations, hover effects, buttons, and a wide range of colors.
+                </p>
+                <p>
+                    This documentation provides a comprehensive guide to all available attributes, from installation to detailed descriptions and examples.
+                </p>
+            </section>
+
+            <section id="installation">
+                <h2>Installation</h2>
+                <p>To use Flamingo CSS, simply add a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section of your HTML document, pointing to your hosted <code>float.css</code> file:</p>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Flamingo Project&lt;/title&gt;
+    &lt;!-- Include Inter font for better typography --&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet"&gt;
+    &lt;!-- Link to your Flamingo CSS file --&gt;
+    &lt;link rel="stylesheet" href="https://685729125b22ba1892bfdb50--tubular-basbousa-c9e2fe.netlify.app/float.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your content here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                <p>
+                    <strong>Important Note on Attributes:</strong> For Flamingo CSS to work, you apply its custom attributes directly to your HTML elements, **without square brackets** in the HTML tag itself.
+                </p>
+                <p>
+                    For example, to apply flexbox styles for a row, you would write:
+                    <pre>&lt;div flex-row&gt;...&lt;/div&gt;</pre>
+                    And for a purple button, it would be:
+                    <pre>&lt;button btn='purple'&gt;...&lt;/button&gt;</pre>
+                </p>
+                <p>
+                    The `float.css` file contains CSS rules that are internally designed to recognize these attributes without the need for square brackets in your HTML. This allows for a clean and intuitive way to add styles. Please make sure you use the attributes exactly as shown in the examples below for them to work correctly!
+                </p>
+            </section>
+
+            <section id="layout-utilities">
+                <h2>Layout Utilities</h2>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`flex-row` attribute</strong>
+                        <p>Applies `display: flex` with `flex-direction: row`, and centers items horizontally and vertically.</p>
+                        <pre>&lt;div flex-row&gt;...&lt;/div&gt;</pre>
+                        <div flex-row style="background-color: #e0f2f7; padding: 10px; border-radius: 5px;">
+                            <span>Item 1</span>
+                            <span>Item 2</span>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`flex-column` attribute</strong>
+                        <p>Applies `display: flex` with `flex-direction: column`, and centers items horizontally and vertically.</p>
+                        <pre>&lt;div flex-column&gt;...&lt;/div&gt;</pre>
+                        <div flex-column style="background-color: #e0f2f7; padding: 10px; border-radius: 5px; min-height: 80px;">
+                            <span>Item 1</span>
+                            <span>Item 2</span>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`center` attribute</strong>
+                        <p>Centers an item within its flex container (`align-self: center; justify-self: center;`).</p>
+                        <pre>&lt;div flex-row&gt;&lt;span center&gt;...&lt;/span&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="background-color: #e0f2f7; padding: 10px; border-radius: 5px; min-height: 80px;">
+                            <span center>Centered</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="background-utilities">
+                <h2>Background Utilities</h2>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`bg='auto'` attribute</strong>
+                        <p>Sets background to `center`, `no-repeat`, and `cover`.</p>
+                        <pre>&lt;div bg='auto'&gt;&lt;/div&gt;</pre>
+                        <div bg='auto' style="height: 100px; background-image: url('https://placehold.co/300x150/4FC3F7/FFFFFF?text=Background');"></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`glow` attribute</strong>
+                        <p>Applies an inset box shadow with a linear gradient, creating a glow effect.</p>
+                        <pre>&lt;div glow&gt;&lt;/div&gt;</pre>
+                        <div glow style="height: 100px; background-color: #00B0FF; border-radius: 10px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="clip-path-shapes">
+                <h2>Clip-Path Shapes</h2>
+                <p>These attributes apply various geometric shapes using `clip-path`.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`circle` attribute</strong>
+                        <p>Clips the element into a perfect circle.</p>
+                        <pre>&lt;div circle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" circle>Circle</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`triangle` attribute</strong>
+                        <p>Clips the element into a triangle.</p>
+                        <pre>&lt;div triangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" triangle>Triangle</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`ellipse` attribute</strong>
+                        <p>Clips the element into an ellipse.</p>
+                        <pre>&lt;div ellipse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" ellipse>Ellipse</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`square` attribute</strong>
+                        <p>Ensures the element is a square clip path (inset 0).</p>
+                        <pre>&lt;div square&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" square>Square</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`rectangle` attribute</strong>
+                        <p>Clips the element into a rectangle (with 10% inset on top/bottom).</p>
+                        <pre>&lt;div rectangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rectangle>Rectangle</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`diamond` attribute</strong>
+                        <p>Clips the element into a diamond shape.</p>
+                        <pre>&lt;div diamond&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" diamond>Diamond</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hexagon` attribute</strong>
+                        <p>Clips the element into a hexagon shape.</p>
+                        <pre>&lt;div hexagon&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hexagon>Hexagon</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`parallelogram` attribute</strong>
+                        <p>Clips the element into a parallelogram.</p>
+                        <pre>&lt;div parallelogram&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" parallelogram>Parallelogram</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`star` attribute</strong>
+                        <p>Clips the element into a star shape.</p>
+                        <pre>&lt;div star&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" star>Star</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`trapezoid` attribute</strong>
+                        <p>Clips the element into a trapezoid shape.</p>
+                        <pre>&lt;div trapezoid&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" trapezoid>Trapezoid</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`sharp` attribute</strong>
+                        <p>Applies a complex, jagged clip path.</p>
+                        <pre>&lt;div sharp&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" sharp>Sharp</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`wave` attribute</strong>
+                        <p>Applies a wave-like clip path at the top.</p>
+                        <pre>&lt;div wave&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" wave>Wave</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`home` attribute</strong>
+                        <p>Clips the element into a classic house shape.</p>
+                        <pre>&lt;div home&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" home>Home</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`mobile` attribute</strong>
+                        <p>Sets a fixed height and width with border-radius to resemble a mobile phone.</p>
+                        <pre>&lt;div mobile&gt;&lt;/div&gt;</pre>
+                        <div style="background-color: #4FC3F7; margin: 18px auto; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2em; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 10px;" mobile>Mobile</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tv` attribute</strong>
+                        <p>Clips the element into a television screen shape.</p>
+                        <pre>&lt;div tv&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" tv>TV</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`slope` attribute</strong>
+                        <p>Clips the element into a sloping parallelogram.</p>
+                        <pre>&lt;div slope&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slope>Slope</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`heart` attribute</strong>
+                        <p>Clips the element into a heart shape.</p>
+                        <pre>&lt;div heart&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" heart>Heart</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`broken` attribute</strong>
+                        <p>Applies a jagged, broken-looking clip path.</p>
+                        <pre>&lt;div broken&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" broken>Broken</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`x` attribute</strong>
+                        <p>Clips the element into an 'X' shape.</p>
+                        <pre>&lt;div x&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" x>X Shape</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`message` attribute</strong>
+                        <p>Clips the element into a message bubble shape with a pointer at the bottom.</p>
+                        <pre>&lt;div message&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" message>Message</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`norad` attribute</strong>
+                        <p>Applies a complex, slightly irregular octagonal clip path.</p>
+                        <pre>&lt;div norad&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" norad>Norad</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="animations">
+                <h2>Standard Animations</h2>
+                <p>These attributes apply various continuous animations to elements. These are general-purpose motion effects.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`spin` attribute</strong>
+                        <p>Continuously rotates the element 360 degrees.</p>
+                        <pre>&lt;div spin&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" spin>Spin</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`bounce` attribute</strong>
+                        <p>Makes the element bounce vertically.</p>
+                        <pre>&lt;div bounce&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" bounce>Bounce</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`pulse` attribute</strong>
+                        <p>Makes the element grow slightly and fade in/out.</p>
+                        <pre>&lt;div pulse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" pulse>Pulse</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`swing` attribute</strong>
+                        <p>Makes the element wiggle from side to side.</p>
+                        <pre>&lt;div swing&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" swing>Swing</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`fadein` attribute</strong>
+                        <p>Fades the element in while sliding up.</p>
+                        <pre>&lt;div fadein&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" fadein>Fade In</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`flip` attribute</strong>
+                        <p>Flips the element horizontally.</p>
+                        <pre>&lt;div flip&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" flip>Flip</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`shake` attribute</strong>
+                        <p>Makes the element shake horizontally.</p>
+                        <pre>&lt;div shake&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" shake>Shake</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`grow` attribute</strong>
+                        <p>Makes the element continuously grow and shrink.</p>
+                        <pre>&lt;div grow&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" grow>Grow</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`shrink` attribute</strong>
+                        <p>Makes the element continuously shrink and grow.</p>
+                        <pre>&lt;div shrink&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" shrink>Shrink</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`slide-x` attribute</strong>
+                        <p>Slides the element horizontally left and right.</p>
+                        <pre>&lt;div slide-x&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slide-x>Slide X</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`slide-y` attribute</strong>
+                        <p>Slides the element vertically up and down.</p>
+                        <pre>&lt;div slide-y&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slide-y>Slide Y</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="coloring-animations">
+                <h2>Coloring Animations</h2>
+                <p>These attributes apply animated background color changes using predefined palettes.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`coloring` attribute</strong>
+                        <p>Applies a generic background color animation (changes every 1s).</p>
+                        <pre>&lt;div coloring&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring>Coloring</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`coloring-1` to `coloring-50` attributes</strong>
+                        <p>Each attribute applies a specific 3-color background animation over 3 seconds. For example, `coloring-1` animates between `#ff00b74f`, `#c800ff33`, and `#ffffff`.</p>
+                        <pre>&lt;div coloring-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-1>Coloring-1</div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`coloring-2` attribute</strong>
+                        <p>Specific 3-color background animation (green, yellow, orange).</p>
+                        <pre>&lt;div coloring-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-2>Coloring-2</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`coloring-3` attribute</strong>
+                        <p>Specific 3-color background animation (red, cyan, light purple).</p>
+                        <pre>&lt;div coloring-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-3>Coloring-3</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`coloring-X` attributes</strong>
+                        <p>Continue for `coloring-4` through `coloring-50`, each offering a unique 3-color background animation. Refer to the CSS file for exact color values.</p>
+                        <pre>&lt;div coloring-4&gt;&lt;/div&gt;
+&lt;div coloring-50&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" coloring-4 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" coloring-25 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" coloring-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ball-animations">
+                <h2>Floating Ball Animations</h2>
+                <p>These attributes create glowing, animated balls that float across the element using `::before` pseudo-elements. The parent element should have `position: relative` and `overflow: hidden` for best results.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`ball-move-1` attribute</strong>
+                        <p>A glowing ball animation with a specific path and speed.</p>
+                        <pre>&lt;div style="..." ball-move-1&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-1>
+                            <!-- The ball is a pseudo-element of this div -->
+                            <p style="text-align: center; color: #666; margin-top: 50px;">Ball 1</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`ball-move-2` attribute</strong>
+                        <p>Another glowing ball animation with a different path and speed.</p>
+                        <pre>&lt;div style="..." ball-move-2&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-2>
+                             <p style="text-align: center; color: #666; margin-top: 50px;">Ball 2</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`ball-move-3` attribute</strong>
+                        <p>A larger glowing ball animation.</p>
+                        <pre>&lt;div style="..." ball-move-3&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-3>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">Ball 3</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`ball-move-4` attribute</strong>
+                        <p>A faster, smaller glowing ball animation.</p>
+                        <pre>&lt;div style="..." ball-move-4&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-4>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">Ball 4</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`ball-move-5` attribute</strong>
+                        <p>A very large, slow glowing ball animation.</p>
+                        <pre>&lt;div style="..." ball-move-5&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-5>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">Ball 5</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="special-effects">
+                <h2>Special Effects</h2>
+                <p>These attributes apply unique visual effects to elements, often using pseudo-elements or SVG filters.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`birthday-paper` attribute</strong>
+                        <p>Creates a confetti-like falling paper animation over the element. The parent element should have `position: relative` and `overflow: hidden`.</p>
+                        <pre>&lt;div style="..." birthday-paper&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 200px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" birthday-paper>
+                            Happy Birthday!
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`lightfouce` attribute</strong>
+                        <p>Applies a subtle, moving spotlight/light focus effect to the element. The element itself should have a background color for the effect to be visible. Needs `position: relative` and `overflow: hidden`.</p>
+                        <pre>&lt;div style="..." lightfouce&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #e3f2fd; display: flex; align-items: center; justify-content: center; font-size: 1.2em; color: #1976d2;" lightfouce>
+                            Focused Content
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`handdrawn` attribute</strong>
+                        <p>Gives the element a hand-drawn or sketchy appearance using an SVG filter, with a hover effect. Requires `Caveat` or `Comic Sans MS` font for the example to match.</p>
+                        <pre>&lt;div handdrawn&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" handdrawn style="width: 150px; height: 80px; font-size: 1.1em; color: #3d0066; background-color: #fffbe9;">
+                            Sketchy Box
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`arrow` attribute</strong>
+                        <p>Applies an arrow background image with specific styling. Useful for directional indicators.</p>
+                        <pre>&lt;div arrow&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" arrow style="background-color: transparent; border: 1px dashed #bbb; color: #777;">Arrow</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`blur` attribute</strong>
+                        <p>Applies a `filter: blur(2px)` to the element.</p>
+                        <pre>&lt;div blur&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blur style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Blurred');">Blurred</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rotate-utilities">
+                <h2>Rotate Utilities</h2>
+                <p>Apply specific rotations to elements. These attributes provide rotation in 1-degree increments from 0 to 360 degrees. Responsive variants are also available.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`rotate="0"` to `rotate="360"` attributes</strong>
+                        <p>Rotates the element by the specified degree (e.g., `rotate="45"` for 45 degrees, `rotate="180"` for 180 degrees). Values are in degrees without units in the attribute itself.</p>
+                        <pre>&lt;div rotate="45"&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rotate="45">45°</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`sm-rotate="X"`, `md-rotate="X"`, `lg-rotate="X"`, `xl-rotate="X"`, `dt-rotate="X"` attributes</strong>
+                        <p>Responsive rotation utilities. Apply rotation only at or above specific breakpoints (Small, Medium, Large, Extra Large, Desktop). `X` represents the degree from 0 to 360.</p>
+                        <pre>&lt;div sm-rotate="90"&gt;&lt;/div&gt;
+&lt;div dt-rotate="270"&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" sm-rotate="90">Responsive Rotate</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="width-height-utilities">
+                <h2>Width & Height Utilities</h2>
+                <p>These attributes allow you to set fixed widths and heights for elements in pixels.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`w-1` to `w-999` attributes</strong>
+                        <p>Sets the width of the element from 1 pixel to 999 pixels. For example, `w-100` sets width to 100px.</p>
+                        <pre>&lt;div w-150&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" w-150 style="height: 50px;">Width 150px</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`h-1` to `h-999` attributes</strong>
+                        <p>Sets the height of the element from 1 pixel to 999 pixels. For example, `h-200` sets height to 200px.</p>
+                        <pre>&lt;div h-120&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" h-120 style="width: 50px;">Height 120px</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="hover-effects">
+                <h2>Hover Effects</h2>
+                <p>These attributes apply a specific effect when the element is hovered over.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`hover-1` attribute</strong> (Scale up)
+                        <p>Scales the element up slightly on hover (1.08).</p>
+                        <pre>&lt;div hover-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-1>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-2` attribute</strong> (Scale down)
+                        <p>Scales the element down slightly on hover (0.92).</p>
+                        <pre>&lt;div hover-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-2>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-3` attribute</strong> (Rotate)
+                        <p>Rotates the element 8 degrees on hover.</p>
+                        <pre>&lt;div hover-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-3>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-4` attribute</strong> (Shadow pop)
+                        <p>Applies a subtle shadow pop effect on hover.</p>
+                        <pre>&lt;div hover-4&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-4>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-5` attribute</strong> (Glow)
+                        <p>Applies a vibrant glow effect on hover (pink shadow).</p>
+                        <pre>&lt;div hover-5&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-5>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-6` attribute</strong> (Border color)
+                        <p>Changes border color to `#6600ff` on hover.</p>
+                        <pre>&lt;div hover-6&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-6>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-7` attribute</strong> (Gradient background)
+                        <p>Applies a specific green/cyan gradient background on hover.</p>
+                        <pre>&lt;div hover-7&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-7>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-8` attribute</strong> (Blur)
+                        <p>Applies a blur effect (`filter: blur(2px)`) on hover.</p>
+                        <pre>&lt;div hover-8&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-8 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Blur');">Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-9` attribute</strong> (Skew)
+                        <p>Skews the element (`skew(-10deg,2deg)`) on hover.</p>
+                        <pre>&lt;div hover-9&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-9>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-10` attribute</strong> (Opacity)
+                        <p>Reduces opacity to `0.7` on hover.</p>
+                        <pre>&lt;div hover-10&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-10>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-11` attribute</strong> (Pulse animation)
+                        <p>Applies a pulse animation (grow/shrink) on hover.</p>
+                        <pre>&lt;div hover-11&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-11>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-12` attribute</strong> (Wiggle animation)
+                        <p>Applies a wiggle animation (rotate -5deg to 5deg) on hover.</p>
+                        <pre>&lt;div hover-12&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-12>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-13` attribute</strong> (Bounce animation)
+                        <p>Applies a bounce animation on hover.</p>
+                        <pre>&lt;div hover-13&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-13>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-14` attribute</strong> (Flip animation)
+                        <p>Flips the element horizontally (`rotateY(180deg)`) on hover.</p>
+                        <pre>&lt;div hover-14&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-14>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-15` attribute</strong> (Slide right)
+                        <p>Slides the element 20px to the right on hover.</p>
+                        <pre>&lt;div hover-15&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-15>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-16` attribute</strong> (Slide left)
+                        <p>Slides the element 20px to the left on hover.</p>
+                        <pre>&lt;div hover-16&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-16>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-17` attribute</strong> (Slide up)
+                        <p>Slides the element 20px up on hover.</p>
+                        <pre>&lt;div hover-17&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-17>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-18` attribute</strong> (Slide down)
+                        <p>Slides the element 20px down on hover.</p>
+                        <pre>&lt;div hover-18&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-18>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-19` attribute</strong> (Text color)
+                        <p>Changes text color to pink (`#ff6fd8`) on hover.</p>
+                        <pre>&lt;div hover-19&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-19 style="color: #fff;">Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-20` attribute</strong> (Shadow inset)
+                        <p>Applies an inset shadow on hover.</p>
+                        <pre>&lt;div hover-20&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-20>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-21` attribute</strong> (Border radius)
+                        <p>Changes border-radius to 50px (fully rounded) on hover.</p>
+                        <pre>&lt;div hover-21&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-21>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-22` attribute</strong> (Grayscale)
+                        <p>Applies a grayscale filter (`filter: grayscale(1)`) on hover.</p>
+                        <pre>&lt;div hover-22&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-22 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Grey');">Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-23` attribute</strong> (Saturate)
+                        <p>Increases saturation (`filter: saturate(2)`) on hover.</p>
+                        <pre>&lt;div hover-23&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-23 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Sat');">Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-24` attribute</strong> (Hue rotate)
+                        <p>Rotates hue by 90 degrees (`filter: hue-rotate(90deg)`) on hover.</p>
+                        <pre>&lt;div hover-24&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-24 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Hue');">Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-25` attribute</strong> (Shadow neon)
+                        <p>Applies a vibrant cyan/blue neon shadow on hover.</p>
+                        <pre>&lt;div hover-25&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-25>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-26` attribute</strong> (Border dashed)
+                        <p>Changes border style to dashed on hover.</p>
+                        <pre>&lt;div hover-26&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-26>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-27` attribute</strong> (Border dotted)
+                        <p>Changes border style to dotted on hover.</p>
+                        <pre>&lt;div hover-27&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-27>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-28` attribute</strong> (Glass effect)
+                        <p>Applies a subtle glass effect (`backdrop-filter: blur(8px)`) on hover. Works best on elements with content behind them.</p>
+                        <pre>&lt;div hover-28&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-28>Hover</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`hover-29` attribute</strong> (Shadow color)
+                        <p>Changes shadow color to yellow (`#ffd20088`) on hover.</p>
+                        <pre>&lt;div hover-29&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-29>Hover</div>
+                    </div>
+                </div>
+                <h3>Morph Hover Effects</h3>
+                <p>These attributes allow an element's clip-path to smoothly transition to a different shape on hover.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`morph-hover="star"` attribute</strong>
+                        <p>On hover, the element transitions into a star shape. Combine with an initial shape like `circle` or `square`.</p>
+                        <pre>&lt;div morph-hover="star" circle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="star" circle>Morph to Star</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`morph-hover="circle"` attribute</strong>
+                        <p>On hover, the element transitions into a circle shape. Combine with an initial shape like `square` or `triangle`.</p>
+                        <pre>&lt;div morph-hover="circle" square&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="circle" square>Morph to Circle</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`morph-hover="hexagon"` attribute</strong>
+                        <p>On hover, the element transitions into a hexagon shape. Combine with an initial shape.</p>
+                        <pre>&lt;div morph-hover="hexagon" triangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="hexagon" triangle>Morph to Hexagon</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`morph-hover="diamond"` attribute</strong>
+                        <p>On hover, the element transitions into a diamond shape. Combine with an initial shape.</p>
+                        <pre>&lt;div morph-hover="diamond" ellipse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="diamond" ellipse>Morph to Diamond</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gradients">
+                <h2>Gradients</h2>
+                <p>Apply modern linear gradients as background colors.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`gradient-1` attribute</strong>
+                        <p>Gradient from #6600FF to #FF6FD8.</p>
+                        <pre>&lt;div gradient-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-1></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-2` attribute</strong>
+                        <p>Gradient from #43e97b to #38f9d7.</p>
+                        <pre>&lt;div gradient-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-2></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-3` attribute</strong>
+                        <p>Gradient from #f7971e to #ffd200.</p>
+                        <pre>&lt;div gradient-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-3></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-4` attribute</strong>
+                        <p>Gradient from #f953c6 to #b91d73.</p>
+                        <pre>&lt;div gradient-4&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-4></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-5` attribute</strong>
+                        <p>Gradient from #30cfd0 to #330867.</p>
+                        <pre>&lt;div gradient-5&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-5></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-6` attribute</strong>
+                        <p>Gradient from #5ee7df to #b490ca.</p>
+                        <pre>&lt;div gradient-6&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-6></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-7` attribute</strong>
+                        <p>Gradient from #ee9ca7 to #ffdde1.</p>
+                        <pre>&lt;div gradient-7&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-7></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-8` attribute</strong>
+                        <p>Gradient from #f6d365 to #fda085.</p>
+                        <pre>&lt;div gradient-8&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-8></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-9` attribute</strong>
+                        <p>Gradient from #6600ff to #c6e8f8.</p>
+                        <pre>&lt;div gradient-9&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-9></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gradient-10` attribute</strong>
+                        <p>Gradient from #ffffff to #00c3ff.</p>
+                        <pre>&lt;div gradient-10&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-10></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="components">
+                <h2>Components</h2>
+                <h3>Card</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`card` attribute</strong>
+                        <p>A styled card component with padding, border-radius, and shadow, with a subtle hover effect.</p>
+                        <pre>&lt;div card&gt;...&lt;/div&gt;</pre>
+                        <div card style="max-width: none; margin: 10px 0;">
+                            <h4>Card Title</h4>
+                            <p>This is some content inside a Flamingo CSS card.</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Button</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`button` attribute</strong>
+                        <p>A base styled button with padding, border-radius, background, and hover effects.</p>
+                        <pre>&lt;button button&gt;Click Me&lt;/button&gt;</pre>
+                        <button button class="example-button">Click Me</button>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`btn='{color}'` attributes</strong>
+                        <p>Predefined colored buttons. Replace `{color}` with a wide range of colors. Hover effects are included.</p>
+                        <pre>&lt;button btn='purple'&gt;Purple&lt;/button&gt;
+&lt;button btn='green'&gt;Green&lt;/button&gt;
+&lt;button btn='rose'&gt;Rose&lt;/button&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap;">
+                            <button btn='purple' class="example-button">Purple</button>
+                            <button btn='blue' class="example-button">Blue</button>
+                            <button btn='red' class="example-button">Red</button>
+                            <button btn='green' class="example-button">Green</button>
+                            <button btn='yellow' class="example-button">Yellow</button>
+                            <button btn='orange' class="example-button">Orange</button>
+                            <button btn='pink' class="example-button">Pink</button>
+                            <button btn='teal' class="example-button">Teal</button>
+                            <button btn='cyan' class="example-button">Cyan</button>
+                            <button btn='indigo' class="example-button">Indigo</button>
+                            <button btn='deep-purple' class="example-button">Deep Purple</button>
+                            <button btn='lime' class="example-button">Lime</button>
+                            <button btn='amber' class="example-button">Amber</button>
+                            <button btn='deep-orange' class="example-button">Deep Orange</button>
+                            <button btn='brown' class="example-button">Brown</button>
+                            <button btn='grey' class="example-button">Grey</button>
+                            <button btn='blue-grey' class="example-button">Blue-Grey</button>
+                            <button btn='black' class="example-button">Black</button>
+                            <button btn='white' class="example-button">White</button>
+                            <button btn='silver' class="example-button">Silver</button>
+                            <button btn='gold' class="example-button">Gold</button>
+                            <button btn='navy' class="example-button">Navy</button>
+                            <button btn='aqua' class="example-button">Aqua</button>
+                            <button btn='olive' class="example-button">Olive</button>
+                            <button btn='maroon' class="example-button">Maroon</button>
+                            <button btn='violet' class="example-button">Violet</button>
+                            <button btn='magenta' class="example-button">Magenta</button>
+                            <button btn='coral' class="example-button">Coral</button>
+                            <button btn='peach' class="example-button">Peach</button>
+                            <button btn='mint' class="example-button">Mint</button>
+                            <button btn='sky' class="example-button">Sky</button>
+                            <button btn='rose' class="example-button">Rose</button>
+                            <button btn='plum' class="example-button">Plum</button>
+                            <button btn='sand' class="example-button">Sand</button>
+                            <button btn='lemon' class="example-button">Lemon</button>
+                            <button btn='forest' class="example-button">Forest</button>
+                            <button btn='sea' class="example-button">Sea</button>
+                            <button btn='wine' class="example-button">Wine</button>
+                            <button btn='chocolate' class="example-button">Chocolate</button>
+                            <button btn='mustard' class="example-button">Mustard</button>
+                            <button btn='ice' class="example-button">Ice</button>
+                            <button btn='lavender' class="example-button">Lavender</button>
+                            <button btn='crimson' class="example-button">Crimson</button>
+                            <button btn='azure' class="example-button">Azure</button>
+                            <button btn='charcoal' class="example-button">Charcoal</button>
+                            <button btn='beige' class="example-button">Beige</button>
+                            <button btn='apricot' class="example-button">Apricot</button>
+                            <button btn='slate' class="example-button">Slate</button>
+                            <button btn='bronze' class="example-button">Bronze</button>
+                            <button btn='clay' class="example-button">Clay</button>
+                            <button btn='flamingo' class="example-button">Flamingo</button>
+                        </div>
+                        <p>This includes a full spectrum of colors for `btn='{color}'` attributes. Please refer to the `float.css` file for the exact color definitions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="background-colors">
+                <h2>Background Colors</h2>
+                <p>Set background colors using attribute selectors for basic colors and various shades (e.g., `red`, `red-500`). These apply `!important` to override other styles.</p>
+                <h3>Basic Colors</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`red` attribute</strong>
+                        <p>Sets background to a vibrant red.</p>
+                        <pre>&lt;div red&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" red></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`pink` attribute</strong>
+                        <p>Sets background to a vibrant pink.</p>
+                        <pre>&lt;div pink&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" pink></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`purple` attribute</strong>
+                        <p>Sets background to a deep purple.</p>
+                        <pre>&lt;div purple&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" purple></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`deep-purple` attribute</strong>
+                        <p>Sets background to a darker purple.</p>
+                        <pre>&lt;div deep-purple&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" deep-purple></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`indigo` attribute</strong>
+                        <p>Sets background to an indigo blue.</p>
+                        <pre>&lt;div indigo&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" indigo></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`blue` attribute</strong>
+                        <p>Sets background to a standard blue.</p>
+                        <pre>&lt;div blue&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blue></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`light-blue` attribute</strong>
+                        <p>Sets background to a light blue.</p>
+                        <pre>&lt;div light-blue&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light-blue></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`cyan` attribute</strong>
+                        <p>Sets background to a cyan blue.</p>
+                        <pre>&lt;div cyan&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" cyan></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`teal` attribute</strong>
+                        <p>Sets background to a teal green.</p>
+                        <pre>&lt;div teal&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" teal></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`green` attribute</strong>
+                        <p>Sets background to a vibrant green.</p>
+                        <pre>&lt;div green&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" green></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`light-green` attribute</strong>
+                        <p>Sets background to a light green.</p>
+                        <pre>&lt;div light-green&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light-green></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`lime` attribute</strong>
+                        <p>Sets background to a lime green.</p>
+                        <pre>&lt;div lime&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" lime></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`yellow` attribute</strong>
+                        <p>Sets background to a golden yellow.</p>
+                        <pre>&lt;div yellow&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" yellow></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`amber` attribute</strong>
+                        <p>Sets background to an amber yellow.</p>
+                        <pre>&lt;div amber&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" amber></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`orange` attribute</strong>
+                        <p>Sets background to an orange.</p>
+                        <pre>&lt;div orange&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" orange></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`deep-orange` attribute</strong>
+                        <p>Sets background to a deep orange.</p>
+                        <pre>&lt;div deep-orange&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" deep-orange></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`brown` attribute</strong>
+                        <p>Sets background to a brown.</p>
+                        <pre>&lt;div brown&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" brown></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`gray` attribute</strong>
+                        <p>Sets background to a standard gray.</p>
+                        <pre>&lt;div gray&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gray></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`blue-gray` attribute</strong>
+                        <p>Sets background to a blue-gray.</p>
+                        <pre>&lt;div blue-gray&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blue-gray></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`black` attribute</strong>
+                        <p>Sets background to a dark black.</p>
+                        <pre>&lt;div black&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" black></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`white` attribute</strong>
+                        <p>Sets background to white.</p>
+                        <pre>&lt;div white&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" white style="border: 1px solid #ddd;"></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`light` attribute</strong>
+                        <p>Sets background to a very light purple/gray (`#f8f7ff`).</p>
+                        <pre>&lt;div light&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`dark` attribute</strong>
+                        <p>Sets background to a dark gray/blue (`#22223b`).</p>
+                        <pre>&lt;div dark&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" dark></div>
+                    </div>
+                </div>
+
+                <h3>Shaded Colors (e.g., `red-50` to `red-900`)</h3>
+                <p>Each major color (red, blue, green, yellow, purple, gray) has 10 shades from 50 (lightest) to 900 (darkest).</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`red-50` to `red-900` attributes</strong>
+                        <p>Various shades of red background.</p>
+                        <pre>&lt;div red-50&gt;&lt;/div&gt;
+&lt;div red-500&gt;&lt;/div&gt;
+&lt;div red-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" red-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`blue-50` to `blue-900` attributes</strong>
+                        <p>Various shades of blue background.</p>
+                        <pre>&lt;div blue-50&gt;&lt;/div&gt;
+&lt;div blue-500&gt;&lt;/div&gt;
+&lt;div blue-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" blue-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`green-50` to `green-900` attributes</strong>
+                        <p>Various shades of green background.</p>
+                        <pre>&lt;div green-50&gt;&lt;/div&gt;
+&lt;div green-500&gt;&lt;/div&gt;
+&lt;div green-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" green-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`yellow-50` to `yellow-900` attributes</strong>
+                        <p>Various shades of yellow background.</p>
+                        <pre>&lt;div yellow-50&gt;&lt;/div&gt;
+&lt;div yellow-500&gt;&lt;/div&gt;
+&lt;div yellow-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" yellow-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`purple-50` to `purple-900` attributes</strong>
+                        <p>Various shades of purple background.</p>
+                        <pre>&lt;div purple-50&gt;&lt;/div&gt;
+&lt;div purple-500&gt;&lt;/div&gt;
+&lt;div purple-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" purple-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`gray-50` to `gray-900` attributes</strong>
+                        <p>Various shades of gray background.</p>
+                        <pre>&lt;div gray-50&gt;&lt;/div&gt;
+&lt;div gray-500&gt;&lt;/div&gt;
+&lt;div gray-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" gray-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="text-colors">
+                <h2>Text Colors</h2>
+                <p>Set text colors using attribute selectors, prefixed with `t` for basic colors and various shades (e.g., `tred`, `tred-500`). These apply `!important` to override other styles.</p>
+                <h3>Basic Text Colors</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`tred` attribute</strong>
+                        <p>Sets text color to a vibrant red.</p>
+                        <pre>&lt;span tred&gt;...&lt;/span&gt;</pre>
+                        <p tred>Red Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tpink` attribute</strong>
+                        <p>Sets text color to a vibrant pink.</p>
+                        <pre>&lt;span tpink&gt;...&lt;/span&gt;</pre>
+                        <p tpink>Pink Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tpurple` attribute</strong>
+                        <p>Sets text color to a deep purple.</p>
+                        <pre>&lt;span tpurple&gt;...&lt;/span&gt;</pre>
+                        <p tpurple>Purple Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tdeep-purple` attribute</strong>
+                        <p>Sets text color to a darker purple.</p>
+                        <pre>&lt;span tdeep-purple&gt;...&lt;/span&gt;</pre>
+                        <p tdeep-purple>Deep Purple Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tindigo` attribute</strong>
+                        <p>Sets text color to an indigo blue.</p>
+                        <pre>&lt;span tindigo&gt;...&lt;/span&gt;</pre>
+                        <p tindigo>Indigo Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tblue` attribute</strong>
+                        <p>Sets text color to a standard blue.</p>
+                        <pre>&lt;span tblue&gt;...&lt;/span&gt;</pre>
+                        <p tblue>Blue Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tlight-blue` attribute</strong>
+                        <p>Sets text color to a light blue.</p>
+                        <pre>&lt;span tlight-blue&gt;...&lt;/span&gt;</pre>
+                        <p tlight-blue>Light Blue Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tcyan` attribute</strong>
+                        <p>Sets text color to a cyan blue.</p>
+                        <pre>&lt;span tcyan&gt;...&lt;/span&gt;</pre>
+                        <p tcyan>Cyan Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tteal` attribute</strong>
+                        <p>Sets text color to a teal green.</p>
+                        <pre>&lt;span tteal&gt;...&lt;/span&gt;</pre>
+                        <p tteal>Teal Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tgreen` attribute</strong>
+                        <p>Sets text color to a vibrant green.</p>
+                        <pre>&lt;span tgreen&gt;...&lt;/span&gt;</pre>
+                        <p tgreen>Green Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tlight-green` attribute</strong>
+                        <p>Sets text color to a light green.</p>
+                        <pre>&lt;span tlight-green&gt;...&lt;/span&gt;</pre>
+                        <p tlight-green>Light Green Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tlime` attribute</strong>
+                        <p>Sets text color to a lime green.</p>
+                        <pre>&lt;span tlime&gt;...&lt;/span&gt;</pre>
+                        <p tlime>Lime Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tyellow` attribute</strong>
+                        <p>Sets text color to a golden yellow.</p>
+                        <pre>&lt;span tyellow&gt;...&lt;/span&gt;</pre>
+                        <p tyellow>Yellow Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tamber` attribute</strong>
+                        <p>Sets text color to an amber yellow.</p>
+                        <pre>&lt;span tamber&gt;...&lt;/span&gt;</pre>
+                        <p tamber>Amber Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`torange` attribute</strong>
+                        <p>Sets text color to an orange.</p>
+                        <pre>&lt;span torange&gt;...&lt;/span&gt;</pre>
+                        <p torange>Orange Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tdeep-orange` attribute</strong>
+                        <p>Sets text color to a deep orange.</p>
+                        <pre>&lt;span tdeep-orange&gt;...&lt;/span&gt;</pre>
+                        <p tdeep-orange>Deep Orange Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tbrown` attribute</strong>
+                        <p>Sets text color to a brown.</p>
+                        <pre>&lt;span tbrown&gt;...&lt;/span&gt;</pre>
+                        <p tbrown>Brown Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tgray` attribute</strong>
+                        <p>Sets text color to a standard gray.</p>
+                        <pre>&lt;span tgray&gt;...&lt;/span&gt;</pre>
+                        <p tgray>Gray Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tblue-gray` attribute</strong>
+                        <p>Sets text color to a blue-gray.</p>
+                        <pre>&lt;span tblue-gray&gt;...&lt;/span&gt;</pre>
+                        <p tblue-gray>Blue-Gray Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tblack` attribute</strong>
+                        <p>Sets text color to a dark black.</p>
+                        <pre>&lt;span tblack&gt;...&lt;/span&gt;</pre>
+                        <p tblack>Black Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`twhite` attribute</strong>
+                        <p>Sets text color to white.</p>
+                        <pre>&lt;span twhite&gt;...&lt;/span&gt;</pre>
+                        <p twhite style="background-color: #263238;">White Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tlight` attribute</strong>
+                        <p>Sets text color to a very light purple/gray.</p>
+                        <pre>&lt;span tlight&gt;...&lt;/span&gt;</pre>
+                        <p tlight style="background-color: #263238;">Light Text</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`tdark` attribute</strong>
+                        <p>Sets text color to a dark gray/blue.</p>
+                        <pre>&lt;span tdark&gt;...&lt;/span&gt;</pre>
+                        <p tdark>Dark Text</p>
+                    </div>
+                </div>
+
+                <h3>Shaded Text Colors (e.g., `tred-50` to `tred-900`)</h3>
+                <p>Each major color (red, blue, green, yellow, purple, gray) has 10 shades from 50 (lightest) to 900 (darkest).</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`tred-50` to `tred-900` attributes</strong>
+                        <p>Various shades of red text.</p>
+                        <pre>&lt;span tred-50&gt;Text&lt;/span&gt;
+&lt;span tred-500&gt;Text&lt;/span&gt;
+&lt;span tred-900&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tred-50 style="margin: 5px;">Text</span>
+                            <span tred-200 style="margin: 5px;">Text</span>
+                            <span tred-500 style="margin: 5px;">Text</span>
+                            <span tred-700 style="margin: 5px;">Text</span>
+                            <span tred-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`tblue-50` to `tblue-900` attributes</strong>
+                        <p>Various shades of blue text.</p>
+                        <pre>&lt;span tblue-50&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tblue-50 style="margin: 5px;">Text</span>
+                            <span tblue-200 style="margin: 5px;">Text</span>
+                            <span tblue-500 style="margin: 5px;">Text</span>
+                            <span tblue-700 style="margin: 5px;">Text</span>
+                            <span tblue-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`tgreen-50` to `tgreen-900` attributes</strong>
+                        <p>Various shades of green text.</p>
+                        <pre>&lt;span tgreen-50&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tgreen-50 style="margin: 5px;">Text</span>
+                            <span tgreen-200 style="margin: 5px;">Text</span>
+                            <span tgreen-500 style="margin: 5px;">Text</span>
+                            <span tgreen-700 style="margin: 5px;">Text</span>
+                            <span tgreen-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`tyellow-50` to `tyellow-900` attributes</strong>
+                        <p>Various shades of yellow text.</p>
+                        <pre>&lt;span tyellow-50&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tyellow-50 style="margin: 5px;">Text</span>
+                            <span tyellow-200 style="margin: 5px;">Text</span>
+                            <span tyellow-500 style="margin: 5px;">Text</span>
+                            <span tyellow-700 style="margin: 5px;">Text</span>
+                            <span tyellow-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`tpurple-50` to `tpurple-900` attributes</strong>
+                        <p>Various shades of purple text.</p>
+                        <pre>&lt;span tpurple-50&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tpurple-50 style="margin: 5px;">Text</span>
+                            <span tpurple-200 style="margin: 5px;">Text</span>
+                            <span tpurple-500 style="margin: 5px;">Text</span>
+                            <span tpurple-700 style="margin: 5px;">Text</span>
+                            <span tpurple-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>`tgray-50` to `tgray-900` attributes</strong>
+                        <p>Various shades of gray text.</p>
+                        <pre>&lt;span tgray-50&gt;Text&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tgray-50 style="margin: 5px;">Text</span>
+                            <span tgray-200 style="margin: 5px;">Text</span>
+                            <span tgray-500 style="margin: 5px;">Text</span>
+                            <span tgray-700 style="margin: 5px;">Text</span>
+                            <span tgray-900 style="margin: 5px;">Text</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer style="text-align: center; padding: 20px; color: #777; font-size: 0.9em; margin-top: 30px; background-color: #f0e6fa; border-radius: 15px 15px 0 0;">
+            <p>&copy; 2025 Flamingo CSS. Documented by Amr Khaled (molwd 2010).</p>
+        </footer>
+    </div>
+</body>
+</html>

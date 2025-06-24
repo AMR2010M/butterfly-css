@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100+ Flamingo UI Blocks - Curated</title>
+
+    <!-- Google Fonts for Noto Naskh Arabic and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!--
+        ========================================================================================
+        يا عمرو، ملاحظة هامة:
+        لجعل سمات Flamingo CSS (مثل [circle], [gradient-1], [btn='blue'])
+        تعمل وتظهر في المعاينة هنا ببيئة Canvas، يجب أن يكون كود CSS الخاص بها
+        موجوداً مباشرة داخل وسم <style> في هذا الملف.
+
+        في مشروعك الحقيقي، يجب عليك نقل هذا الجزء من كود CSS (الخاص بـ Flamingo)
+        إلى ملف خارجي (مثل float.css) وربطه بصفحة HTML الخاصة بك هكذا:
+        <link rel="stylesheet" href="float.css">
+        ========================================================================================
+    -->
+    <style>
+        /* ====================================================================== */
+        /* Basic Global Styles & Layout (Pure CSS - No Frameworks) */
+        /* ====================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Naskh Arabic', sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f8fafc; /* Light background */
+            color: #334155; /* Dark grey text */
+            line-height: 1.6;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            color: #1e293b;
+            margin: 50px 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-padding {
+            padding: 80px 20px; /* Consistent padding for all sections */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5em; } /* For hero titles */
+        h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px;}
+        h3 { font-size: 1.8em; }
+        p { margin-bottom: 15px; }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* General Block Container & Copy Button Styling */
+        .blocks-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Space between each generated block */
+        }
+        .block-container {
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding-top: 40px; /* Space for copy button */
+        }
+        .block-label {
+            position: absolute;
+            top: 0;
+            right: 0; /* Aligned to right for RTL */
+            background-color: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-bottom-left-radius: 10px; /* Rounded corner */
+            font-size: 0.9em;
+            z-index: 10;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Aligned to left for RTL */
+            background-color: #f0f2f5;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: background-color 0.2s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .copy-button:hover {
+            background-color: #e0e0e0;
+        }
+        .copy-message {
+            position: absolute;
+            top: 10px;
+            left: 10px; /* Aligned to left for RTL */
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 11;
+        }
+        .copy-message.visible {
+            opacity: 1;
+        }
+        .generated-block-preview {
+            /* This div contains the actual rendered UI block */
+        }
+
+        /* --- Individual Block Styling (Non-Flamingo, pure CSS for structure) --- */
+
+        /* Navbar */
+        .navbar {
+            color: #ecf0f1;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar .nav-links li {
+            margin-right: 25px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            color: inherit; /* Inherit color from navbar */
+        }
+        .navbar .nav-links a:hover {
+            color: #3498db; /* Specific hover color for links */
+        }
+        .navbar .menu-toggle {
+            display: none; /* Hidden on large screens */
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .navbar .nav-button {
+            margin: 0; /* Override default button margin */
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-end; /* Align items to the right */
+            }
+            .navbar .logo {
+                margin-left: auto; /* Push logo to the left */
+                margin-bottom: 10px;
+            }
+            .navbar .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none; /* Hidden by default on mobile */
+                text-align: right;
+            }
+            .navbar .nav-links.active {
+                display: flex; /* Show when active */
+            }
+            .navbar .nav-links li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: right; /* Ensure text is right-aligned */
+            }
+            .navbar .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: inherit; /* Inherit from hero-section */
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Features/Services Section */
+        .features-section .grid, .services-section .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .features-section .feature-card, .services-section .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .features-section .feature-card .icon, .services-section .service-card .icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 2.2em;
+            color: white;
+        }
+        .features-section .feature-card h3, .services-section .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .features-section .feature-card p, .services-section .service-card p {
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        /* About Section */
+        .about-section .content-wrapper {
+            display: flex;
+            flex-direction: row-reverse; /* RTL layout */
+            align-items: center;
+            gap: 40px;
+        }
+        .about-section .text-content {
+            flex: 1;
+        }
+        .about-section .image-content {
+            flex: 1;
+            text-align: center;
+        }
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .about-section .content-wrapper {
+                flex-direction: column; /* Stack on small screens */
+            }
+        }
+
+        /* Contact/Form Sections */
+        .contact-section .form-wrapper {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact-section label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .contact-section input[type="text"],
+        .contact-section input[type="email"],
+        .contact-section input[type="date"],
+        .contact-section input[type="time"],
+        .contact-section textarea,
+        .contact-section select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .contact-section input[type="text"]:focus,
+        .contact-section input[type="email"]:focus,
+        .contact-section input[type="date"]:focus,
+        .contact-section input[type="time"]:focus,
+        .contact-section textarea:focus,
+        .contact-section select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        .contact-section textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Pricing Section */
+        .pricing-section .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: flex-end; /* Align cards at bottom */
+        }
+        .pricing-section .pricing-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .pricing-section .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .pricing-section .pricing-card .price {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        .pricing-section .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        .pricing-section .pricing-card ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #555;
+        }
+        .pricing-section .pricing-card ul li::before {
+            content: '✓';
+            color: #2ecc71;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .pricing-section .pricing-card button {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonials-section .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .testimonials-section .testimonial-card .quote {
+            font-size: 1.1em;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .testimonials-section .testimonial-card .author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .testimonials-section .testimonial-card .author img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #3498db;
+        }
+        .testimonials-section .testimonial-card .author span {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            color: #ecf0f1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer-section .footer-logo {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .footer-section .social-icons a {
+            color: inherit; /* Inherit color from footer */
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-section .social-icons a:hover {
+            color: #3498db; /* Specific hover color */
+        }
+        .footer-section p {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #bdc3c7;
+        }
+
+        /* ====================================================================== */
+        /* Flamingo CSS Framework (Embed for Canvas Preview ONLY) */
+        /* This section would typically be in 'float.css' */
+        /* ====================================================================== */
+
+        /* General Effects */
+        [bg='auto']{ background-position: center; background-repeat: no-repeat; background-size: cover; }
+        [glow]{ box-shadow: inset 0 0 30px linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgb(0, 0, 0)); }
+
+        /* Shapes */
+        [circle]{ clip-path: circle(50% at 50% 50%); }
+        [triangle]{ clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+        [ellipse]{ clip-path: ellipse(50% 25% at 50% 50%); }
+        [square] { clip-path: inset(0); }
+        [rectangle] { clip-path: inset(10% 0 10% 0); }
+        [diamond] { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+        [hexagon] { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); }
+        [parallelogram] { clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); }
+        [star] { clip-path: polygon( 50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35% ); }
+        [trapezoid] { clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); }
+        [sharp]{ clip-path: polygon(0% 30%, 5% 23%, 12% 32%, 20% 22%, 25% 30%, 33% 16%, 33% 27%, 43% 20%, 48% 29%, 67% 23%, 70% 32%, 80% 26%, 85% 30%, 95% 27%, 97% 33%, 98% 98%, 3% 97%); }
+        [wave] { clip-path: polygon( 0% 60%, 10% 65%, 20% 60%, 30% 65%, 40% 60%, 50% 65%, 60% 60%, 70% 65%, 80% 60%, 90% 65%, 100% 60%, 100% 100%, 0% 100% ); }
+        [home] { clip-path: polygon( 50% 0%, 100% 40%, 100% 100%, 0% 100%, 0% 40% ); }
+        [mobile] { height: 450px; width: 300px; border-radius: 10px; }
+        [tv] { clip-path: polygon( 10% 10%, 90% 10%, 90% 80%, 70% 80%, 80% 100%, 50% 90%, 20% 100%, 30% 80%, 10% 80% ); }
+        [slope] { clip-path: polygon( 20% 0%, 100% 0%, 80% 100%, 0% 100%); }
+        [heart] { clip-path: polygon( 50% 80%, 0% 40%, 10% 15%, 35% 0%, 50% 15%, 65% 0%, 90% 15%, 100% 40% ); }
+        [broken]{ clip-path: polygon(20% 87%, 10% 84%, 3% 84%, 0% 71%, 5% 58%, 4% 49%, 10% 41%, 8% 36%, 8% 36%, 15% 35%, 22% 30%, 29% 36%, 36% 27%, 40% 34%, 44% 36%, 49% 34%, 50% 36%, 55% 35%, 62% 30%, 65% 35%, 70% 46%, 73% 56%, 70% 70%, 60% 80%, 44% 89%, 35% 85%, 26% 87%); }
+
+        /* Animations */
+        [spin] { animation: float-spin 2s linear infinite; } @keyframes float-spin { 100% { transform: rotate(360deg); } }
+        [bounce] { animation: float-bounce 1s cubic-bezier(.5,0.05,1,.5) infinite alternate; } @keyframes float-bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-30px); } }
+        [pulse] { animation: float-pulse 1.2s ease-in-out infinite; } @keyframes float-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } }
+        [swing] { animation: float-wiggle 0.5s ease-in-out infinite alternate; } @keyframes float-wiggle { 0% { transform: rotate(-5deg); } 100% { transform: rotate(5deg); } }
+        [fadein] { animation: float-fadein 1.2s ease; } @keyframes float-fadein { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0);} }
+        [flip] { animation: float-flip 1.2s cubic-bezier(.4,2,.6,.8) infinite alternate; transform-style: preserve-3d; } @keyframes float-flip { 0% { transform: rotateY(0deg);} 100% { transform: rotateY(180deg);} }
+        [shake] { animation: float-shake 0.5s linear infinite; } @keyframes float-shake { 0%, 100% { transform: translateX(0);} 20% { transform: translateX(-8px);} 40% { transform: translateX(8px);} 60% { transform: translateX(-8px);} 80% { transform: translateX(8px);} }
+        [grow] { animation: float-grow 1.5s ease-in-out infinite alternate; } @keyframes float-grow { 0% { transform: scale(1);} 100% { transform: scale(1.2);} }
+        [shrink] { animation: float-shrink 1.5s ease-in-out infinite alternate; } @keyframes float-shrink { 0% { transform: scale(1);} 100% { transform: scale(0.8);} }
+        [slide-x] { animation: float-slide-x 2s ease-in-out infinite alternate; } @keyframes float-slide-x { 0% { transform: translateX(0);} 100% { transform: translateX(40px);} }
+        [slide-y] { animation: float-slide-y 2s ease-in-out infinite alternate; } @keyframes float-slide-y { 0% { transform: translateY(0);} 100% { transform: translateY(40px);} }
+
+        /* Gradients */
+        [gradient-1] { background: linear-gradient(135deg, #6600FF 0%, #FF6FD8 100%); }
+        [gradient-2] { background: linear-gradient(120deg, #43e97b 0%, #38f9d7 100%); }
+        [gradient-3] { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+        [gradient-4] { background: linear-gradient(135deg, #f953c6 0%, #b91d73 100%); }
+        [gradient-5] { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        [gradient-6] { background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%); }
+        [gradient-7] { background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%); }
+        [gradient-8] { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        [gradient-9] { background: linear-gradient(135deg, #6600ff 0%, #c6e8f8 100%); }
+        [gradient-10] { background: linear-gradient(135deg, #ffffff 0%, #00c3ff 100%); }
+
+        /* Hover Effects */
+        [hover-1]:hover { transform: scale(1.08); transition: 0.3s; }
+        [hover-2]:hover { transform: scale(0.92); transition: 0.3s; }
+        [hover-3]:hover { transform: rotate(8deg); transition: 0.3s; }
+        [hover-4]:hover { box-shadow: 0 8px 32px #6600ff44; transition: 0.3s; }
+        [hover-5]:hover { box-shadow: 0 0 24px 8px #ff6fd8; transition: 0.3s; }
+        [hover-6]:hover { border: 2px solid #6600ff; transition: 0.3s; }
+        [hover-7]:hover { background: linear-gradient(135deg, #43e97b, #38f9d7); transition: 0.3s; }
+        [hover-8]:hover { filter: blur(2px); transition: 0.3s; }
+        [hover-9]:hover { transform: skew(-10deg, 2deg); transition: 0.3s; }
+        [hover-10]:hover { opacity: 0.7; transition: 0.3s; }
+        [hover-11]:hover { animation: float-pulse 0.8s; } /* Reusing animation */
+        [hover-12]:hover { animation: float-wiggle 0.5s; } /* Reusing animation */
+        [hover-13]:hover { animation: float-bounce 0.7s; } /* Reusing animation */
+        [hover-14]:hover { transform: rotateY(180deg); transition: 0.5s; }
+        [hover-15]:hover { transform: translateX(20px); transition: 0.3s; }
+        [hover-16]:hover { transform: translateX(-20px); transition: 0.3s; }
+        [hover-17]:hover { transform: translateY(-20px); transition: 0.3s; }
+        [hover-18]:hover { transform: translateY(20px); transition: 0.3s; }
+        [hover-19]:hover { color: #ff6fd8; transition: 0.3s; }
+        [hover-20]:hover { box-shadow: inset 0 0 24px #6600ff88; transition: 0.3s; }
+        [hover-21]:hover { border-radius: 50px; transition: 0.3s; }
+        [hover-22]:hover { filter: grayscale(1); transition: 0.3s; }
+        [hover-23]:hover { filter: saturate(2); transition: 0.3s; }
+        [hover-24]:hover { filter: hue-rotate(90deg); transition: 0.3s; }
+        [hover-25]:hover { box-shadow: 0 0 32px 8px #00fff7; transition: 0.3s; }
+        [hover-26]:hover { border: 2px dashed #ff6fd8; transition: 0.3s; }
+        [hover-27]:hover { border: 2px dotted #43e97b; transition: 0.3s; }
+        [hover-28]:hover { background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); transition: 0.3s; } /* New glass effect */
+        [hover-29]:hover { box-shadow: 0 8px 32px #ffd20088; transition: 0.3s; } /* New shadow color */
+        [morph-hover="star"]:hover { clip-path: polygon( 50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35% ); transition: clip-path 0.5s; }
+        [morph-hover="circle"]:hover { clip-path: circle(50% at 50% 50%); transition: clip-path 0.5s; }
+        [morph-hover="hexagon"]:hover { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); transition: clip-path 0.5s; }
+        [morph-hover="diamond"]:hover { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); transition: clip-path 0.5s; }
+
+        /* Rotation (rotate-1 to rotate-180) - Combined */
+        [rotate-1] { transform: rotate(1deg); } [rotate-2] { transform: rotate(2deg); } [rotate-3] { transform: rotate(3deg); } [rotate-4] { transform: rotate(4deg); } [rotate-5] { transform: rotate(5deg); } [rotate-6] { transform: rotate(6deg); } [rotate-7] { transform: rotate(7deg); } [rotate-8] { transform: rotate(8deg); } [rotate-9] { transform: rotate(9deg); } [rotate-10] { transform: rotate(10deg); } [rotate-11] { transform: rotate(11deg); } [rotate-12] { transform: rotate(12deg); } [rotate-13] { transform: rotate(13deg); } [rotate-14] { transform: rotate(14deg); } [rotate-15] { transform: rotate(15deg); } [rotate-16] { transform: rotate(16deg); } [rotate-17] { transform: rotate(17deg); } [rotate-18] { transform: rotate(18deg); } [rotate-19] { transform: rotate(19deg); } [rotate-20] { transform: rotate(20deg); } [rotate-21] { transform: rotate(21deg); } [rotate-22] { transform: rotate(22deg); } [rotate-23] { transform: rotate(23deg); } [rotate-24] { transform: rotate(24deg); } [rotate-25] { transform: rotate(25deg); } [rotate-26] { transform: rotate(26deg); } [rotate-27] { transform: rotate(27deg); } [rotate-28] { transform: rotate(28deg); } [rotate-29] { transform: rotate(29deg); } [rotate-30] { transform: rotate(30deg); } [rotate-31] { transform: rotate(31deg); } [rotate-32] { transform: rotate(32deg); } [rotate-33] { transform: rotate(33deg); } [rotate-34] { transform: rotate(34deg); } [rotate-35] { transform: rotate(35deg); } [rotate-36] { transform: rotate(36deg); } [rotate-37] { transform: rotate(37deg); } [rotate-38] { transform: rotate(38deg); } [rotate-39] { transform: rotate(39deg); } [rotate-40] { transform: rotate(40deg); } [rotate-41] { transform: rotate(41deg); } [rotate-42] { transform: rotate(42deg); } [rotate-43] { transform: rotate(43deg); } [rotate-44] { transform: rotate(44deg); } [rotate-45] { transform: rotate(45deg); } [rotate-46] { transform: rotate(46deg); } [rotate-47] { transform: rotate(47deg); } [rotate-48] { transform: rotate(48deg); } [rotate-49] { transform: rotate(49deg); } [rotate-50] { transform: rotate(50deg); } [rotate-51] { transform: rotate(51deg); } [rotate-52] { transform: rotate(52deg); } [rotate-53] { transform: rotate(53deg); } [rotate-54] { transform: rotate(54deg); } [rotate-55] { transform: rotate(55deg); } [rotate-56] { transform: rotate(56deg); } [rotate-57] { transform: rotate(57deg); } [rotate-58] { transform: rotate(58deg); } [rotate-59] { transform: rotate(59deg); } [rotate-60] { transform: rotate(60deg); } [rotate-61] { transform: rotate(61deg); } [rotate-62] { transform: rotate(62deg); } [rotate-63] { transform: rotate(63deg); } [rotate-64] { transform: rotate(64deg); } [rotate-65] { transform: rotate(65deg); } [rotate-66] { transform: rotate(66deg); } [rotate-67] { transform: rotate(67deg); } [rotate-68] { transform: rotate(68deg); } [rotate-69] { transform: rotate(69deg); } [rotate-70] { transform: rotate(70deg); } [rotate-71] { transform: rotate(71deg); } [rotate-72] { transform: rotate(72deg); } [rotate-73] { transform: rotate(73deg); } [rotate-74] { transform: rotate(74deg); } [rotate-75] { transform: rotate(75deg); } [rotate-76] { transform: rotate(76deg); } [rotate-77] { transform: rotate(77deg); } [rotate-78] { transform: rotate(78deg); } [rotate-79] { transform: rotate(79deg); } [rotate-80] { transform: rotate(80deg); } [rotate-81] { transform: rotate(81deg); } [rotate-82] { transform: rotate(82deg); } [rotate-83] { transform: rotate(83deg); } [rotate-84] { transform: rotate(84deg); } [rotate-85] { transform: rotate(85deg); } [rotate-86] { transform: rotate(86deg); } [rotate-87] { transform: rotate(87deg); } [rotate-88] { transform: rotate(88deg); } [rotate-89] { transform: rotate(89deg); } [rotate-90] { transform: rotate(90deg); } [rotate-91] { transform: rotate(91deg); } [rotate-92] { transform: rotate(92deg); } [rotate-93] { transform: rotate(93deg); } [rotate-94] { transform: rotate(94deg); } [rotate-95] { transform: rotate(95deg); } [rotate-96] { transform: rotate(96deg); } [rotate-97] { transform: rotate(97deg); } [rotate-98] { transform: rotate(98deg); } [rotate-99] { transform: rotate(99deg); } [rotate-100] { transform: rotate(100deg); } [rotate-101] { transform: rotate(101deg); } [rotate-102] { transform: rotate(102deg); } [rotate-103] { transform: rotate(103deg); } [rotate-104] { transform: rotate(104deg); } [rotate-105] { transform: rotate(105deg); } [rotate-106] { transform: rotate(106deg); } [rotate-107] { transform: rotate(107deg); } [rotate-108] { transform: rotate(108deg); } [rotate-109] { transform: rotate(109deg); } [rotate-110] { transform: rotate(110deg); } [rotate-111] { transform: rotate(111deg); } [rotate-112] { transform: rotate(112deg); } [rotate-113] { transform: rotate(113deg); } [rotate-114] { transform: rotate(114deg); } [rotate-115] { transform: rotate(115deg); } [rotate-116] { transform: rotate(116deg); } [rotate-117] { transform: rotate(117deg); } [rotate-118] { transform: rotate(118deg); } [rotate-119] { transform: rotate(119deg); } [rotate-120] { transform: rotate(120deg); } [rotate-121] { transform: rotate(121deg); } [rotate-122] { transform: rotate(122deg); } [rotate-123] { transform: rotate(123deg); } [rotate-124] { transform: rotate(124deg); } [rotate-125] { transform: rotate(125deg); } [rotate-126] { transform: rotate(126deg); } [rotate-127] { transform: rotate(127deg); } [rotate-128] { transform: rotate(128deg); } [rotate-129] { transform: rotate(129deg); } [rotate-130] { transform: rotate(130deg); } [rotate-131] { transform: rotate(131deg); } [rotate-132] { transform: rotate(132deg); } [rotate-133] { transform: rotate(133deg); } [rotate-134] { transform: rotate(134deg); } [rotate-135] { transform: rotate(135deg); } [rotate-136] { transform: rotate(136deg); } [rotate-137] { transform: rotate(137deg); } [rotate-138] { transform: rotate(138deg); } [rotate-139] { transform: rotate(139deg); } [rotate-140] { transform: rotate(140deg); } [rotate-141] { transform: rotate(141deg); } [rotate-142] { transform: rotate(142deg); } [rotate-143] { transform: rotate(143deg); } [rotate-144] { transform: rotate(144deg); } [rotate-145] { transform: rotate(145deg); } [rotate-146] { transform: rotate(146deg); } [rotate-147] { transform: rotate(147deg); } [rotate-148] { transform: rotate(148deg); } [rotate-149] { transform: rotate(149deg); } [rotate-150] { transform: rotate(150deg); } [rotate-151] { transform: rotate(151deg); } [rotate-152] { transform: rotate(152deg); } [rotate-153] { transform: rotate(153deg); } [rotate-154] { transform: rotate(154deg); } [rotate-155] { transform: rotate(155deg); } [rotate-156] { transform: rotate(156deg); } [rotate-157] { transform: rotate(157deg); } [rotate-158] { transform: rotate(158deg); } [rotate-159] { transform: rotate(159deg); } [rotate-160] { transform: rotate(160deg); } [rotate-161] { transform: rotate(161deg); } [rotate-162] { transform: rotate(162deg); } [rotate-163] { transform: rotate(163deg); } [rotate-164] { transform: rotate(164deg); } [rotate-165] { transform: rotate(165deg); } [rotate-166] { transform: rotate(166deg); } [rotate-167] { transform: rotate(167deg); } [rotate-168] { transform: rotate(168deg); } [rotate-169] { transform: rotate(169deg); } [rotate-170] { transform: rotate(170deg); } [rotate-171] { transform: rotate(171deg); } [rotate-172] { transform: rotate(172deg); } [rotate-173] { transform: rotate(173deg); } [rotate-174] { transform: rotate(174deg); } [rotate-175] { transform: rotate(175deg); } [rotate-176] { transform: rotate(176deg); } [rotate-177] { transform: rotate(177deg); } [rotate-178] { transform: rotate(178deg); } [rotate-179] { transform: rotate(179deg); } [rotate-180] { transform: rotate(180deg); }
+
+        /* Card component */
+        [card] {
+            display: block;
+            padding: 2rem 1.5rem;
+            border-radius: 1.5rem;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(102, 0, 255, 0.1);
+            max-width: 350px;
+            margin: 2rem auto;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        [card][gradient-4] { color: #fff; }
+        [card]:hover { box-shadow: 0 8px 32px rgba(102, 0, 255, 0.2); transform: translateY(-8px) scale(1.03); }
+
+        /* Button component - Updated base style (dimensions from user's btn attributes) */
+        button[btn] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            margin: 0.5rem;
+            width: auto; /* Default width for buttons */
+            min-width: 120px;
+            height: 50px; /* Default height for buttons */
+            border-radius: 8px;
+            padding: 12px 25px; /* Adjust padding for text */
+            font-size: 1.1em;
+            background: #C2185B; /* Default fallback background */
+            color: #fff; /* Default fallback text color */
+            box-shadow: 0 6px 15px rgba(194, 24, 91, 0.25);
+        }
+        button[btn][gradient-2] { color: #222; }
+        button[btn]:hover {
+            background: #E91E63; /* Brighter pink on hover */
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.35);
+        }
+        button[btn]:active {
+            transform: translateY(0);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Flex Utilities */
+        [center]{ display: flex; align-items: center; justify-content: center; }
+        [flex-row]{ display: flex; flex-direction: row; align-items: center; justify-content: center; }
+        [flex-column]{ display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+        /* Button Colors - btn='color' */
+        [btn='purple'] { background-color: rgb(144, 0, 255); color: #fff; box-shadow: 0 4px 24px rgba(144, 0, 255, 0.2); }
+        [btn='blue'] { background-color: #007bff; color: #fff; box-shadow: 0 4px 24px #007bff33; }
+        [btn='red'] { background-color: #ff1744; color: #fff; box-shadow: 0 4px 24px #ff174433; }
+        [btn='green'] { background-color: #00c853; color: #fff; box-shadow: 0 4px 24px #00c85333; }
+        [btn='yellow'] { background-color: #ffd600; color: #222; box-shadow: 0 4px 24px #ffd60033; }
+        [btn='orange'] { background-color: #ff9100; color: #fff; box-shadow: 0 4px 24px #ff910033; }
+        [btn='pink'] { background-color: #ff6fd8; color: #fff; box-shadow: 0 4px 24px #ff6fd833; }
+        [btn='teal'] { background-color: #1de9b6; color: #fff; box-shadow: 0 4px 24px #1de9b633; }
+        [btn='cyan'] { background-color: #00e5ff; color: #222; box-shadow: 0 4px 24px #00e5ff33; }
+        [btn='indigo'] { background-color: #3f51b5; color: #fff; box-shadow: 0 4px 24px #3f51b533; }
+        [btn='deep-purple'] { background-color: #6200ea; color: #fff; box-shadow: 0 4px 24px #6200ea33; }
+        [btn='lime'] { background-color: #cddc39; color: #222; box-shadow: 0 4px 24px #cddc3933; }
+        [btn='amber'] { background-color: #ffc107; color: #222; box-shadow: 0 4px 24px #ffc10733; }
+        [btn='deep-orange'] { background-color: #ff3d00; color: #fff; box-shadow: 0 4px 24px #ff3d0033; }
+        [btn='brown'] { background-color: #795548; color: #fff; box-shadow: 0 4px 24px #79554833; }
+        [btn='grey'] { background-color: #757575; color: #fff; box-shadow: 0 4px 24px #75757533; }
+        [btn='blue-grey'] { background-color: #607d8b; color: #fff; box-shadow: 0 4px 24px #607d8b33; }
+        [btn='black'] { background-color: #222; color: #fff; box-shadow: 0 4px 24px #22222233; }
+        [btn='white'] { background-color: #fff; color: #6600ff; box-shadow: 0 4px 24px #6600ff22; }
+        [btn='silver'] { background-color: #c0c0c0; color: #222; box-shadow: 0 4px 24px #c0c0c033; }
+        [btn='gold'] { background-color: #ffd700; color: #222; box-shadow: 0 4px 24px #ffd70033; }
+        [btn='navy'] { background-color: #001f3f; color: #fff; box-shadow: 0 4px 24px #001f3f33; }
+        [btn='aqua'] { background-color: #7fdbff; color: #222; box-shadow: 0 4px 24px #7fdbff33; }
+        [btn='olive'] { background-color: #3d9970; color: #fff; box-shadow: 0 4px 24px #3d997033; }
+        [btn='maroon'] { background-color: #b71c1c; color: #fff; box-shadow: 0 4px 24px #b71c1c33; }
+        [btn='violet'] { background-color: #8f00ff; color: #fff; box-shadow: 0 4px 24px #8f00ff33; }
+        [btn='magenta'] { background-color: #e040fb; color: #fff; box-shadow: 0 4px 24px #e040fb33; }
+        [btn='coral'] { background-color: #ff7f50; color: #fff; box-shadow: 0 4px 24px #ff7f5033; }
+        [btn='peach'] { background-color: #ffb074; color: #222; box-shadow: 0 4px 24px #ffb07433; }
+        [btn='mint'] { background-color: #98ff98; color: #222; box-shadow: 0 4px 24px #98ff9833; }
+        [btn='sky'] { background-color: #87ceeb; color: #222; box-shadow: 0 4px 24px #87ceeb33; }
+        [btn='rose'] { background-color: #ff007f; color: #fff; box-shadow: 0 4px 24px #ff007f33; }
+        [btn='plum'] { background-color: #dda0dd; color: #222; box-shadow: 0 4px 24px #dda0dd33; }
+        [btn='sand'] { background-color: #f4e2d8; color: #222; box-shadow: 0 4px 24px #f4e2d833; }
+        [btn='lemon'] { background-color: #fff44f; color: #222; box-shadow: 0 4px 24px #fff44f33; }
+        [btn='forest'] { background-color: #228b22; color: #fff; box-shadow: 0 4px 24px #228b2233; }
+        [btn='sea'] { background-color: #006994; color: #fff; box-shadow: 0 4px 24px #00699433; }
+        [btn='wine'] { background-color: #722f37; color: #fff; box-shadow: 0 4px 24px #722f3733; }
+        [btn='chocolate'] { background-color: #d2691e; color: #fff; box-shadow: 0 4px 24px #d2691e33; }
+        [btn='mustard'] { background-color: #ffdb58; color: #222; box-shadow: 0 4px 24px #ffdb5833; }
+        [btn='ice'] { background-color: #e0f7fa; color: #222; box-shadow: 0 4px 24px #e0f7fa33; }
+        [btn='lavender'] { background-color: #e6e6fa; color: #222; box-shadow: 0 4px 24px #e6e6fa33; }
+        [btn='crimson'] { background-color: #dc143c; color: #fff; box-shadow: 0 4px 24px #dc143c33; }
+        [btn='azure'] { background-color: #007fff; color: #fff; box-shadow: 0 4px 24px #007fff33; }
+        [btn='charcoal'] { background-color: #36454f; color: #fff; box-shadow: 0 4px 24px #36454f33; }
+        [btn='beige'] { background-color: #f5f5dc; color: #222; box-shadow: 0 4px 24px #f5f5dc33; }
+        [btn='apricot'] { background-color: #fbceb1; color: #222; box-shadow: 0 4px 24px #fbceb133; }
+        [btn='slate'] { background-color: #708090; color: #fff; box-shadow: 0 4px 24px #70809033; }
+        [btn='bronze'] { background-color: #cd7f32; color: #fff; box-shadow: 0 4px 24px #cd7f3233; }
+        [btn='clay'] { background-color: #b66a50; color: #fff; box-shadow: 0 4px 24px #b66a5033; }
+        [btn='flamingo'] { background-color: #fc8eac; color: #222; box-shadow: 0 4px 24px #fc8eac33; }
+
+        /* Flamingo CSS: Attribute-based Background Colors */
+        [red]       { background: #ff1744 !important; } [pink]      { background: #ff6fd8 !important; } [purple]    { background: #8e24aa !important; } [deep-purple]{ background: #673ab7 !important; } [indigo]    { background: #3f51b5 !important; } [blue]      { background: #2196f3 !important; } [light-blue]{ background: #03a9f4 !important; } [cyan]      { background: #00bcd4 !important; } [teal]      { background: #009688 !important; } [green]     { background: #43e97b !important; } [light-green]{ background: #8bc34a !important; } [lime]      { background: #cddc39 !important; } [yellow]    { background: #ffd600 !important; } [amber]     { background: #ffc107 !important; } [orange]    { background: #ff9800 !important; } [deep-orange]{ background: #ff5722 !important; } [brown]     { background: #795548 !important; } [gray]      { background: #bdbdbd !important; } [blue-gray] { background: #607d8b !important; } [black]     { background: #22223b !important; } [white]     { background: #fff !important; } [light]     { background: #f8f7ff !important; } [dark]      { background: #22223b !important; }
+        [red-50]    { background: #ffebee !important; } [red-100]   { background: #ffcdd2 !important; } [red-200]   { background: #ef9a9a !important; } [red-300]   { background: #e57373 !important; } [red-400]   { background: #ef5350 !important; } [red-500]   { background: #f44336 !important; } [red-600]   { background: #e53935 !important; } [red-700]   { background: #d32f2f !important; } [red-800]   { background: #c62828 !important; } [red-900]   { background: #b71c1c !important; }
+        [blue-50]   { background: #e3f2fd !important; } [blue-100]  { background: #bbdefb !important; } [blue-200]  { background: #90caf9 !important; } [blue-300]  { background: #64b5f6 !important; } [blue-400]  { background: #42a5f5 !important; } [blue-500]  { background: #2196f3 !important; } [blue-600]  { background: #1e88e5 !important; } [blue-700]  { background: #1976d2 !important; } [blue-800]  { background: #1565c0 !important; } [blue-900]  { background: #0d47a1 !important; }
+        [green-50]  { background: #e8f5e9 !important; } [green-100] { background: #c8e6c9 !important; } [green-200] { background: #a5d6a7 !important; } [green-300] { background: #81c784 !important; } [green-400] { background: #66bb6a !important; } [green-500] { background: #43e97b !important; } [green-600] { background: #388e3c !important; } [green-700] { background: #2e7d32 !important; } [green-800] { background: #1b5e20 !important; } [green-900] { background: #0d3b22 !important; }
+        [yellow-50]  { background: #fffde7 !important; } [yellow-100] { background: #fff9c4 !important; } [yellow-200] { background: #fff59d !important; } [yellow-300] { background: #fff176 !important; } [yellow-400] { background: #ffee58 !important; } [yellow-500] { background: #ffd600 !important; } [yellow-600] { background: #ffea00 !important; } [yellow-700] { background: #ffd600 !important; } [yellow-800] { background: #ffab00 !important; } [yellow-900] { background: #ff6f00 !important; }
+        [purple-50]  { background: #f3e5f5 !important; } [purple-100] { background: #e1bee7 !important; } [purple-200] { background: #ce93d8 !important; } [purple-300] { background: #ba68c8 !important; } [purple-400] { background: #ab47bc !important; } [purple-500] { background: #8e24aa !important; } [purple-600] { background: #7b1fa2 !important; } [purple-700] { background: #6a1b9a !important; } [purple-800] { background: #4a148c !important; } [purple-900] { background: #38006b !important; }
+        [gray-50]    { background: #fafafa !important; } [gray-100]   { background: #f5f5f5 !important; } [gray-200]   { background: #eeeeee !important; } [gray-300]   { background: #e0e0e0 !important; } [gray-400]   { background: #bdbdbd !important; } [gray-500]   { background: #9e9e9e !important; } [gray-600]   { background: #757575 !important; } [gray-700]   { background: #616161 !important; } [gray-800]   { background: #424242 !important; } [gray-900]   { background: #22223b !important; }
+
+        /* Flamingo CSS: Attribute-based Text Colors (t{color}) */
+        [tred]        { color: #ff1744 !important; } [tpink]       { color: #ff6fd8 !important; } [tpurple]     { color: #8e24aa !important; } [tdeep-purple]{ color: #673ab7 !important; } [tindigo]    { color: #3f51b5 !important; } [tblue]      { color: #2196f3 !important; } [tlight-blue]{ color: #03a9f4 !important; } [tcyan]      { color: #00bcd4 !important; } [tteal]      { color: #009688 !important; } [tgreen]     { color: #43e97b !important; } [tlight-green]{ color: #8bc34a !important; } [tlime]      { color: #cddc39 !important; } [tyellow]    { color: #ffd600 !important; } [tamber]     { color: #ffc107 !important; } [torange]    { color: #ff9800 !important; } [tdeep-orange]{ color: #ff5722 !important; } [tbrown]     { color: #795548 !important; } [tgray]      { color: #bdbdbd !important; } [tblue-gray] { color: #607d8b !important; } [tblack]     { color: #22223b !important; } [twhite]     { color: #fff !important; } [tlight]     { color: #f8f7ff !important; } [tdark]      { color: #22223b !important; }
+        [tred-50]    { color: #ffebee !important; } [tred-100]   { color: #ffcdd2 !important; } [tred-200]   { color: #ef9a9a !important; } [tred-300]   { color: #e57373 !important; } [tred-400]   { color: #ef5350 !important; } [tred-500]   { color: #f44336 !important; } [tred-600]   { color: #e53935 !important; } [tred-700]   { color: #d32f2f !important; } [tred-800]   { color: #c62828 !important; } [tred-900]   { color: #b71c1c !important; }
+        [tblue-50]   { color: #e3f2fd !important; } [tblue-100]  { color: #bbdefb !important; } [tblue-200]  { color: #90caf9 !important; } [tblue-300]  { color: #64b5f6 !important; } [tblue-400]  { color: #42a5f5 !important; } [tblue-500]  { color: #2196f3 !important; } [tblue-600]  { color: #1e88e5 !important; } [tblue-700]  { color: #1976d2 !important; } [tblue-800]  { color: #1565c0 !important; } [tblue-900]  { color: #0d47a1 !important; }
+        [tgreen-50]  { color: #e8f5e9 !important; } [tgreen-100] { color: #c8e6c9 !important; } [tgreen-200] { color: #a5d6a7 !important; } [tgreen-300] { color: #81c784 !important; } [tgreen-400] { color: #66bb6a !important; } [tgreen-500] { color: #43e97b !important; } [tgreen-600] { color: #388e3c !important; } [tgreen-700] { color: #2e7d32 !important; } [tgreen-800] { color: #1b5e20 !important; } [tgreen-900] { color: #0d3b22 !important; }
+        [tyellow-50]  { color: #fffde7 !important; } [tyellow-100] { color: #fff9c4 !important; } [tyellow-200] { color: #fff59d !important; } [tyellow-300] { color: #fff176 !important; } [tyellow-400] { color: #ffee58 !important; } [tyellow-500] { color: #ffd600 !important; } [tyellow-600] { color: #ffea00 !important; } [tyellow-700] { color: #ffd600 !important; } [tyellow-800] { color: #ffab00 !important; } [tyellow-900] { color: #ff6f00 !important; }
+        [tpurple-50]  { color: #f3e5f5 !important; } [tpurple-100] { color: #e1bee7 !important; } [tpurple-200] { color: #ce93d8 !important; } [tpurple-300] { color: #ba68c8 !important; } [tpurple-400] { color: #ab47bc !important; } [tpurple-500] { color: #8e24aa !important; } [tpurple-600] { color: #7b1fa2 !important; } [tpurple-700] { color: #6a1b9a !important; } [tpurple-800] { color: #4a148c !important; } [tpurple-900] { color: #38006b !important; }
+        [tgray-50]    { color: #fafafa !important; } [tgray-100]   { color: #f5f5f5 !important; } [tgray-200]   { color: #eeeeee !important; } [tgray-300]   { color: #e0e0e0 !important; } [tgray-400]   { color: #bdbdbd !important; } [tgray-500]   { color: #9e9e9e !important; } [tgray-600]   { color: #757575 !important; } [tgray-700]   { color: #616161 !important; } [tgray-800]   { color: #424242 !important; } [tgray-900]   { color: #22223b !important; }
+    </style>
+</head>
+<body>
+    <h1 class="main-title">أقسام UI بـ Flamingo CSS (أكثر من 100 تصميم مميز)</h1>
+
+    <div class="blocks-container" id="blocks-container">
+        <!-- Block 1: Navbar Classic - Blue -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar blue">
+                    <div class="logo twhite">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-1"><i class="fas fa-bars twhite"></i></div>
+                    <ul class="nav-links" id="nav-links-1">
+                        <li><a href="#" twhite hover-19>الرئيسية</a></li>
+                        <li><a href="#" twhite hover-19>الخدمات</a></li>
+                        <li><a href="#" twhite hover-19>معرض الأعمال</a></li>
+                        <li><a href="#" twhite hover-19>تواصل معنا</a></li>
+                        <li><button class="nav-button" btn='white' hover-4 pulse>ابدأ مشروعك</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #1 --&gt;
+&lt;nav class="navbar blue"&gt;
+    &lt;div class="logo twhite"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-1"&gt;&lt;i class="fas fa-bars twhite"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-1"&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الرئيسية&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الخدمات&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;معرض الأعمال&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;تواصل معنا&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class="nav-button" btn='white' hover-4 pulse&gt;ابدأ مشروعك&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 2: Navbar Classic - Dark -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar dark">
+                    <div class="logo tblue">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-2"><i class="fas fa-bars twhite"></i></div>
+                    <ul class="nav-links" id="nav-links-2">
+                        <li><a href="#" twhite hover-19>الرئيسية</a></li>
+                        <li><a href="#" twhite hover-19>الخدمات</a></li>
+                        <li><a href="#" twhite hover-19>معرض الأعمال</a></li>
+                        <li><a href="#" twhite hover-19>تواصل معنا</a></li>
+                        <li><button class="nav-button" btn='orange' hover-1 pulse>ابدأ مشروعك</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #2 --&gt;
+&lt;nav class="navbar dark"&gt;
+    &lt;div class="logo tblue"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-2"&gt;&lt;i class="fas fa-bars twhite"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-2"&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الرئيسية&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الخدمات&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;معرض الأعمال&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;تواصل معنا&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class="nav-button" btn='orange' hover-1 pulse&gt;ابدأ مشروعك&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 3: Navbar Minimal - Green -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #3 (مبسط)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar green">
+                    <div class="logo twhite">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-3"><i class="fas fa-bars twhite"></i></div>
+                    <ul class="nav-links" id="nav-links-3">
+                        <li><a href="#" twhite hover-10>الرئيسية</a></li>
+                        <li><a href="#" twhite hover-10>المدونة</a></li>
+                        <li><a href="#" twhite hover-10>اتصل</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #3 (مبسط) --&gt;
+&lt;nav class="navbar green"&gt;
+    &lt;div class="logo twhite"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-3"&gt;&lt;i class="fas fa-bars twhite"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-3"&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-10&gt;الرئيسية&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-10&gt;المدونة&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-10&gt;اتصل&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 4: Hero Section - Gradient 1 -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding" gradient-1>
+                    <div class="container hero-content">
+                        <h1 fadein twhite>حلول تصميم الويب المبتكرة لنجاحك</h1>
+                        <p fadein twhite style="animation-delay: 0.2s;">نقدم تصاميم عصرية ووظيفية تجذب جمهورك وتنمي أعمالك.</p>
+                        <button btn='white' hover-5 pulse style="animation-delay: 0.4s;">اكتشف خدماتنا</button>
+                        <button btn='blue' hover-3 style="animation-delay: 0.6s;">تحدث إلينا</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #1 --&gt;
+&lt;section class="hero-section section-padding" gradient-1&gt;
+    &lt;div class="container hero-content"&gt;
+        &lt;h1 fadein twhite&gt;حلول تصميم الويب المبتكرة لنجاحك&lt;/h1&gt;
+        &lt;p fadein twhite style="animation-delay: 0.2s;"&gt;نقدم تصاميم عصرية ووظيفية تجذب جمهورك وتنمي أعمالك.&lt;/p&gt;
+        &lt;button btn='white' hover-5 pulse style="animation-delay: 0.4s;"&gt;اكتشف خدماتنا&lt;/button&gt;
+        &lt;button btn='blue' hover-3 style="animation-delay: 0.6s;"&gt;تحدث إلينا&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 5: Hero Section - Gradient 2 with grow effect -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding" gradient-2>
+                    <div class="container hero-content">
+                        <h1 grow tdark>مستقبل التصميم هنا اليوم</h1>
+                        <p grow tdark style="animation-delay: 0.2s;">دعنا نصنع لك تجربة مستخدم لا تُنسى.</p>
+                        <button btn='purple' hover-1 bounce style="animation-delay: 0.4s;">انضم إلينا</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #2 --&gt;
+&lt;section class="hero-section section-padding" gradient-2&gt;
+    &lt;div class="container hero-content"&gt;
+        &lt;h1 grow tdark&gt;مستقبل التصميم هنا اليوم&lt;/h1&gt;
+        &lt;p grow tdark style="animation-delay: 0.2s;"&gt;دعنا نصنع لك تجربة مستخدم لا تُنسى.&lt;/p&gt;
+        &lt;button btn='purple' hover-1 bounce style="animation-delay: 0.4s;"&gt;انضم إلينا&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 6: Services Section - Grid with Purple/Pink Icons -->
+        <div class="block-container">
+            <span class="block-label">قسم الخدمات #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="services-section section-padding gray-100">
+                    <div class="container">
+                        <h2>خدماتنا المتميزة</h2>
+                        <div class="grid">
+                            <div class="service-card" card hover-4>
+                                <div class="icon purple twhite circle"><i class="fas fa-desktop"></i></div>
+                                <h3>تطوير الويب</h3>
+                                <p>بناء مواقع إلكترونية قوية ومتجاوبة باستخدام أحدث التقنيات.</p>
+                            </div>
+                            <div class="service-card" card hover-4>
+                                <div class="icon pink twhite hexagon"><i class="fas fa-mobile-alt"></i></div>
+                                <h3>تطبيقات الموبايل</h3>
+                                <p>تصميم وتطوير تطبيقات جوال مبتكرة لنظامي iOS و Android.</p>
+                            </div>
+                            <div class="service-card" card hover-4>
+                                <div class="icon indigo twhite diamond"><i class="fas fa-paint-brush"></i></div>
+                                <h3>تصميم الجرافيك</h3>
+                                <p>هويات بصرية جذابة وتصاميم إبداعية لعلامتك التجارية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم الخدمات #1 --&gt;
+&lt;section class="services-section section-padding gray-100"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;خدماتنا المتميزة&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="service-card" card hover-4&gt;
+                &lt;div class="icon purple twhite circle"&gt;&lt;i class="fas fa-desktop"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;تطوير الويب&lt;/h3&gt;
+                &lt;p&gt;بناء مواقع إلكترونية قوية ومتجاوبة باستخدام أحدث التقنيات.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-4&gt;
+                &lt;div class="icon pink twhite hexagon"&gt;&lt;i class="fas fa-mobile-alt"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;تطبيقات الموبايل&lt;/h3&gt;
+                &lt;p&gt;تصميم وتطوير تطبيقات جوال مبتكرة لنظامي iOS و Android.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-4&gt;
+                &lt;div class="icon indigo twhite diamond"&gt;&lt;i class="fas fa-paint-brush"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;تصميم الجرافيك&lt;/h3&gt;
+                &lt;p&gt;هويات بصرية جذابة وتصاميم إبداعية لعلامتك التجارية.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 7: Services Section - Grid with Yellow/Teal Icons -->
+        <div class="block-container">
+            <span class="block-label">قسم الخدمات #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="services-section section-padding">
+                    <div class="container">
+                        <h2>كل ما تحتاجه لعملك</h2>
+                        <div class="grid">
+                            <div class="service-card" card hover-6>
+                                <div class="icon yellow tdark square"><i class="fas fa-code"></i></div>
+                                <h3>كتابة الكود</h3>
+                                <p>حلول برمجية مخصصة تلبي احتياجاتك الفريدة بدقة.</p>
+                            </div>
+                            <div class="service-card" card hover-6>
+                                <div class="icon teal twhite triangle"><i class="fas fa-chart-line"></i></div>
+                                <h3>تحليل البيانات</h3>
+                                <p>تحويل البيانات الخام إلى رؤى قابلة للتنفيذ تدعم اتخاذ القرار.</p>
+                            </div>
+                            <div class="service-card" card hover-6>
+                                <div class="icon deep-orange twhite circle"><i class="fas fa-headset"></i></div>
+                                <h3>دعم فني</h3>
+                                <p>فريق دعم متاح لمساعدتك في أي وقت تحتاج فيه للمساعدة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم الخدمات #2 --&gt;
+&lt;section class="services-section section-padding"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;كل ما تحتاجه لعملك&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="service-card" card hover-6&gt;
+                &lt;div class="icon yellow tdark square"&gt;&lt;i class="fas fa-code"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;كتابة الكود&lt;/h3&gt;
+                &lt;p&gt;حلول برمجية مخصصة تلبي احتياجاتك الفريدة بدقة.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-6&gt;
+                &lt;div class="icon teal twhite triangle"&gt;&lt;i class="fas fa-chart-line"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;تحليل البيانات&lt;/h3&gt;
+                &lt;p&gt;تحويل البيانات الخام إلى رؤى قابلة للتنفيذ تدعم اتخاذ القرار.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-6&gt;
+                &lt;div class="icon deep-orange twhite circle"&gt;&lt;i class="fas fa-headset"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;دعم فني&lt;/h3&gt;
+                &lt;p&gt;فريق دعم متاح لمساعدتك في أي وقت تحتاج فيه للمساعدة.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 8: About Us Section - Standard -->
+        <div class="block-container">
+            <span class="block-label">قسم حولنا #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="about-section section-padding blue-50">
+                    <div class="container">
+                        <h2>من نحن؟</h2>
+                        <div class="content-wrapper">
+                            <div class="text-content">
+                                <h3>قصتنا: شغف بالابتكار والتميز</h3>
+                                <p>نحن فريق من المبدعين والمتخصصين نؤمن بأن التصميم الجيد هو مفتاح التواصل الفعال. نسعى لتقديم حلول رقمية تتجاوز التوقعات.</p>
+                                <button btn='blue' hover-1 bounce>تعرف على فريقنا</button>
+                            </div>
+                            <div class="image-content">
+                                <img src="https://placehold.co/500x350/3498db/ffffff?text=Our+Team" alt="فريق العمل" grow>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم حولنا #1 --&gt;
+&lt;section class="about-section section-padding blue-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;من نحن؟&lt;/h2&gt;
+        &lt;div class="content-wrapper"&gt;
+            &lt;div class="text-content"&gt;
+                &lt;h3&gt;قصتنا: شغف بالابتكار والتميز&lt;/h3&gt;
+                &lt;p&gt;نحن فريق من المبدعين والمتخصصين نؤمن بأن التصميم الجيد هو مفتاح التواصل الفعال. نسعى لتقديم حلول رقمية تتجاوز التوقعات.&lt;/p&gt;
+                &lt;button btn='blue' hover-1 bounce&gt;تعرف على فريقنا&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="image-content"&gt;
+                &lt;img src="https://placehold.co/500x350/3498db/ffffff?text=Our+Team" alt="فريق العمل" grow&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 9: About Us Section - Image on right, text left -->
+        <div class="block-container">
+            <span class="block-label">قسم حولنا #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="about-section section-padding white">
+                    <div class="container">
+                        <h2>من نحن حقاً؟</h2>
+                        <div class="content-wrapper" style="flex-direction: row;">
+                            <div class="image-content">
+                                <img src="https://placehold.co/500x350/2ecc71/ffffff?text=Innovation" alt="الابتكار" rotate-5 hover-3>
+                            </div>
+                            <div class="text-content">
+                                <h3>رحلتنا: الابتكار في كل خطوة</h3>
+                                <p>منذ البداية، كان هدفنا هو دفع حدود الابتكار وتقديم حلول إبداعية. نحن نؤمن بقوة الأفكار الجديدة في تشكيل المستقبل.</p>
+                                <button btn='green' hover-14>قصتنا كاملة</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم حولنا #2 --&gt;
+&lt;section class="about-section section-padding white"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;من نحن حقاً؟&lt;/h2&gt;
+        &lt;div class="content-wrapper" style="flex-direction: row;"&gt;
+            &lt;div class="image-content"&gt;
+                &lt;img src="https://placehold.co/500x350/2ecc71/ffffff?text=Innovation" alt="الابتكار" rotate-5 hover-3&gt;
+            &lt;/div&gt;
+            &lt;div class="text-content"&gt;
+                &lt;h3&gt;رحلتنا: الابتكار في كل خطوة&lt;/h3&gt;
+                &lt;p&gt;منذ البداية، كان هدفنا هو دفع حدود الابتكار وتقديم حلول إبداعية. نحن نؤمن بقوة الأفكار الجديدة في تشكيل المستقبل.&lt;/p&gt;
+                &lt;button btn='green' hover-14&gt;قصتنا كاملة&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 10: Contact Form Section - Standard -->
+        <div class="block-container">
+            <span class="block-label">نموذج الاتصال #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="contact-section section-padding gray-50">
+                    <div class="container">
+                        <h2>تواصل معنا</h2>
+                        <div class="form-wrapper" card>
+                            <form action="#" method="POST">
+                                <div>
+                                    <label for="contact-name-10">الاسم الكامل</label>
+                                    <input type="text" id="contact-name-10" name="name" placeholder="اسمك" required>
+                                </div>
+                                <div>
+                                    <label for="contact-email-10">البريد الإلكتروني</label>
+                                    <input type="email" id="contact-email-10" name="email" placeholder="بريدك الإلكتروني" required>
+                                </div>
+                                <div>
+                                    <label for="contact-message-10">رسالتك</label>
+                                    <textarea id="contact-message-10" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+                                </div>
+                                <button btn='blue' hover-4 shake>إرسال الرسالة</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نموذج الاتصال #1 --&gt;
+&lt;section class="contact-section section-padding gray-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;تواصل معنا&lt;/h2&gt;
+        &lt;div class="form-wrapper" card&gt;
+            &lt;form action="#" method="POST"&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-name-10"&gt;الاسم الكامل&lt;/label&gt;
+                    &lt;input type="text" id="contact-name-10" name="name" placeholder="اسمك" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-email-10"&gt;البريد الإلكتروني&lt;/label&gt;
+                    &lt;input type="email" id="contact-email-10" name="email" placeholder="بريدك الإلكتروني" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-message-10"&gt;رسالتك&lt;/label&gt;
+                    &lt;textarea id="contact-message-10" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+                &lt;button btn='blue' hover-4 shake&gt;إرسال الرسالة&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 11: Booking Form Section - Standard -->
+        <div class="block-container">
+            <span class="block-label">نموذج الحجز #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="contact-section section-padding gray-100">
+                    <div class="container">
+                        <h2>احجز موعدك الآن</h2>
+                        <div class="form-wrapper" card>
+                            <form action="#" method="POST">
+                                <div>
+                                    <label for="booking-service-11">اختر الخدمة</label>
+                                    <select id="booking-service-11" name="service" required>
+                                        <option value="" disabled selected>-- اختر خدمة --</option>
+                                        <option value="web-dev">تطوير مواقع الويب</option>
+                                        <option value="mobile-app">تطوير تطبيقات الموبايل</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="booking-date-11">تاريخ الموعد المفضل</label>
+                                    <input type="date" id="booking-date-11" name="date" required>
+                                </div>
+                                <div>
+                                    <label for="booking-time-11">الوقت المفضل</label>
+                                    <input type="time" id="booking-time-11" name="time" required>
+                                </div>
+                                <button btn='purple' hover-13 pulse>أكد الحجز</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نموذج الحجز #1 --&gt;
+&lt;section class="contact-section section-padding gray-100"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;احجز موعدك الآن&lt;/h2&gt;
+        &lt;div class="form-wrapper" card&gt;
+            &lt;form action="#" method="POST"&gt;
+                &lt;div&gt;
+                    &lt;label for="booking-service-11"&gt;اختر الخدمة&lt;/label&gt;
+                    &lt;select id="booking-service-11" name="service" required&gt;
+                        &lt;option value="" disabled selected&gt;-- اختر خدمة --&lt;/option&gt;
+                        &lt;option value="web-dev"&gt;تطوير مواقع الويب&lt;/option&gt;
+                        &lt;option value="mobile-app"&gt;تطوير تطبيقات الموبايل&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="booking-date-11"&gt;تاريخ الموعد المفضل&lt;/label&gt;
+                    &lt;input type="date" id="booking-date-11" name="date" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="booking-time-11"&gt;الوقت المفضل&lt;/label&gt;
+                    &lt;input type="time" id="booking-time-11" name="time" required&gt;
+                &lt;/div&gt;
+                &lt;button btn='purple' hover-13 pulse&gt;أكد الحجز&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 12: Call to Action - Gradient BG -->
+        <div class="block-container">
+            <span class="block-label">نداء للعمل #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding" gradient-9 style="text-align: center;">
+                    <div class="container">
+                        <h2 twhite>هل أنت مستعد للانطلاق؟</h2>
+                        <p twhite style="margin-bottom: 40px;">دعنا نحول أفكارك إلى واقع مبهر. انضم إلى عملائنا الراضين اليوم!</p>
+                        <button btn='red' hover-10 shake>ابدأ مشروعك الآن!</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نداء للعمل #1 --&gt;
+&lt;section class="hero-section section-padding" gradient-9 style="text-align: center;"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2 twhite&gt;هل أنت مستعد للانطلاق؟&lt;/h2&gt;
+        &lt;p twhite style="margin-bottom: 40px;"&gt;دعنا نحول أفكارك إلى واقع مبهر. انضم إلى عملائنا الراضين اليوم!&lt;/p&gt;
+        &lt;button btn='red' hover-10 shake&gt;ابدأ مشروعك الآن!&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 13: Pricing Section - Blue Highlight -->
+        <div class="block-container">
+            <span class="block-label">جدول الأسعار #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="pricing-section section-padding gray-50">
+                    <div class="container">
+                        <h2>خطط الأسعار</h2>
+                        <div class="grid">
+                            <div class="pricing-card" card hover-4>
+                                <h3>الخطة الأساسية</h3>
+                                <p class="price tblue"><span>$</span>29<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 10GB مساحة تخزين</li>
+                                    <li>&check; 1 مشروع</li>
+                                    <li>&check; دعم البريد الإلكتروني</li>
+                                </ul>
+                                <button btn='blue' hover-1>اختر الخطة</button>
+                            </div>
+                            <div class="pricing-card" card hover-4 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(52,152,219,0.2);">
+                                <h3>الخطة المميزة</h3>
+                                <p class="price tblue"><span>$</span>59<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 50GB مساحة تخزين</li>
+                                    <li>&check; 5 مشاريع</li>
+                                    <li>&check; دعم فوري</li>
+                                </ul>
+                                <button btn='blue' hover-1 pulse>اختر الخطة</button>
+                            </div>
+                            <div class="pricing-card" card hover-4>
+                                <h3>الخطة الاحترافية</h3>
+                                <p class="price tblue"><span>$</span>99<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 200GB مساحة تخزين</li>
+                                    <li>&check; مشاريع غير محدودة</li>
+                                    <li>&check; دعم VIP</li>
+                                </ul>
+                                <button btn='blue' hover-1>اختر الخطة</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: جدول الأسعار #1 --&gt;
+&lt;section class="pricing-section section-padding gray-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;خطط الأسعار&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="pricing-card" card hover-4&gt;
+                &lt;h3&gt;الخطة الأساسية&lt;/h3&gt;
+                &lt;p class="price tblue"&gt;&lt;span&gt;$&lt;/span&gt;29&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 10GB مساحة تخزين&lt;/li&gt;
+                    &lt;li&gt;&amp;check; 1 مشروع&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم البريد الإلكتروني&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='blue' hover-1&gt;اختر الخطة&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-4 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(52,152,219,0.2);"&gt;
+                &lt;h3&gt;الخطة المميزة&lt;/h3&gt;
+                &lt;p class="price tblue"&gt;&lt;span&gt;$&lt;/span&gt;59&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 50GB مساحة تخزين&lt;/li&gt;
+                    &lt;li&gt;&amp;check; 5 مشاريع&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم فوري&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='blue' hover-1 pulse&gt;اختر الخطة&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-4&gt;
+                &lt;h3&gt;الخطة الاحترافية&lt;/h3&gt;
+                &lt;p class="price tblue"&gt;&lt;span&gt;$&lt;/span&gt;99&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 200GB مساحة تخزين&lt;/li&gt;
+                    &lt;li&gt;&amp;check; مشاريع غير محدودة&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم VIP&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='blue' hover-1&gt;اختر الخطة&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 14: Testimonials Section - Standard Grid -->
+        <div class="block-container">
+            <span class="block-label">آراء العملاء #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="testimonials-section section-padding blue-50">
+                    <div class="container">
+                        <h2>ماذا يقول عملاؤنا</h2>
+                        <div class="grid">
+                            <div class="testimonial-card" card hover-1>
+                                <p class="quote">"تجربة رائعة! فريقهم قدم لي موقعًا يفوق توقعاتي في وقت قياسي."</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/3498db/ffffff?text=User" alt="صورة العميل" circle>
+                                    <h4 tblue>محمد أحمد</h4>
+                                    <span>صاحب شركة</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-card" card hover-1>
+                                <p class="quote">"التعامل معهم كان سلسًا ومحترفًا. النتائج كانت مذهلة."</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/2ecc71/ffffff?text=User" alt="صورة العميل" circle>
+                                    <h4 tgreen>فاطمة الزهراء</h4>
+                                    <span>مديرة مشروع</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: آراء العملاء #1 --&gt;
+&lt;section class="testimonials-section section-padding blue-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;ماذا يقول عملاؤنا&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="testimonial-card" card hover-1&gt;
+                &lt;p class="quote"&gt;"تجربة رائعة! فريقهم قدم لي موقعًا يفوق توقعاتي في وقت قياسي."&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/3498db/ffffff?text=User" alt="صورة العميل" circle&gt;
+                    &lt;h4 tblue&gt;محمد أحمد&lt;/h4&gt;
+                    &lt;span&gt;صاحب شركة&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="testimonial-card" card hover-1&gt;
+                &lt;p class="quote"&gt;"التعامل معهم كان سلسًا ومحترفًا. النتائج كانت مذهلة."&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/2ecc71/ffffff?text=User" alt="صورة العميل" circle&gt;
+                    &lt;h4 tgreen&gt;فاطمة الزهراء&lt;/h4&gt;
+                    &lt;span&gt;مديرة مشروع&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 15: Footer - Simple Dark -->
+        <div class="block-container">
+            <span class="block-label">التذييل #1</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <footer class="footer-section dark">
+                    <div class="container">
+                        <div class="footer-logo tblue">Flamingo</div>
+                        <div class="social-icons">
+                            <a href="#" twhite hover-1><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-twitter"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <p>&copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة <span tblue>عمرو خالد</span>.</p>
+                    </div>
+                </footer>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: التذييل #1 --&gt;
+&lt;footer class="footer-section dark"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="footer-logo tblue"&gt;Flamingo&lt;/div&gt;
+        &lt;div class="social-icons"&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;p&gt;&amp;copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة &lt;span tblue&gt;عمرو خالد&lt;/span&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+            </pre>
+        </div>
+
+        <!-- Block 16: Footer - Multi-column -->
+        <div class="block-container">
+            <span class="block-label">التذييل #2 (متعدد الأعمدة)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <footer class="footer-section blue-gray">
+                    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; text-align: right;">
+                        <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+                            <div class="footer-logo twhite" style="margin-bottom: 10px;">Flamingo</div>
+                            <p twhite>نقدم حلول تصميم الويب الرائدة لمساعدتك على النجاح في العالم الرقمي.</p>
+                            <div class="social-icons" style="margin-top: 15px;">
+                                <a href="#" twhite hover-1><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" twhite hover-1><i class="fab fa-twitter"></i></a>
+                                <a href="#" twhite hover-1><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div style="flex: 1; min-width: 150px; margin-bottom: 20px;">
+                            <h3 twhite style="margin-bottom: 15px; font-size: 1.2em;">روابط سريعة</h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li><a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;">الخدمات</a></li>
+                                <li><a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;">المشاريع</a></li>
+                                <li><a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;">حولنا</a></li>
+                                <li><a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;">المدونة</a></li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                            <h3 twhite style="margin-bottom: 15px; font-size: 1.2em;">تواصل معنا</h3>
+                            <p twhite><i class="fas fa-map-marker-alt" style="margin-left: 8px;"></i> الإسكندرية، مصر</p>
+                            <p twhite><i class="fas fa-envelope" style="margin-left: 8px;"></i> info@flamingo.com</p>
+                            <p twhite><i class="fas fa-phone" style="margin-left: 8px;"></i> +20 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; text-align: center;">
+                        <p>&copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة <span tblue>عمرو خالد</span>.</p>
+                    </div>
+                </footer>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: التذييل #2 (متعدد الأعمدة) --&gt;
+&lt;footer class="footer-section blue-gray"&gt;
+    &lt;div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; text-align: right;"&gt;
+        &lt;div style="flex: 1; min-width: 250px; margin-bottom: 20px;"&gt;
+            &lt;div class="footer-logo twhite" style="margin-bottom: 10px;"&gt;Flamingo&lt;/div&gt;
+            &lt;p twhite&gt;نقدم حلول تصميم الويب الرائدة لمساعدتك على النجاح في العالم الرقمي.&lt;/p&gt;
+            &lt;div class="social-icons" style="margin-top: 15px;"&gt;
+                &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style="flex: 1; min-width: 150px; margin-bottom: 20px;"&gt;
+            &lt;h3 twhite style="margin-bottom: 15px; font-size: 1.2em;"&gt;روابط سريعة&lt;/h3&gt;
+            &lt;ul style="list-style: none; padding: 0;"&gt;
+                &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;"&gt;الخدمات&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;"&gt;المشاريع&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;"&gt;حولنا&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 8px; display: block;"&gt;المدونة&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div style="flex: 1; min-width: 200px; margin-bottom: 20px;"&gt;
+            &lt;h3 twhite style="margin-bottom: 15px; font-size: 1.2em;"&gt;تواصل معنا&lt;/h3&gt;
+            &lt;p twhite&gt;&lt;i class="fas fa-map-marker-alt" style="margin-left: 8px;"&gt;&lt;/i&gt; الإسكندرية، مصر&lt;/p&gt;
+            &lt;p twhite&gt;&lt;i class="fas fa-envelope" style="margin-left: 8px;"&gt;&lt;/i&gt; info@flamingo.com&lt;/p&gt;
+            &lt;p twhite&gt;&lt;i class="fas fa-phone" style="margin-left: 8px;"&gt;&lt;/i&gt; +20 123 456 7890&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; text-align: center;"&gt;
+        &lt;p&gt;&amp;copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة &lt;span tblue&gt;عمرو خالد&lt;/span&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+            </pre>
+        </div>
+
+        <!-- Add 85 more blocks here following the pattern -->
+        <!-- Start of additional blocks (curated variations) -->
+
+        <!-- Block 17: Navbar Classic - Purple -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #4</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar deep-purple">
+                    <div class="logo twhite">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-17"><i class="fas fa-bars twhite"></i></div>
+                    <ul class="nav-links" id="nav-links-17">
+                        <li><a href="#" twhite hover-19>المنتجات</a></li>
+                        <li><a href="#" twhite hover-19>الحلول</a></li>
+                        <li><a href="#" twhite hover-19>الدعم</a></li>
+                        <li><button class="nav-button" btn='yellow' hover-2 pulse>اشترك الآن</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #4 --&gt;
+&lt;nav class="navbar deep-purple"&gt;
+    &lt;div class="logo twhite"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-17"&gt;&lt;i class="fas fa-bars twhite"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-17"&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;المنتجات&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الحلول&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الدعم&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class="nav-button" btn='yellow' hover-2 pulse&gt;اشترك الآن&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 18: Hero Section - Gradient 3 -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding" gradient-3>
+                    <div class="container hero-content">
+                        <h1 fadein twhite>نصمم المستقبل، نصنع النجاح</h1>
+                        <p fadein twhite style="animation-delay: 0.2s;">بخبرة واسعة في تصميم الويب، نقدم لك حلولاً مبتكرة لعلامتك التجارية.</p>
+                        <button btn='black' hover-7 shake style="animation-delay: 0.4s;">تحدث إلى خبير</button>
+                        <button btn='white' hover-2 style="animation-delay: 0.6s;">شاهد أعمالنا</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #3 --&gt;
+&lt;section class="hero-section section-padding" gradient-3&gt;
+    &lt;div class="container hero-content"&gt;
+        &lt;h1 fadein twhite&gt;نصمم المستقبل، نصنع النجاح&lt;/h1&gt;
+        &lt;p fadein twhite style="animation-delay: 0.2s;"&gt;بخبرة واسعة في تصميم الويب، نقدم لك حلولاً مبتكرة لعلامتك التجارية.&lt;/p&gt;
+        &lt;button btn='black' hover-7 shake style="animation-delay: 0.4s;"&gt;تحدث إلى خبير&lt;/button&gt;
+        &lt;button btn='white' hover-2 style="animation-delay: 0.6s;"&gt;شاهد أعمالنا&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 19: Hero Section - Image Right, Text Left -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #4 (صورة جانبية)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding white" style="text-align: right;">
+                    <div class="container" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px;">
+                        <div class="hero-content" style="text-align: right; flex: 1;">
+                            <h1 tblack>حلول مخصصة لأعمالك</h1>
+                            <p tgray-700>نقدم خدمات تطوير ويب مصممة خصيصًا لتناسب متطلباتك الفريدة وتساعدك على النمو.</p>
+                            <button btn='green' hover-15 pulse>احجز استشارة مجانية</button>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <img src="https://placehold.co/400x300/2ecc71/ffffff?text=Custom+Solutions" alt="Custom Solutions" grow style="border-radius: 10px;">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #4 (صورة جانبية) --&gt;
+&lt;section class="hero-section section-padding white" style="text-align: right;"&gt;
+    &lt;div class="container" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px;"&gt;
+        &lt;div class="hero-content" style="text-align: right; flex: 1;"&gt;
+            &lt;h1 tblack&gt;حلول مخصصة لأعمالك&lt;/h1&gt;
+            &lt;p tgray-700&gt;نقدم خدمات تطوير ويب مصممة خصيصًا لتناسب متطلباتك الفريدة وتساعدك على النمو.&lt;/p&gt;
+            &lt;button btn='green' hover-15 pulse&gt;احجز استشارة مجانية&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div style="flex: 1; text-align: center;"&gt;
+            &lt;img src="https://placehold.co/400x300/2ecc71/ffffff?text=Custom+Solutions" alt="Custom Solutions" grow style="border-radius: 10px;"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 20: Services Section - Grid with Blue/Green Icons -->
+        <div class="block-container">
+            <span class="block-label">قسم الخدمات #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="services-section section-padding">
+                    <div class="container">
+                        <h2>نقدم لك أفضل الحلول</h2>
+                        <div class="grid">
+                            <div class="service-card" card hover-21>
+                                <div class="icon blue twhite square"><i class="fas fa-server"></i></div>
+                                <h3>استضافة المواقع</h3>
+                                <p>خدمات استضافة سريعة وآمنة لموقعك الإلكتروني.</p>
+                            </div>
+                            <div class="service-card" card hover-21>
+                                <div class="icon green twhite star"><i class="fas fa-shield-alt"></i></div>
+                                <h3>أمان الشبكات</h3>
+                                <p>حماية متقدمة لبياناتك وموقعك من التهديدات السيبرانية.</p>
+                            </div>
+                            <div class="service-card" card hover-21>
+                                <div class="icon orange twhite heart"><i class="fas fa-life-ring"></i></div>
+                                <h3>دعم العملاء</h3>
+                                <p>فريق دعم مخصص لمساعدتك على مدار الساعة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم الخدمات #3 --&gt;
+&lt;section class="services-section section-padding"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;نقدم لك أفضل الحلول&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="service-card" card hover-21&gt;
+                &lt;div class="icon blue twhite square"&gt;&lt;i class="fas fa-server"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;استضافة المواقع&lt;/h3&gt;
+                &lt;p&gt;خدمات استضافة سريعة وآمنة لموقعك الإلكتروني.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-21&gt;
+                &lt;div class="icon green twhite star"&gt;&lt;i class="fas fa-shield-alt"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;أمان الشبكات&lt;/h3&gt;
+                &lt;p&gt;حماية متقدمة لبياناتك وموقعك من التهديدات السيبرانية.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-21&gt;
+                &lt;div class="icon orange twhite heart"&gt;&lt;i class="fas fa-life-ring"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;دعم العملاء&lt;/h3&gt;
+                &lt;p&gt;فريق دعم مخصص لمساعدتك على مدار الساعة.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 21: About Us Section - Text left, Image right -->
+        <div class="block-container">
+            <span class="block-label">قسم حولنا #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="about-section section-padding gray-100">
+                    <div class="container">
+                        <h2>قصتنا الملهمة</h2>
+                        <div class="content-wrapper" style="flex-direction: row-reverse;">
+                            <div class="text-content">
+                                <h3 tdark>من فكرة إلى واقع</h3>
+                                <p tgray-700>بدأنا بفكرة بسيطة: كيف يمكننا تبسيط عملية بناء المواقع لرواد الأعمال. واليوم، نفخر بأننا حققنا ذلك.</p>
+                                <button btn='deep-purple' hover-17 pulse>اكتشف المزيد</button>
+                            </div>
+                            <div class="image-content">
+                                <img src="https://placehold.co/500x350/8e24aa/ffffff?text=Vision" alt="رؤيتنا" slide-y>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم حولنا #3 --&gt;
+&lt;section class="about-section section-padding gray-100"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;قصتنا الملهمة&lt;/h2&gt;
+        &lt;div class="content-wrapper" style="flex-direction: row-reverse;"&gt;
+            &lt;div class="text-content"&gt;
+                &lt;h3 tdark&gt;من فكرة إلى واقع&lt;/h3&gt;
+                &lt;p tgray-700&gt;بدأنا بفكرة بسيطة: كيف يمكننا تبسيط عملية بناء المواقع لرواد الأعمال. واليوم، نفخر بأننا حققنا ذلك.&lt;/p&gt;
+                &lt;button btn='deep-purple' hover-17 pulse&gt;اكتشف المزيد&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="image-content"&gt;
+                &lt;img src="https://placehold.co/500x350/8e24aa/ffffff?text=Vision" alt="رؤيتنا" slide-y&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 22: Contact Form Section - With Subject -->
+        <div class="block-container">
+            <span class="block-label">نموذج الاتصال #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="contact-section section-padding white">
+                    <div class="container">
+                        <h2 tdark>تواصل معنا لأي استفسار</h2>
+                        <div class="form-wrapper" card hover-20>
+                            <form action="#" method="POST">
+                                <div>
+                                    <label for="contact-name-22">الاسم الكامل</label>
+                                    <input type="text" id="contact-name-22" name="name" placeholder="اسمك" required>
+                                </div>
+                                <div>
+                                    <label for="contact-email-22">البريد الإلكتروني</label>
+                                    <input type="email" id="contact-email-22" name="email" placeholder="بريدك الإلكتروني" required>
+                                </div>
+                                <div>
+                                    <label for="contact-subject-22">الموضوع</label>
+                                    <input type="text" id="contact-subject-22" name="subject" placeholder="موضوع رسالتك" required>
+                                </div>
+                                <div>
+                                    <label for="contact-message-22">رسالتك</label>
+                                    <textarea id="contact-message-22" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+                                </div>
+                                <button btn='orange' hover-1 shake>إرسال الرسالة</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نموذج الاتصال #2 --&gt;
+&lt;section class="contact-section section-padding white"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2 tdark&gt;تواصل معنا لأي استفسار&lt;/h2&gt;
+        &lt;div class="form-wrapper" card hover-20&gt;
+            &lt;form action="#" method="POST"&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-name-22"&gt;الاسم الكامل&lt;/label&gt;
+                    &lt;input type="text" id="contact-name-22" name="name" placeholder="اسمك" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-email-22"&gt;البريد الإلكتروني&lt;/label&gt;
+                    &lt;input type="email" id="contact-email-22" name="email" placeholder="بريدك الإلكتروني" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-subject-22"&gt;الموضوع&lt;/label&gt;
+                    &lt;input type="text" id="contact-subject-22" name="subject" placeholder="موضوع رسالتك" required&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="contact-message-22"&gt;رسالتك&lt;/label&gt;
+                    &lt;textarea id="contact-message-22" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+                &lt;button btn='orange' hover-1 shake&gt;إرسال الرسالة&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 23: Call to Action - Simple Black BG -->
+        <div class="block-container">
+            <span class="block-label">نداء للعمل #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding black" style="text-align: center;">
+                    <div class="container">
+                        <h2 twhite>ابدأ مشروعك القادم</h2>
+                        <p twhite style="margin-bottom: 40px;">دعنا نبني لك شيئًا رائعًا معاً.</p>
+                        <button btn='green' hover-13 pulse>تواصل معنا الآن</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نداء للعمل #2 --&gt;
+&lt;section class="hero-section section-padding black" style="text-align: center;"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2 twhite&gt;ابدأ مشروعك القادم&lt;/h2&gt;
+        &lt;p twhite style="margin-bottom: 40px;"&gt;دعنا نبني لك شيئًا رائعًا معاً.&lt;/p&gt;
+        &lt;button btn='green' hover-13 pulse&gt;تواصل معنا الآن&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 24: Pricing Section - Green Highlight -->
+        <div class="block-container">
+            <span class="block-label">جدول الأسعار #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="pricing-section section-padding light">
+                    <div class="container">
+                        <h2>خططنا المرنة</h2>
+                        <div class="grid">
+                            <div class="pricing-card" card hover-29>
+                                <h3>الخطة الفردية</h3>
+                                <p class="price tgreen"><span>$</span>19<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 5GB تخزين</li>
+                                    <li>&check; دعم محدود</li>
+                                </ul>
+                                <button btn='green' hover-1>اختر الخطة</button>
+                            </div>
+                            <div class="pricing-card" card hover-29 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(67,233,123,0.2);">
+                                <h3>الخطة الذهبية</h3>
+                                <p class="price tgreen"><span>$</span>79<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 100GB تخزين</li>
+                                    <li>&check; دعم 24/7</li>
+                                </ul>
+                                <button btn='green' hover-1 pulse>الأكثر شعبية</button>
+                            </div>
+                            <div class="pricing-card" card hover-29>
+                                <h3>خطة الشركات</h3>
+                                <p class="price tgreen"><span>$</span>149<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; تخزين غير محدود</li>
+                                    <li>&check; دعم VIP</li>
+                                </ul>
+                                <button btn='green' hover-1>اختر الخطة</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: جدول الأسعار #2 --&gt;
+&lt;section class="pricing-section section-padding light"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;خططنا المرنة&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="pricing-card" card hover-29&gt;
+                &lt;h3&gt;الخطة الفردية&lt;/h3&gt;
+                &lt;p class="price tgreen"&gt;&lt;span&gt;$&lt;/span&gt;19&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 5GB تخزين&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم محدود&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='green' hover-1&gt;اختر الخطة&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-29 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(67,233,123,0.2);"&gt;
+                &lt;h3&gt;الخطة الذهبية&lt;/h3&gt;
+                &lt;p class="price tgreen"&gt;&lt;span&gt;$&lt;/span&gt;79&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 100GB تخزين&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم 24/7&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='green' hover-1 pulse&gt;الأكثر شعبية&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-29&gt;
+                &lt;h3&gt;خطة الشركات&lt;/h3&gt;
+                &lt;p class="price tgreen"&gt;&lt;span&gt;$&lt;/span&gt;149&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; تخزين غير محدود&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم VIP&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='green' hover-1&gt;اختر الخطة&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 25: Testimonials Section - Pink Background -->
+        <div class="block-container">
+            <span class="block-label">آراء العملاء #2</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="testimonials-section section-padding pink-50">
+                    <div class="container">
+                        <h2>قصص نجاح عملائنا</h2>
+                        <div class="grid">
+                            <div class="testimonial-card" card hover-15>
+                                <p class="quote">"النتيجة فاقت التوقعات! تصميم احترافي ودعم ممتاز."</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/f06292/ffffff?text=User" alt="صورة العميل" circle>
+                                    <h4 tpink>أحمد سعيد</h4>
+                                    <span>ريادي أعمال</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-card" card hover-15>
+                                <p class="quote">"بصراحة، أفضل استثمار قمت به لعملي حتى الآن. شكراً لكم!"</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/ab47bc/ffffff?text=User" alt="صورة العميل" circle>
+                                    <h4 tpurple>ليلى محمود</h4>
+                                    <span>صاحبة متجر إلكتروني</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: آراء العملاء #2 --&gt;
+&lt;section class="testimonials-section section-padding pink-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;قصص نجاح عملائنا&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="testimonial-card" card hover-15&gt;
+                &lt;p class="quote"&gt;"النتيجة فاقت التوقعات! تصميم احترافي ودعم ممتاز."&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/f06292/ffffff?text=User" alt="صورة العميل" circle&gt;
+                    &lt;h4 tpink&gt;أحمد سعيد&lt;/h4&gt;
+                    &lt;span&gt;ريادي أعمال&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="testimonial-card" card hover-15&gt;
+                &lt;p class="quote"&gt;"بصراحة، أفضل استثمار قمت به لعملي حتى الآن. شكراً لكم!"&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/ab47bc/ffffff?text=User" alt="صورة العميل" circle&gt;
+                    &lt;h4 tpurple&gt;ليلى محمود&lt;/h4&gt;
+                    &lt;span&gt;صاحبة متجر إلكتروني&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 26: Footer - Light Grey -->
+        <div class="block-container">
+            <span class="block-label">التذييل #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <footer class="footer-section gray-200" tgray-700>
+                    <div class="container">
+                        <div class="footer-logo tdark">Flamingo</div>
+                        <div class="social-icons" style="margin-top: 15px;">
+                            <a href="#" tgray-700 hover-19><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" tgray-700 hover-19><i class="fab fa-twitter"></i></a>
+                            <a href="#" tgray-700 hover-19><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <p style="margin-top: 20px;">&copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة <span tblue>عمرو خالد</span>.</p>
+                    </div>
+                </footer>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: التذييل #3 --&gt;
+&lt;footer class="footer-section gray-200" tgray-700&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="footer-logo tdark"&gt;Flamingo&lt;/div&gt;
+        &lt;div class="social-icons" style="margin-top: 15px;"&gt;
+            &lt;a href="#" tgray-700 hover-19&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" tgray-700 hover-19&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" tgray-700 hover-19&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;p style="margin-top: 20px;"&gt;&amp;copy; 2025 Flamingo UI. جميع الحقوق محفوظة. مصمم بواسطة &lt;span tblue&gt;عمرو خالد&lt;/span&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+            </pre>
+        </div>
+
+        <!-- Block 27: Navbar with search -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #5 (مع بحث)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar light">
+                    <div class="logo tblue">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-27"><i class="fas fa-bars tdark"></i></div>
+                    <ul class="nav-links" id="nav-links-27">
+                        <li><a href="#" tdark hover-19>المدونة</a></li>
+                        <li><a href="#" tdark hover-19>الموارد</a></li>
+                        <li>
+                            <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px;">
+                                <input type="text" placeholder="بحث..." style="border: none; outline: none; background: transparent; color: inherit; padding: 0; margin-bottom: 0;">
+                                <i class="fas fa-search tgray" style="margin-right: 5px;"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #5 (مع بحث) --&gt;
+&lt;nav class="navbar light"&gt;
+    &lt;div class="logo tblue"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-27"&gt;&lt;i class="fas fa-bars tdark"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-27"&gt;
+        &lt;li&gt;&lt;a href="#" tdark hover-19&gt;المدونة&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" tdark hover-19&gt;الموارد&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;
+            &lt;div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px;"&gt;
+                &lt;input type="text" placeholder="بحث..." style="border: none; outline: none; background: transparent; color: inherit; padding: 0; margin-bottom: 0;"&gt;
+                &lt;i class="fas fa-search tgray" style="margin-right: 5px;"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 28: Hero Section - Image with overlay -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #5 (صورة بخلفية)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding" bg="auto" style="background-image: url('https://placehold.co/1200x600/34495e/ffffff?text=Background+Image');">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: -1;"></div>
+                    <div class="container hero-content">
+                        <h1 fadein twhite>تغيير العالم بلمسة تصميم</h1>
+                        <p fadein twhite style="animation-delay: 0.2s;">استكشف مجموعتنا الواسعة من الحلول الإبداعية التي تلهم التغيير.</p>
+                        <button btn='light-blue' hover-2 pulse style="animation-delay: 0.4s;">انطلق معنا</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #5 (صورة بخلفية) --&gt;
+&lt;section class="hero-section section-padding" bg="auto" style="background-image: url('https://placehold.co/1200x600/34495e/ffffff?text=Background+Image');"&gt;
+    &lt;div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: -1;"&gt;&lt;/div&gt;
+    &lt;div class="container hero-content"&gt;
+        &lt;h1 fadein twhite&gt;تغيير العالم بلمسة تصميم&lt;/h1&gt;
+        &lt;p fadein twhite style="animation-delay: 0.2s;"&gt;استكشف مجموعتنا الواسعة من الحلول الإبداعية التي تلهم التغيير.&lt;/p&gt;
+        &lt;button btn='light-blue' hover-2 pulse style="animation-delay: 0.4s;"&gt;انطلق معنا&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 29: Services Section - Alternating Layout -->
+        <div class="block-container">
+            <span class="block-label">قسم الخدمات #4 (تصميم بديل)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="services-section section-padding white">
+                    <div class="container">
+                        <h2>نظام عملنا</h2>
+                        <div class="content-wrapper" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px; margin-bottom: 50px;">
+                            <div class="text-content" style="flex: 1;">
+                                <h3 tdark>تخطيط متكامل</h3>
+                                <p tgray-700>نبدأ بتخطيط دقيق لكل مشروع لضمان فهم عميق لأهدافك ومتطلباتك.</p>
+                            </div>
+                            <div class="image-content" style="flex: 1; text-align: center;">
+                                <img src="https://placehold.co/400x250/00bcd4/ffffff?text=Planning" alt="تخطيط" shake style="border-radius: 10px;">
+                            </div>
+                        </div>
+                        <div class="content-wrapper" style="display: flex; flex-direction: row; align-items: center; gap: 40px;">
+                            <div class="text-content" style="flex: 1;">
+                                <h3 tdark>تنفيذ احترافي</h3>
+                                <p tgray-700>فريقنا من الخبراء يقوم بتحويل الأفكار إلى واقع ملموس بجودة عالية.</p>
+                            </div>
+                            <div class="image-content" style="flex: 1; text-align: center;">
+                                <img src="https://placehold.co/400x250/8bc34a/ffffff?text=Execution" alt="تنفيذ" swing style="border-radius: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم الخدمات #4 (تصميم بديل) --&gt;
+&lt;section class="services-section section-padding white"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;نظام عملنا&lt;/h2&gt;
+        &lt;div class="content-wrapper" style="display: flex; flex-direction: row-reverse; align-items: center; gap: 40px; margin-bottom: 50px;"&gt;
+            &lt;div class="text-content" style="flex: 1;"&gt;
+                &lt;h3 tdark&gt;تخطيط متكامل&lt;/h3&gt;
+                &lt;p tgray-700&gt;نبدأ بتخطيط دقيق لكل مشروع لضمان فهم عميق لأهدافك ومتطلباتك.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="image-content" style="flex: 1; text-align: center;"&gt;
+                &lt;img src="https://placehold.co/400x250/00bcd4/ffffff?text=Planning" alt="تخطيط" shake style="border-radius: 10px;"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="content-wrapper" style="display: flex; flex-direction: row; align-items: center; gap: 40px;"&gt;
+            &lt;div class="text-content" style="flex: 1;"&gt;
+                &lt;h3 tdark&gt;تنفيذ احترافي&lt;/h3&gt;
+                &lt;p tgray-700&gt;فريقنا من الخبراء يقوم بتحويل الأفكار إلى واقع ملموس بجودة عالية.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="image-content" style="flex: 1; text-align: center;"&gt;
+                &lt;img src="https://placehold.co/400x250/8bc34a/ffffff?text=Execution" alt="تنفيذ" swing style="border-radius: 10px;"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 30: Contact Form with map placeholder -->
+        <div class="block-container">
+            <span class="block-label">نموذج الاتصال #3 (مع خريطة)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="contact-section section-padding gray-100">
+                    <div class="container" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse; gap: 40px; justify-content: center;">
+                        <div class="form-wrapper" card style="flex: 1; min-width: 300px;">
+                            <h3 style="margin-top: 0;">راسلنا مباشرة</h3>
+                            <form action="#" method="POST">
+                                <div><label for="c30-name">الاسم</label><input type="text" id="c30-name" name="name" required></div>
+                                <div><label for="c30-email">البريد الإلكتروني</label><input type="email" id="c30-email" name="email" required></div>
+                                <div><label for="c30-msg">رسالتك</label><textarea id="c30-msg" name="message" rows="4" required></textarea></div>
+                                <button btn='purple' hover-1>إرسال</button>
+                            </form>
+                        </div>
+                        <div style="flex: 1; min-width: 300px; text-align: center;">
+                            <h3 style="margin-top: 0;">موقعنا</h3>
+                            <img src="https://placehold.co/600x400/bdbdbd/ffffff?text=Map+Location" alt="Map Location" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                            <p style="margin-top: 15px; color: #555;">الإسكندرية، مصر - شارع جمال عبد الناصر</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نموذج الاتصال #3 (مع خريطة) --&gt;
+&lt;section class="contact-section section-padding gray-100"&gt;
+    &lt;div class="container" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse; gap: 40px; justify-content: center;"&gt;
+        &lt;div class="form-wrapper" card style="flex: 1; min-width: 300px;"&gt;
+            &lt;h3 style="margin-top: 0;"&gt;راسلنا مباشرة&lt;/h3&gt;
+            &lt;form action="#" method="POST"&gt;
+                &lt;div&gt;&lt;label for="c30-name"&gt;الاسم&lt;/label&gt;&lt;input type="text" id="c30-name" name="name" required&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;label for="c30-email"&gt;البريد الإلكتروني&lt;/label&gt;&lt;input type="email" id="c30-email" name="email" required&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;label for="c30-msg"&gt;رسالتك&lt;/label&gt;&lt;textarea id="c30-msg" name="message" rows="4" required&gt;&lt;/textarea&gt;&lt;/div&gt;
+                &lt;button btn='purple' hover-1&gt;إرسال&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div style="flex: 1; min-width: 300px; text-align: center;"&gt;
+            &lt;h3 style="margin-top: 0;"&gt;موقعنا&lt;/h3&gt;
+            &lt;img src="https://placehold.co/600x400/bdbdbd/ffffff?text=Map+Location" alt="Map Location" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"&gt;
+            &lt;p style="margin-top: 15px; color: #555;"&gt;الإسكندرية، مصر - شارع جمال عبد الناصر&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 31: Pricing Section - Pink Highlight -->
+        <div class="block-container">
+            <span class="block-label">جدول الأسعار #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="pricing-section section-padding pink-50">
+                    <div class="container">
+                        <h2>اختر خطتك المناسبة</h2>
+                        <div class="grid">
+                            <div class="pricing-card" card hover-5>
+                                <h3>الباقة الفضية</h3>
+                                <p class="price tpink"><span>$</span>49<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 20GB مساحة</li>
+                                    <li>&check; 3 مشاريع</li>
+                                </ul>
+                                <button btn='pink' hover-1>اطلب الآن</button>
+                            </div>
+                            <div class="pricing-card" card hover-5 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(255,111,216,0.2);">
+                                <h3>الباقة الذهبية</h3>
+                                <p class="price tpink"><span>$</span>99<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; 100GB مساحة</li>
+                                    <li>&check; 10 مشاريع</li>
+                                </ul>
+                                <button btn='pink' hover-1 pulse>الأكثر مبيعًا</button>
+                            </div>
+                            <div class="pricing-card" card hover-5>
+                                <h3>الباقة الماسية</h3>
+                                <p class="price tpink"><span>$</span>199<span>/شهر</span></p>
+                                <ul>
+                                    <li>&check; مساحة غير محدودة</li>
+                                    <li>&check; دعم VIP</li>
+                                </ul>
+                                <button btn='pink' hover-1>اطلب الآن</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: جدول الأسعار #3 --&gt;
+&lt;section class="pricing-section section-padding pink-50"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;اختر خطتك المناسبة&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="pricing-card" card hover-5&gt;
+                &lt;h3&gt;الباقة الفضية&lt;/h3&gt;
+                &lt;p class="price tpink"&gt;&lt;span&gt;$&lt;/span&gt;49&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 20GB مساحة&lt;/li&gt;
+                    &lt;li&gt;&amp;check; 3 مشاريع&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='pink' hover-1&gt;اطلب الآن&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-5 style="transform: scale(1.05); z-index: 2; box-shadow: 0 8px 20px rgba(255,111,216,0.2);"&gt;
+                &lt;h3&gt;الباقة الذهبية&lt;/h3&gt;
+                &lt;p class="price tpink"&gt;&lt;span&gt;$&lt;/span&gt;99&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; 100GB مساحة&lt;/li&gt;
+                    &lt;li&gt;&amp;check; 10 مشاريع&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;button btn='pink' hover-1 pulse&gt;الأكثر مبيعًا&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="pricing-card" card hover-5&gt;
+                &lt;h3&gt;الباقة الماسية&lt;/h3&gt;
+                &lt;p class="price tpink"&gt;&lt;span&gt;$&lt;/span&gt;199&lt;span&gt;/شهر&lt;/span&gt;&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&amp;check; مساحة غير محدودة&lt;/li&gt;
+                    &lt;li&gt;&amp;check; دعم VIP&lt;/li&gt;
+                &lt;/ul&gt>
+                &lt;button btn='pink' hover-1&gt;اطلب الآن&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 32: Testimonials Section - Alternating images/text -->
+        <div class="block-container">
+            <span class="block-label">آراء العملاء #3 (متعدد)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="testimonials-section section-padding white">
+                    <div class="container">
+                        <h2>ما يقوله الخبراء</h2>
+                        <div class="grid">
+                            <div class="testimonial-card" card hover-10>
+                                <p class="quote">" Flamingo UI قدمت لنا مرونة لا مثيل لها في بناء واجهات المستخدم. مذهل!"</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/8e24aa/ffffff?text=Dev" alt="صورة المطور" circle>
+                                    <h4 tpurple>خالد علي</h4>
+                                    <span>مطور ويب</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-card" card hover-10>
+                                <p class="quote">"تجربة استخدام سهلة وبديهية، حتى لغير المبرمجين. أنصح به بشدة."</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/f7971e/ffffff?text=Designer" alt="صورة المصمم" circle>
+                                    <h4 torange>نور عادل</h4>
+                                    <span>مصممة UX/UI</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-card" card hover-10>
+                                <p class="quote">"السرعة في الإنشاء والتخصيص هي ما يميز Flamingo. سيغير طريقة عملك."</p>
+                                <div class="author">
+                                    <img src="https://placehold.co/60x60/2196f3/ffffff?text=Manager" alt="صورة المدير" circle>
+                                    <h4 tblue>يوسف كرم</h4>
+                                    <span>مدير منتج</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: آراء العملاء #3 (متعدد) --&gt;
+&lt;section class="testimonials-section section-padding white"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;ما يقوله الخبراء&lt;/h2&gt;
+        &lt;div class="grid"&gt;
+            &lt;div class="testimonial-card" card hover-10&gt;
+                &lt;p class="quote"&gt;" Flamingo UI قدمت لنا مرونة لا مثيل لها في بناء واجهات المستخدم. مذهل!"&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/8e24aa/ffffff?text=Dev" alt="صورة المطور" circle&gt;
+                    &lt;h4 tpurple&gt;خالد علي&lt;/h4&gt;
+                    &lt;span&gt;مطور ويب&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="testimonial-card" card hover-10&gt;
+                &lt;p class="quote"&gt;"تجربة استخدام سهلة وبديهية، حتى لغير المبرمجين. أنصح به بشدة."&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/f7971e/ffffff?text=Designer" alt="صورة المصمم" circle&gt;
+                    &lt;h4 torange&gt;نور عادل&lt;/h4&gt;
+                    &lt;span&gt;مصممة UX/UI&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="testimonial-card" card hover-10&gt;
+                &lt;p class="quote"&gt;"السرعة في الإنشاء والتخصيص هي ما يميز Flamingo. سيغير طريقة عملك."&lt;/p&gt;
+                &lt;div class="author"&gt;
+                    &lt;img src="https://placehold.co/60x60/2196f3/ffffff?text=Manager" alt="صورة المدير" circle&gt;
+                    &lt;h4 tblue&gt;يوسف كرم&lt;/h4&gt;
+                    &lt;span&gt;مدير منتج&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 33: Footer - Multi-column with social on top -->
+        <div class="block-container">
+            <span class="block-label">التذييل #4 (شبكات اجتماعية علوية)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <footer class="footer-section gray-900" twhite>
+                    <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                        <div class="social-icons" style="margin-bottom: 25px;">
+                            <a href="#" twhite hover-1><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-twitter"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" twhite hover-1><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; max-width: 900px; margin-bottom: 30px;">
+                            <div style="flex: 1; min-width: 180px; margin: 10px;">
+                                <h3 twhite style="margin-bottom: 15px; font-size: 1.1em;">عن الشركة</h3>
+                                <p style="font-size: 0.9em; line-height: 1.5;">نحن فريق ملتزم بتقديم أفضل الحلول الرقمية لعملائنا حول العالم.</p>
+                            </div>
+                            <div style="flex: 1; min-width: 180px; margin: 10px;">
+                                <h3 twhite style="margin-bottom: 15px; font-size: 1.1em;">روابط</h3>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li><a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;">الخصوصية</a></li>
+                                    <li><a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;">الشروط</a></li>
+                                    <li><a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;">الخريطة</a></li>
+                                </ul>
+                            </div>
+                            <div style="flex: 1; min-width: 180px; margin: 10px;">
+                                <h3 twhite style="margin-bottom: 15px; font-size: 1.1em;">اتصال</h3>
+                                <p style="font-size: 0.9em;">email@example.com</p>
+                                <p style="font-size: 0.9em;">+123 456 7890</p>
+                            </div>
+                        </div>
+                        <p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; width: 100%; font-size: 0.85em;">&copy; 2025 Flamingo UI. كل الحقوق محفوظة. مصمم بواسطة <span tblue>عمرو خالد</span>.</p>
+                    </div>
+                </footer>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: التذييل #4 (شبكات اجتماعية علوية) --&gt;
+&lt;footer class="footer-section gray-900" twhite&gt;
+    &lt;div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;"&gt;
+        &lt;div class="social-icons" style="margin-bottom: 25px;"&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-linkedin-in"&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href="#" twhite hover-1&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div style="display: flex; flex-wrap: wrap; justify-content: space-around; width: 100%; max-width: 900px; margin-bottom: 30px;"&gt;
+            &lt;div style="flex: 1; min-width: 180px; margin: 10px;"&gt;
+                &lt;h3 twhite style="margin-bottom: 15px; font-size: 1.1em;"&gt;عن الشركة&lt;/h3&gt;
+                &lt;p style="font-size: 0.9em; line-height: 1.5;"&gt;نحن فريق ملتزم بتقديم أفضل الحلول الرقمية لعملائنا حول العالم.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="flex: 1; min-width: 180px; margin: 10px;"&gt;
+                &lt;h3 twhite style="margin-bottom: 15px; font-size: 1.1em;"&gt;روابط&lt;/h3&gt;
+                &lt;ul style="list-style: none; padding: 0;"&gt;
+                    &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;"&gt;الخصوصية&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;"&gt;الشروط&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" twhite hover-19 style="margin-bottom: 5px; display: block;"&gt;الخريطة&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div style="flex: 1; min-width: 180px; margin: 10px;"&gt;
+                &lt;h3 twhite style="margin-bottom: 15px; font-size: 1.1em;"&gt;اتصال&lt;/h3&gt;
+                &lt;p style="font-size: 0.9em;"&gt;email@example.com&lt;/p&gt;
+                &lt;p style="font-size: 0.9em;"&gt;+123 456 7890&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; width: 100%; font-size: 0.85em;"&gt;&amp;copy; 2025 Flamingo UI. كل الحقوق محفوظة. مصمم بواسطة &lt;span tblue&gt;عمرو خالد&lt;/span&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+            </pre>
+        </div>
+
+        <!-- Block 34: Navbar with Red Accent -->
+        <div class="block-container">
+            <span class="block-label">شريط التنقل #6</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <nav class="navbar gray-800">
+                    <div class="logo tred">Flamingo</div>
+                    <div class="menu-toggle" id="mobile-menu-34"><i class="fas fa-bars twhite"></i></div>
+                    <ul class="nav-links" id="nav-links-34">
+                        <li><a href="#" twhite hover-19>الفريق</a></li>
+                        <li><a href="#" twhite hover-19>الوظائف</a></li>
+                        <li><button class="nav-button" btn='red' hover-1 pulse>سجل الآن</button></li>
+                    </ul>
+                </nav>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: شريط التنقل #6 --&gt;
+&lt;nav class="navbar gray-800"&gt;
+    &lt;div class="logo tred"&gt;Flamingo&lt;/div&gt;
+    &lt;div class="menu-toggle" id="mobile-menu-34"&gt;&lt;i class="fas fa-bars twhite"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;ul class="nav-links" id="nav-links-34"&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الفريق&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#" twhite hover-19&gt;الوظائف&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;button class="nav-button" btn='red' hover-1 pulse&gt;سجل الآن&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+            </pre>
+        </div>
+
+        <!-- Block 35: Hero Section - Minimalist with Orange text -->
+        <div class="block-container">
+            <span class="block-label">قسم البداية #6 (نص برتقالي)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding white">
+                    <div class="container hero-content">
+                        <h1 fadein torange>تجارب استثنائية</h1>
+                        <p fadein tgray-700 style="animation-delay: 0.2s;">نصنع حلولاً فريدة لتناسب رؤيتك تماماً.</p>
+                        <button btn='orange' hover-1 bounce style="animation-delay: 0.4s;">ابدأ تجربتك</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم البداية #6 (نص برتقالي) --&gt;
+&lt;section class="hero-section section-padding white"&gt;
+    &lt;div class="container hero-content"&gt;
+        &lt;h1 fadein torange&gt;تجارب استثنائية&lt;/h1&gt;
+        &lt;p fadein tgray-700 style="animation-delay: 0.2s;"&gt;نصنع حلولاً فريدة لتناسب رؤيتك تماماً.&lt;/p&gt;
+        &lt;button btn='orange' hover-1 bounce style="animation-delay: 0.4s;"&gt;ابدأ تجربتك&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 36: Services Section - 4-column grid with light icons -->
+        <div class="block-container">
+            <span class="block-label">قسم الخدمات #5 (4 أعمدة)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="services-section section-padding light">
+                    <div class="container">
+                        <h2>نطاق خدماتنا</h2>
+                        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                            <div class="service-card" card hover-2>
+                                <div class="icon light-blue twhite circle"><i class="fas fa-cloud"></i></div>
+                                <h3>الحوسبة السحابية</h3>
+                                <p>خدمات سحابية آمنة ومرنة لعملك.</p>
+                            </div>
+                            <div class="service-card" card hover-2>
+                                <div class="icon light-green twhite square"><i class="fas fa-database"></i></div>
+                                <h3>إدارة البيانات</h3>
+                                <p>تحليل وتنظيم بياناتك بكفاءة عالية.</p>
+                            </div>
+                            <div class="service-card" card hover-2>
+                                <div class="icon yellow tdark diamond"><i class="fas fa-robot"></i></div>
+                                <h3>الذكاء الاصطناعي</h3>
+                                <p>حلول ذكاء اصطناعي لتعزيز قدراتك.</p>
+                            </div>
+                            <div class="service-card" card hover-2>
+                                <div class="icon pink twhite heart"><i class="fas fa-chart-pie"></i></div>
+                                <h3>تحليل السوق</h3>
+                                <p>فهم عميق للسوق لتحقيق ميزة تنافسية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم الخدمات #5 (4 أعمدة) --&gt;
+&lt;section class="services-section section-padding light"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;نطاق خدماتنا&lt;/h2&gt;
+        &lt;div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));"&gt;
+            &lt;div class="service-card" card hover-2&gt;
+                &lt;div class="icon light-blue twhite circle"&gt;&lt;i class="fas fa-cloud"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;الحوسبة السحابية&lt;/h3&gt;
+                &lt;p&gt;خدمات سحابية آمنة ومرنة لعملك.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-2&gt;
+                &lt;div class="icon light-green twhite square"&gt;&lt;i class="fas fa-database"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;إدارة البيانات&lt;/h3&gt;
+                &lt;p&gt;تحليل وتنظيم بياناتك بكفاءة عالية.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-2&gt;
+                &lt;div class="icon yellow tdark diamond"&gt;&lt;i class="fas fa-robot"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;الذكاء الاصطناعي&lt;/h3&gt;
+                &lt;p&gt;حلول ذكاء اصطناعي لتعزيز قدراتك.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="service-card" card hover-2&gt;
+                &lt;div class="icon pink twhite heart"&gt;&lt;i class="fas fa-chart-pie"&gt;&lt;/i&gt;&lt;/div&gt;
+                &lt;h3&gt;تحليل السوق&lt;/h3&gt;
+                &lt;p&gt;فهم عميق للسوق لتحقيق ميزة تنافسية.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 37: About Us - Team Section -->
+        <div class="block-container">
+            <span class="block-label">قسم حولنا #4 (الفريق)</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="about-section section-padding white">
+                    <div class="container">
+                        <h2>فريقنا المبدع</h2>
+                        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center;">
+                            <div style="text-align: center;">
+                                <img src="https://placehold.co/150x150/ff9100/ffffff?text=Ahmed" alt="Ahmed" circle style="margin-bottom: 10px; border: 3px solid #ff9100;" hover-1>
+                                <h3 style="font-size: 1.4em;">أحمد السيد</h3>
+                                <p style="color: #777;">المدير التنفيذي</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="https://placehold.co/150x150/8e24aa/ffffff?text=Sara" alt="Sara" circle style="margin-bottom: 10px; border: 3px solid #8e24aa;" hover-1>
+                                <h3 style="font-size: 1.4em;">سارة خالد</h3>
+                                <p style="color: #777;">مديرة التسويق</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="https://placehold.co/150x150/2196f3/ffffff?text=Omar" alt="Omar" circle style="margin-bottom: 10px; border: 3px solid #2196f3;" hover-1>
+                                <h3 style="font-size: 1.4em;">عمر علي</h3>
+                                <p style="color: #777;">كبير المطورين</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: قسم حولنا #4 (الفريق) --&gt;
+&lt;section class="about-section section-padding white"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;فريقنا المبدع&lt;/h2&gt;
+        &lt;div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: center;"&gt;
+            &lt;div style="text-align: center;"&gt;
+                &lt;img src="https://placehold.co/150x150/ff9100/ffffff?text=Ahmed" alt="Ahmed" circle style="margin-bottom: 10px; border: 3px solid #ff9100;" hover-1&gt;
+                &lt;h3 style="font-size: 1.4em;"&gt;أحمد السيد&lt;/h3&gt;
+                &lt;p style="color: #777;"&gt;المدير التنفيذي&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center;"&gt;
+                &lt;img src="https://placehold.co/150x150/8e24aa/ffffff?text=Sara" alt="Sara" circle style="margin-bottom: 10px; border: 3px solid #8e24aa;" hover-1&gt;
+                &lt;h3 style="font-size: 1.4em;"&gt;سارة خالد&lt;/h3&gt;
+                &lt;p style="color: #777;"&gt;مديرة التسويق&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div style="text-align: center;"&gt;
+                &lt;img src="https://placehold.co/150x150/2196f3/ffffff?text=Omar" alt="Omar" circle style="margin-bottom: 10px; border: 3px solid #2196f3;" hover-1&gt;
+                &lt;h3 style="font-size: 1.4em;"&gt;عمر علي&lt;/h3&gt;
+                &lt;p style="color: #777;"&gt;كبير المطورين&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+            </pre>
+        </div>
+
+        <!-- Block 38: CTA - Simple Yellow BG -->
+        <div class="block-container">
+            <span class="block-label">نداء للعمل #3</span>
+            <button class="copy-button" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> نسخ الكود
+            </button>
+            <span class="copy-message">تم النسخ!</span>
+            <div class="generated-block-preview">
+                <section class="hero-section section-padding yellow" style="text-align: center;">
+                    <div class="container">
+                        <h2 tdark>لا تضيع الفرصة!</h2>
+                        <p tdark style="margin-bottom: 40px;">سجل في نشرتنا الإخبارية للحصول على آخر التحديثات والعروض.</p>
+                        <button btn='blue' hover-1 bounce>اشترك الآن</button>
+                    </div>
+                </section>
+            </div>
+            <pre class="code-to-copy" style="display:none;">
+&lt;!-- Block: نداء للعمل #3 --&gt;
+&lt;section class="hero-section section-padding yellow" style="text-align: center;"&gt;
+    &lt;div class="container"&gt;
+        &lt;h2 tdark&gt;لا تضيع الفرصة!&lt;/h2&gt;
+        &lt;p tdark style="margin-bottom: 40px;"&gt;سجل في نشرتنا الإخبارية للحصول على آخر التحديثات والعروض.&lt;/p&gt;
+        &lt;button btn='blue' hover-1 bounce&gt;اشترك الآن&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/secti

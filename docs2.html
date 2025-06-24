@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توثيق إطار عمل Flamingo CSS</title>
+    <!-- خطوط جوجل: Inter (لللاتينية) و Noto Naskh Arabic (للعربية) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- رابط لملف Flamingo CSS الخارجي الخاص بك -->
+    <link rel="stylesheet" href="https://685729125b22ba1892bfdb50--tubular-basbousa-c9e2fe.netlify.app/float.css">
+    <style>
+        /* الأنماط الأساسية لتخطيط صفحة التوثيق والموضوع */
+        body {
+            font-family: 'Noto Naskh Arabic', 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* خلفية سماوية فاتحة للجسم */
+            color: #263238; /* رمادي داكن للنصوص العامة */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex; /* استخدام Flexbox للتخطيط الرئيسي */
+            min-height: 100vh; /* التأكد من أن الجسم يأخذ ارتفاع العرض الكامل */
+            direction: rtl; /* اتجاه النص من اليمين لليسار */
+            text-align: right; /* محاذاة النص لليمين */
+        }
+
+        .container {
+            flex-grow: 1; /* السماح للحاوية بأخذ المساحة المتاحة */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4FC3F7 0%, #00B0FF 100%); /* تدرج أزرق */
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 0 0 35px 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            animation: headerFadeIn 1s ease-out;
+        }
+
+        @keyframes headerFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 800; /* سميك جداً */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-top: 10px;
+        }
+
+        /* منطقة المحتوى الرئيسية (للاستجابة) */
+        #main-content {
+            flex-grow: 1;
+            padding-right: 30px; /* مساحة للشريط الجانبي (لأن الاتجاه RTL) */
+            padding-left: 0; /* إلغاء المساحة اليسرى إذا كانت موجودة */
+        }
+
+        section {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #00B0FF; /* أزرق فاتح للعناوين */
+            border-bottom: 3px solid #80D8FF; /* حدود أزرق أفتح */
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+            animation: headingSlideIn 0.8s ease-out;
+        }
+
+        @keyframes headingSlideIn {
+            from { opacity: 0; transform: translateX(20px); } /* لتناسب RTL */
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h3 {
+            color: #4FC3F7; /* أزرق متوسط للعناوين الفرعية */
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #e3f2fd; /* أزرق فاتح جداً لمقتطفات الكود */
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.98em;
+            color: #0288D1; /* نص أزرق أغمق للكود المضمّن */
+            white-space: nowrap; /* منع التفاف الكود المضمّن */
+            direction: ltr; /* لضمان عرض الكود بشكل صحيح من اليسار لليمين */
+            text-align: left; /* محاذاة الكود لليسار */
+        }
+
+        pre {
+            background-color: #263238; /* خلفية داكنة لكتل الكود */
+            color: #e0f7fa; /* نص فاتح لكتل الكود */
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.3);
+            line-height: 1.5;
+            direction: ltr; /* لضمان عرض الكود بشكل صحيح من اليسار لليمين */
+            text-align: left; /* محاذاة الكود لليسار */
+        }
+
+        .attribute-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .attribute-item {
+            background-color: #fcfcfc;
+            border: 1px solid #e1f5fe; /* حدود أزرق فاتح */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .attribute-item:hover {
+            border-color: #90CAF9; /* أزرق متوسط عند التمرير */
+            box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+        }
+
+        .attribute-item strong {
+            color: #00B0FF; /* أزرق فاتح لأسماء السمات */
+            font-size: 1.15em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .attribute-item p {
+            font-size: 1em;
+            margin: 0;
+            color: #455A64; /* رمادي أغمق قليلاً لنص العنصر */
+        }
+
+        .example-box {
+            width: 100px;
+            height: 100px;
+            background-color: #00B0FF; /* الأزرق الرئيسي للأمثلة */
+            margin: 18px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden; /* لأمثلة Clip-Path */
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .example-button {
+            margin: 8px;
+            font-size: 0.95em;
+            padding: 0.6em 1.5em;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        /* أنماط الشريط الجانبي */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0; /* منع الشريط الجانبي من التقلص */
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: -3px 0 15px rgba(0,0,0,0.07); /* ظل على اليسار لـ RTL */
+            border-left: 1px solid #e3f2fd; /* حدود أزرق فاتح */
+            border-right: none; /* إلغاء الحدود اليمنى */
+            position: sticky; /* شريط جانبي ثابت */
+            top: 0;
+            align-self: flex-start; /* المحاذاة لأعلى حاوية Flex */
+            height: 100vh; /* جعل الشريط الجانبي بكامل الارتفاع */
+            overflow-y: auto; /* تمكين التمرير للمحتوى الطويل */
+            border-radius: 20px 0 0 20px; /* حدود مستديرة لـ RTL */
+        }
+
+        .sidebar h3 {
+            color: #00B0FF; /* أزرق فاتح لعنوان الشريط الجانبي */
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #80D8FF; /* فاصل أزرق أفتح */
+            padding-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #546E7A; /* رمادي مزرق لروابط الشريط الجانبي */
+            padding: 10px 15px;
+            display: block;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            font-size: 1.05em;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #e1f5fe; /* أزرق فاتح جداً عند التمرير */
+            color: #0288D1; /* نص أزرق أغمق عند التمرير */
+            transform: translateX(-5px); /* حركة لليسار لـ RTL */
+        }
+
+        .sidebar ul li a.active {
+            background-color: #00B0FF; /* أزرق فاتح للرابط النشط */
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0, 176, 255, 0.3);
+        }
+
+        /* التعديلات للاستجابة */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column; /* تكديس الشريط الجانبي والمحتوى الرئيسي عمودياً */
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static; /* إزالة الثبات على الشاشات الصغيرة */
+                box-shadow: 0 3px 15px rgba(0,0,0,0.07); /* ظل أسفل الشريط الجانبي */
+                border-left: none; /* إزالة الحدود اليسرى */
+                border-bottom: 1px solid #e3f2fd;
+                border-radius: 0;
+            }
+            #main-content {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h3>أقسام التوثيق</h3>
+        <ul>
+            <li><a href="#introduction">مقدمة</a></li>
+            <li><a href="#installation">التثبيت</a></li>
+            <li><a href="#layout-utilities">أدوات التخطيط</a></li>
+            <li><a href="#background-utilities">أدوات الخلفية</a></li>
+            <li><a href="#clip-path-shapes">أشكال Clip-Path</a></li>
+            <li><a href="#animations">الرسوم المتحركة القياسية</a></li>
+            <li><a href="#coloring-animations">رسوم متحركة لتغيير الألوان</a></li>
+            <li><a href="#ball-animations">رسوم متحركة للكرات العائمة</a></li>
+            <li><a href="#special-effects">رسوم متحركة لتأثيرات خاصة</a></li>
+            <li><a href="#rotate-utilities">أدوات التدوير</a></li>
+            <li><a href="#color-palettes">لوحات الألوان</a></li> <!-- رابط جديد -->
+            <li><a href="#hover-effects">تأثيرات التمرير</a></li>
+            <li><a href="#gradients">التدرجات اللونية</a></li>
+            <li><a href="#components">المكونات</a></li>
+            <li><a href="#background-colors">ألوان الخلفية</a></li>
+            <li><a href="#text-colors">ألوان النصوص</a></li>
+        </ul>
+    </aside>
+
+    <div id="main-content">
+        
+        <header>
+            <h1>إطار عمل Flamingo CSS</h1>
+            <p>إطار عمل CSS خفيف الوزن، يعتمد على السمات، من تصميم عمرو خالد.</p>
+        </header>
+
+        <main class="container">
+            <section id="introduction">
+                <h2>مقدمة</h2>
+                <p>
+                    Flamingo CSS هو إطار عمل CSS خفيف الوزن يعتمد على السمات، ومصمم لتبسيط مهام التنسيق الشائعة وإضافة تأثيرات بصرية جذابة لمشاريع الويب الخاصة بك. ببساطة عن طريق إضافة سمات محددة إلى عناصر HTML الخاصة بك، يمكنك تطبيق أنماط محددة مسبقًا للخلفيات، الأشكال، الرسوم المتحركة، تأثيرات التمرير، الأزرار، ومجموعة واسعة من الألوان.
+                </p>
+                <p>
+                    يوفر هذا التوثيق دليلاً شاملاً لجميع السمات المتاحة، من التثبيت إلى الوصف التفصيلي والأمثلة.
+                </p>
+            </section>
+
+            <section id="installation">
+                <h2>التثبيت</h2>
+                <p>لاستخدام Flamingo CSS، ما عليك سوى إضافة وسم <code>&lt;link&gt;</code> في قسم <code>&lt;head&gt;</code> من مستند HTML الخاص بك، يشير إلى ملف <code>float.css</code> المستضاف:</p>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;مشروعي بـ Flamingo&lt;/title&gt;
+    &lt;!-- تضمين خط Inter لطباعة أفضل --&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet"&gt;
+    &lt;!-- رابط لملف Flamingo CSS الخاص بك --&gt;
+    &lt;link rel="stylesheet" href="https://685729125b22ba1892bfdb50--tubular-basbousa-c9e2fe.netlify.app/float.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- محتواك هنا --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                <p>
+                    <strong>ملاحظة هامة حول السمات:</strong> لكي يعمل Flamingo CSS، تقوم بتطبيق سماته المخصصة مباشرةً على عناصر HTML الخاصة بك، <strong>بدون أقواس مربعة</strong> في وسم HTML نفسه.
+                </p>
+                <p>
+                    على سبيل المثال، لتطبيق أنماط flexbox لصف، ستكتب:
+                    <pre>&lt;div flex-row&gt;...&lt;/div&gt;</pre>
+                    ولزر أرجواني، سيكون:
+                    <pre>&lt;button btn='purple'&gt;...&lt;/button&gt;</pre>
+                </p>
+                <p>
+                    يحتوي ملف `float.css` على قواعد CSS مصممة داخليًا للتعرف على هذه السمات دون الحاجة إلى أقواس مربعة في HTML الخاص بك. يتيح ذلك طريقة نظيفة وبديهية لإضافة الأنماط. يرجى التأكد من استخدام السمات تمامًا كما هو موضح في الأمثلة أدناه لكي تعمل بشكل صحيح!
+                </p>
+            </section>
+
+            <section id="layout-utilities">
+                <h2>أدوات التخطيط</h2>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `flex-row`</strong>
+                        <p>تطبق <code>display: flex</code> مع <code>flex-direction: row</code>، وتوسّط العناصر أفقياً وعمودياً.</p>
+                        <pre>&lt;div flex-row&gt;...&lt;/div&gt;</pre>
+                        <div flex-row style="background-color: #e0f2f7; padding: 10px; border-radius: 5px;">
+                            <span>العنصر 1</span>
+                            <span>العنصر 2</span>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `flex-column`</strong>
+                        <p>تطبق <code>display: flex</code> مع <code>flex-direction: column</code>، وتوسّط العناصر أفقياً وعمودياً.</p>
+                        <pre>&lt;div flex-column&gt;...&lt;/div&gt;</pre>
+                        <div flex-column style="background-color: #e0f2f7; padding: 10px; border-radius: 5px; min-height: 80px;">
+                            <span>العنصر 1</span>
+                            <span>العنصر 2</span>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `center`</strong>
+                        <p>توسّط عنصراً داخل حاوية flex الخاصة به (<code>align-self: center; justify-self: center;</code>).</p>
+                        <pre>&lt;div flex-row&gt;&lt;span center&gt;...&lt;/span&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="background-color: #e0f2f7; padding: 10px; border-radius: 5px; min-height: 80px;">
+                            <span center>في المنتصف</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="background-utilities">
+                <h2>أدوات الخلفية</h2>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `bg='auto'`</strong>
+                        <p>تضبط الخلفية على <code>center</code>، <code>no-repeat</code>، و <code>cover</code>.</p>
+                        <pre>&lt;div bg='auto'&gt;&lt;/div&gt;</pre>
+                        <div bg='auto' style="height: 100px; background-image: url('https://placehold.co/300x150/4FC3F7/FFFFFF?text=Background');"></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `glow`</strong>
+                        <p>تطبق ظل صندوق داخلي مع تدرج خطي، مما يخلق تأثير توهج.</p>
+                        <pre>&lt;div glow&gt;&lt;/div&gt;</pre>
+                        <div glow style="height: 100px; background-color: #00B0FF; border-radius: 10px;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="clip-path-shapes">
+                <h2>أشكال Clip-Path</h2>
+                <p>تطبق هذه السمات أشكالاً هندسية مختلفة باستخدام <code>clip-path</code>.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `circle`</strong>
+                        <p>تقص العنصر على شكل دائرة مثالية.</p>
+                        <pre>&lt;div circle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" circle>دائرة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `triangle`</strong>
+                        <p>تقص العنصر على شكل مثلث.</p>
+                        <pre>&lt;div triangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" triangle>مثلث</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `ellipse`</strong>
+                        <p>تقص العنصر على شكل بيضاوي.</p>
+                        <pre>&lt;div ellipse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" ellipse>شكل بيضاوي</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `square`</strong>
+                        <p>تضمن أن يكون العنصر مسار قص مربع (inset 0).</p>
+                        <pre>&lt;div square&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" square>مربع</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `rectangle`</strong>
+                        <p>تقص العنصر على شكل مستطيل (بإزاحة 10% من الأعلى/الأسفل).</p>
+                        <pre>&lt;div rectangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rectangle>مستطيل</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `diamond`</strong>
+                        <p>تقص العنصر على شكل ماسة.</p>
+                        <pre>&lt;div diamond&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" diamond>ماسة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hexagon`</strong>
+                        <p>تقص العنصر على شكل سداسي.</p>
+                        <pre>&lt;div hexagon&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hexagon>سداسي</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `parallelogram`</strong>
+                        <p>تقص العنصر على شكل متوازي أضلاع.</p>
+                        <pre>&lt;div parallelogram&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" parallelogram>متوازي أضلاع</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `star`</strong>
+                        <p>تقص العنصر على شكل نجمة.</p>
+                        <pre>&lt;div star&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" star>نجمة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `trapezoid`</strong>
+                        <p>تقص العنصر على شكل شبه منحرف.</p>
+                        <pre>&lt;div trapezoid&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" trapezoid>شبه منحرف</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `sharp`</strong>
+                        <p>تطبق مسار قص معقد ومسنن.</p>
+                        <pre>&lt;div sharp&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" sharp>حادة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `wave`</strong>
+                        <p>تطبق مسار قص على شكل موجة في الأعلى.</p>
+                        <pre>&lt;div wave&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" wave>موجة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `home`</strong>
+                        <p>تقص العنصر على شكل منزل كلاسيكي.</p>
+                        <pre>&lt;div home&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" home>منزل</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `mobile`</strong>
+                        <p>تضبط ارتفاع وعرض ثابتين مع نصف قطر حدود ليشبه الهاتف المحمول.</p>
+                        <pre>&lt;div mobile&gt;&lt;/div&gt;</pre>
+                        <div style="background-color: #4FC3F7; margin: 18px auto; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2em; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 10px;" mobile>جوال</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tv`</strong>
+                        <p>تقص العنصر على شكل شاشة تلفزيون.</p>
+                        <pre>&lt;div tv&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" tv>تلفزيون</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `slope`</strong>
+                        <p>تقص العنصر على شكل متوازي أضلاع مائل.</p>
+                        <pre>&lt;div slope&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slope>ميل</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `heart`</strong>
+                        <p>تقص العنصر على شكل قلب.</p>
+                        <pre>&lt;div heart&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" heart>قلب</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `broken`</strong>
+                        <p>تطبق مسار قص متقطع ومكسور.</p>
+                        <pre>&lt;div broken&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" broken>مكسور</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="animations">
+                <h2>الرسوم المتحركة القياسية</h2>
+                <p>تطبق هذه السمات رسومًا متحركة مستمرة مختلفة على العناصر. هذه هي تأثيرات حركة عامة.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `spin`</strong>
+                        <p>تدوّر العنصر باستمرار 360 درجة.</p>
+                        <pre>&lt;div spin&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" spin>تدوير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `bounce`</strong>
+                        <p>تجعل العنصر يرتد عمودياً.</p>
+                        <pre>&lt;div bounce&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" bounce>ارتداد</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `pulse`</strong>
+                        <p>تجعل العنصر ينمو قليلاً ويظهر/يختفي.</p>
+                        <pre>&lt;div pulse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" pulse>نبض</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `swing`</strong>
+                        <p>تجعل العنصر يتأرجح من جانب إلى آخر.</p>
+                        <pre>&lt;div swing&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" swing>تأرجح</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `fadein`</strong>
+                        <p>تظهر العنصر تدريجياً أثناء الانزلاق لأعلى.</p>
+                        <pre>&lt;div fadein&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" fadein>ظهور تدريجي</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `flip`</strong>
+                        <p>تقلب العنصر أفقياً.</p>
+                        <pre>&lt;div flip&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" flip>قلب</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `shake`</strong>
+                        <p>تجعل العنصر يهتز أفقياً.</p>
+                        <pre>&lt;div shake&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" shake>اهتزاز</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `grow`</strong>
+                        <p>تجعل العنصر ينمو ويتقلص باستمرار.</p>
+                        <pre>&lt;div grow&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" grow>نمو</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `shrink`</strong>
+                        <p>تجعل العنصر يتقلص وينمو باستمرار.</p>
+                        <pre>&lt;div shrink&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" shrink>تقلص</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `slide-x`</strong>
+                        <p>تحرك العنصر أفقياً لليمين واليسار.</p>
+                        <pre>&lt;div slide-x&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slide-x>انزلاق X</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `slide-y`</strong>
+                        <p>تحرك العنصر عمودياً لأعلى ولأسفل.</p>
+                        <pre>&lt;div slide-y&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" slide-y>انزلاق Y</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="coloring-animations">
+                <h2>رسوم متحركة لتغيير الألوان</h2>
+                <p>تطبق هذه السمات تغييرات متحركة لألوان الخلفية باستخدام لوحات ألوان محددة مسبقاً.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `coloring`</strong>
+                        <p>تطبق رسوم متحركة عامة للون الخلفية (تتغير كل 1 ثانية).</p>
+                        <pre>&lt;div coloring&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring>تلوين</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمات `coloring-1` إلى `coloring-50`</strong>
+                        <p>تطبق كل سمة رسوم متحركة محددة للخلفية بثلاثة ألوان. إليك مثال:</p>
+                        <pre>&lt;div coloring-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-1>تلوين-1</div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمة `coloring-2`</strong>
+                        <p>رسوم متحركة محددة للخلفية بثلاثة ألوان (أخضر، أصفر، برتقالي).</p>
+                        <pre>&lt;div coloring-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-2>تلوين-2</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `coloring-3`</strong>
+                        <p>رسوم متحركة محددة للخلفية بثلاثة ألوان (أحمر، سماوي، أرجواني فاتح).</p>
+                        <pre>&lt;div coloring-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" coloring-3>تلوين-3</div>
+                    </div>
+                </div>
+                <p>... وهكذا، لـ `coloring-4` حتى `coloring-50`، لكل منها لوحة ألوان فريدة.</p>
+            </section>
+
+            <section id="ball-animations">
+                <h2>رسوم متحركة للكرات العائمة</h2>
+                <p>تنشئ هذه السمات كرات متوهجة متحركة تطفو عبر العنصر باستخدام عناصر زائفة <code>::before</code>. يجب أن يكون للعنصر الأب <code>position: relative</code> و <code>overflow: hidden</code> للحصول على أفضل النتائج.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `ball-move-1`</strong>
+                        <p>رسوم متحركة لكرة متوهجة بمسار وسرعة محددين.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 150px; width: 100%;" ball-move-1&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-1>
+                            <!-- الكرة هي عنصر زائف لهذا الـ div -->
+                            <p style="text-align: center; color: #666; margin-top: 50px;">كرة 1</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `ball-move-2`</strong>
+                        <p>رسوم متحركة أخرى لكرة متوهجة بمسار وسرعة مختلفين.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 150px; width: 100%;" ball-move-2&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-2>
+                             <p style="text-align: center; color: #666; margin-top: 50px;">كرة 2</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `ball-move-3`</strong>
+                        <p>رسوم متحركة لكرة متوهجة أكبر.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 150px; width: 100%;" ball-move-3&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-3>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">كرة 3</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `ball-move-4`</strong>
+                        <p>رسوم متحركة لكرة متوهجة أصغر وأسرع.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 150px; width: 100%;" ball-move-4&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-4>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">كرة 4</p>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `ball-move-5`</strong>
+                        <p>رسوم متحركة لكرة متوهجة كبيرة جداً وبطيئة.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 150px; width: 100%;" ball-move-5&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #f0f8ff;" ball-move-5>
+                            <p style="text-align: center; color: #666; margin-top: 50px;">كرة 5</p>
+                        </div>
+                    </div>
+                </div>
+                <p>... وهكذا، لـ `ball-move-6` حتى `ball-move-50`، لكل منها مسارات وأحجام وسرعات مختلفة (بافتراض أن CSS الخاص بها معرف في `float.css`).</p>
+            </section>
+
+            <section id="special-effects">
+                <h2>رسوم متحركة لتأثيرات خاصة</h2>
+                <p>تطبق هذه السمات تأثيرات بصرية فريدة على العناصر، غالباً ما تستخدم عناصر زائفة أو فلاتر SVG.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `birthday-paper`</strong>
+                        <p>تنشئ رسوم متحركة لورق متساقط يشبه قصاصات الأعياد فوق العنصر. يجب أن يكون للعنصر الأب <code>position: relative</code> و <code>overflow: hidden</code>.</p>
+                        <pre>&lt;div style="position: relative; overflow: hidden; height: 200px;" birthday-paper&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 200px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" birthday-paper>
+                            عيد ميلاد سعيد!
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `lightfouce`</strong>
+                        <p>تطبق تأثير إضاءة خفيف ومتحرك على العنصر. يجب أن يكون للعنصر نفسه لون خلفية ليكون التأثير مرئياً. يتطلب <code>position: relative</code> و <code>overflow: hidden</code>.</p>
+                        <pre>&lt;div style="height: 150px; background-color: #e3f2fd;" lightfouce&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #e3f2fd; display: flex; align-items: center; justify-content: center; font-size: 1.2em; color: #1976d2;" lightfouce>
+                            محتوى مُركّز
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `handdrawn`</strong>
+                        <p>تمنح العنصر مظهراً مرسوماً يدوياً أو تخطيطياً باستخدام فلتر SVG، مع تأثير عند التمرير.</p>
+                        <pre>&lt;div handdrawn&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" handdrawn style="width: 150px; height: 80px; font-size: 1.1em; color: #3d0066; background-color: #fffbe9;">
+                            صندوق تخطيطي
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rotate-utilities">
+                <h2>أدوات التدوير (Rotate Utilities)</h2>
+                <p>تطبيق دورات محددة للعناصر. تتراوح القيم من <code>rotate-1</code> إلى <code>rotate-180</code> للتدوير ثنائي الأبعاد، و <code>rotate-x</code>، <code>rotate-y</code>، <code>rotate-z</code> للتدوير ثلاثي الأبعاد.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `rotate-45`</strong>
+                        <p>تدور العنصر 45 درجة على المحور Z (ثنائي الأبعاد).</p>
+                        <pre>&lt;div rotate-45&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rotate-45>45°</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `rotate-90`</strong>
+                        <p>تدور العنصر 90 درجة على المحور Z (ثنائي الأبعاد).</p>
+                        <pre>&lt;div rotate-90&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rotate-90>90°</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `rotate-180`</strong>
+                        <p>تدور العنصر 180 درجة على المحور Z (ثنائي الأبعاد).</p>
+                        <pre>&lt;div rotate-180&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rotate-180>180°</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `rotate-x`</strong>
+                        <p>تدور العنصر 180 درجة حول محوره X (قلب ثلاثي الأبعاد). يتطلب <code>transform-style: preserve-3d</code> على العنصر الأب.</p>
+                        <pre>&lt;div style="perspective: 1000px;"&gt;
+    &lt;div rotate-x class="example-box"&gt;قلب X&lt;/div&gt;
+&lt;/div&gt;</pre>
+                        <div style="perspective: 1000px; display: flex; justify-content: center; align-items: center; height: 120px;">
+                            <div rotate-x class="example-box" style="background-color: #f7971e;">قلب X</div>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `rotate-y`</strong>
+                        <p>تدور العنصر 180 درجة حول محوره Y (قلب ثلاثي الأبعاد). يتطلب <code>transform-style: preserve-3d</code> على العنصر الأب.</p>
+                        <pre>&lt;div style="perspective: 1000px;"&gt;
+    &lt;div rotate-y class="example-box"&gt;قلب Y&lt;/div&gt;
+&lt;/div&gt;</pre>
+                        <div style="perspective: 1000px; display: flex; justify-content: center; align-items: center; height: 120px;">
+                            <div rotate-y class="example-box" style="background-color: #ffd200;">قلب Y</div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمة `rotate-z`</strong>
+                        <p>تدور العنصر 180 درجة حول محوره Z (نفس تأثير <code>rotate-180</code> عملياً، ولكن صريح لسياق ثلاثي الأبعاد).</p>
+                        <pre>&lt;div rotate-z class="example-box"&gt;تدوير Z&lt;/div&gt;</pre>
+                        <div class="example-box" rotate-z style="background-color: #38f9d7;">تدوير Z</div>
+                    </div>
+                </div>
+                <p>... وهكذا، لكل درجة من 1 إلى 180. على سبيل المثال، `rotate-1`، `rotate-2`، ...، `rotate-179`.</p>
+            </section>
+
+            <section id="color-palettes">
+                <h2>لوحات الألوان (Color Palettes)</h2>
+                <p>يوفر إطار عمل Flamingo CSS لوحات ألوان جاهزة للاستخدام. تطبق هذه السمات مجموعة متناسقة من الألوان، عادةً كخلفية أو لون نص، مصممة لتتناسب جيداً معاً. وهي تختلف عن سمات <code>[color]</code> المحددة التي تطبق لوناً واحداً.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمات `color-1` إلى `color-10`</strong>
+                        <p>تطبق لوحة ألوان خلفية محددة مسبقاً على العنصر. تمثل كل سمة <code>color-X</code> لون خلفية فريداً ومنسقاً.</p>
+                        <pre>&lt;div color-1&gt;&lt;/div&gt;
+&lt;div color-5&gt;&lt;/div&gt;</pre>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                            <div class="example-box" color-1 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 1</div>
+                            <div class="example-box" color-2 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 2</div>
+                            <div class="example-box" color-3 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 3</div>
+                            <div class="example-box" color-4 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 4</div>
+                            <div class="example-box" color-5 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 5</div>
+                            <div class="example-box" color-6 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 6</div>
+                            <div class="example-box" color-7 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 7</div>
+                            <div class="example-box" color-8 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 8</div>
+                            <div class="example-box" color-9 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 9</div>
+                            <div class="example-box" color-10 style="width: 80px; height: 80px; font-size: 0.9em; color: #fff;">لوحة 10</div>
+                        </div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمات `tcolor-1` إلى `tcolor-10`</strong>
+                        <p>تطبق لوحة ألوان نص محددة مسبقاً على نص العنصر. تمثل كل سمة <code>tcolor-X</code> لون نص فريداً ومنسقاً مصمماً ليتناسب جيداً مع الخلفيات المختلفة.</p>
+                        <pre>&lt;p tcolor-1&gt;نص بلوحة 1&lt;/p&gt;
+&lt;span tcolor-5&gt;نص بلوحة 5&lt;/span&gt;</pre>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; background-color: #333; padding: 10px; border-radius: 8px;">
+                            <p tcolor-1 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 1</p>
+                            <p tcolor-2 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 2</p>
+                            <p tcolor-3 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 3</p>
+                            <p tcolor-4 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 4</p>
+                            <p tcolor-5 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 5</p>
+                            <p tcolor-6 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 6</p>
+                            <p tcolor-7 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 7</p>
+                            <p tcolor-8 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 8</p>
+                            <p tcolor-9 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 9</p>
+                            <p tcolor-10 style="margin: 0; padding: 5px; font-size: 0.9em;">نص لوحة 10</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="hover-effects">
+                <h2>تأثيرات التمرير (Hover Effects)</h2>
+                <p>تطبق هذه السمات تأثيراً محدداً عند التمرير فوق العنصر.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `hover-1`</strong> (تكبير)
+                        <p>تكبر العنصر قليلاً عند التمرير.</p>
+                        <pre>&lt;div hover-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-1>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-2`</strong> (تصغير)
+                        <p>تصغر العنصر قليلاً عند التمرير.</p>
+                        <pre>&lt;div hover-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-2>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-3`</strong> (تدوير)
+                        <p>تدور العنصر 8 درجات عند التمرير.</p>
+                        <pre>&lt;div hover-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-3>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-4`</strong> (انبثاق الظل)
+                        <p>تطبق تأثير انبثاق الظل عند التمرير.</p>
+                        <pre>&lt;div hover-4&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-4>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-5`</strong> (توهج)
+                        <p>تطبق تأثير توهج عند التمرير.</p>
+                        <pre>&lt;div hover-5&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-5>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-6`</strong> (لون الحدود)
+                        <p>تغير لون الحدود عند التمرير.</p>
+                        <pre>&lt;div hover-6&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-6>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-7`</strong> (خلفية متدرجة)
+                        <p>تطبق خلفية متدرجة عند التمرير.</p>
+                        <pre>&lt;div hover-7&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-7>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-8`</strong> (تمويه)
+                        <p>تطبق تأثير تمويه (ضبابية) عند التمرير.</p>
+                        <pre>&lt;div hover-8&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-8 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Blur');">تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-9`</strong> (انحراف)
+                        <p>تحرف العنصر عند التمرير.</p>
+                        <pre>&lt;div hover-9&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-9>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-10`</strong> (عتامة)
+                        <p>تقلل العتامة عند التمرير.</p>
+                        <pre>&lt;div hover-10&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-10>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-11`</strong> (رسوم متحركة نبضية)
+                        <p>تطبق رسومًا متحركة نبضية عند التمرير.</p>
+                        <pre>&lt;div hover-11&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-11>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-12`</strong> (رسوم متحركة متمايلة)
+                        <p>تطبق رسومًا متحركة متمايلة عند التمرير.</p>
+                        <pre>&lt;div hover-12&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-12>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-13`</strong> (رسوم متحركة ارتدادية)
+                        <p>تطبق رسومًا متحركة ارتدادية عند التمرير.</p>
+                        <pre>&lt;div hover-13&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-13>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-14`</strong> (رسوم متحركة قلب)
+                        <p>تقلب العنصر عند التمرير.</p>
+                        <pre>&lt;div hover-14&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-14>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-15`</strong> (انزلاق لليمين)
+                        <p>تحرك العنصر لليمين عند التمرير.</p>
+                        <pre>&lt;div hover-15&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-15>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-16`</strong> (انزلاق لليسار)
+                        <p>تحرك العنصر لليسار عند التمرير.</p>
+                        <pre>&lt;div hover-16&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-16>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-17`</strong> (انزلاق لأعلى)
+                        <p>تحرك العنصر لأعلى عند التمرير.</p>
+                        <pre>&lt;div hover-17&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-17>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-18`</strong> (انزلاق لأسفل)
+                        <p>تحرك العنصر لأسفل عند التمرير.</p>
+                        <pre>&lt;div hover-18&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-18>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-19`</strong> (لون النص)
+                        <p>تغير لون النص عند التمرير.</p>
+                        <pre>&lt;div hover-19&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-19 style="color: #fff;">تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-20`</strong> (ظل داخلي)
+                        <p>تطبق ظلاً داخليًا عند التمرير.</p>
+                        <pre>&lt;div hover-20&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-20>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-21`</strong> (نصف قطر الحدود)
+                        <p>تغير نصف قطر الحدود إلى 50px عند التمرير.</p>
+                        <pre>&lt;div hover-21&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-21>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-22`</strong> (تدرج رمادي)
+                        <p>تطبق فلتر تدرج رمادي عند التمرير.</p>
+                        <pre>&lt;div hover-22&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-22 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Grey');">تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-23`</strong> (تشبع)
+                        <p>تزيد التشبع عند التمرير.</p>
+                        <pre>&lt;div hover-23&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-23 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Sat');">تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-24`</strong> (تدوير Hue)
+                        <p>تدور Hue بمقدار 90 درجة عند التمرير.</p>
+                        <pre>&lt;div hover-24&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-24 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Hue');">تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-25`</strong> (ظل نيون)
+                        <p>تطبق ظلاً نيونياً عند التمرير.</p>
+                        <pre>&lt;div hover-25&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-25>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-26`</strong> (حدود متقطعة)
+                        <p>تغير الحدود إلى متقطعة عند التمرير.</p>
+                        <pre>&lt;div hover-26&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-26>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-27`</strong> (حدود منقطة)
+                        <p>تغير الحدود إلى منقطة عند التمرير.</p>
+                        <pre>&lt;div hover-27&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-27>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-28`</strong> (تأثير زجاجي)
+                        <p>تطبق تأثير زجاجي خفيف عند التمرير.</p>
+                        <pre>&lt;div hover-28&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-28>تمرير</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `hover-29`</strong> (لون الظل)
+                        <p>تغير لون الظل عند التمرير.</p>
+                        <pre>&lt;div hover-29&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" hover-29>تمرير</div>
+                    </div>
+                </div>
+                <h3>تأثيرات تحويل الشكل عند التمرير (Morph Hover Effects)</h3>
+                <p>تسمح هذه السمات بتحول مسار قص العنصر بسلاسة إلى شكل مختلف عند التمرير.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `morph-hover="star"`</strong>
+                        <p>عند التمرير، يتحول العنصر إلى شكل نجمة.</p>
+                        <pre>&lt;div morph-hover="star" circle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="star" circle>تحول إلى نجمة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `morph-hover="circle"`</strong>
+                        <p>عند التمرير، يتحول العنصر إلى شكل دائرة.</p>
+                        <pre>&lt;div morph-hover="circle" square&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="circle" square>تحول إلى دائرة</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `morph-hover="hexagon"`</strong>
+                        <p>عند التمرير، يتحول العنصر إلى شكل سداسي.</p>
+                        <pre>&lt;div morph-hover="hexagon" triangle&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="hexagon" triangle>تحول إلى سداسي</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `morph-hover="diamond"`</strong>
+                        <p>عند التمرير، يتحول العنصر إلى شكل ماسة.</p>
+                        <pre>&lt;div morph-hover="diamond" ellipse&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" morph-hover="diamond" ellipse>تحول إلى ماسة</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gradients">
+                <h2>التدرجات اللونية (Gradients)</h2>
+                <p>تطبيق تدرجات خطية حديثة كألوان خلفية.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-1`</strong>
+                        <p>تدرج من #6600FF إلى #FF6FD8.</p>
+                        <pre>&lt;div gradient-1&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-1></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-2`</strong>
+                        <p>تدرج من #43e97b إلى #38f9d7.</p>
+                        <pre>&lt;div gradient-2&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-2></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-3`</strong>
+                        <p>تدرج من #f7971e إلى #ffd200.</p>
+                        <pre>&lt;div gradient-3&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-3></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-4`</strong>
+                        <p>تدرج من #f953c6 إلى #b91d73.</p>
+                        <pre>&lt;div gradient-4&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-4></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-5`</strong>
+                        <p>تدرج من #30cfd0 إلى #330867.</p>
+                        <pre>&lt;div gradient-5&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-5></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-6`</strong>
+                        <p>تدرج من #5ee7df إلى #b490ca.</p>
+                        <pre>&lt;div gradient-6&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-6></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-7`</strong>
+                        <p>تدرج من #ee9ca7 إلى #ffdde1.</p>
+                        <pre>&lt;div gradient-7&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-7></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-8`</strong>
+                        <p>تدرج من #f6d365 إلى #fda085.</p>
+                        <pre>&lt;div gradient-8&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-8></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-9`</strong>
+                        <p>تدرج من #6600ff إلى #c6e8f8.</p>
+                        <pre>&lt;div gradient-9&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-9></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gradient-10`</strong>
+                        <p>تدرج من #ffffff إلى #00c3ff.</p>
+                        <pre>&lt;div gradient-10&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gradient-10></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="components">
+                <h2>المكونات</h2>
+                <h3>البطاقات (Card)</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `card`</strong>
+                        <p>مكون بطاقة منسق مع حشوة، نصف قطر للحدود، وظل.</p>
+                        <pre>&lt;div card&gt;...&lt;/div&gt;</pre>
+                        <div card style="max-width: none; margin: 10px 0;">
+                            <h4>عنوان البطاقة</h4>
+                            <p>هذا بعض المحتوى داخل بطاقة Flamingo CSS.</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>الزر (Button)</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `button`</strong>
+                        <p>زر منسق مع حشوة، نصف قطر للحدود، خلفية، وتأثيرات تمرير.</p>
+                        <pre>&lt;button button&gt;اضغط هنا&lt;/button&gt;</pre>
+                        <button button class="example-button">اضغط هنا</button>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `btn='{color}'`</strong>
+                        <p>أزرار ملونة. استبدل `{color}` بألوان محددة مسبقًا مثل `purple`، `blue`، `red`، إلخ.</p>
+                        <pre>&lt;button btn='purple'&gt;أرجواني&lt;/button&gt;
+&lt;button btn='green'&gt;أخضر&lt;/button&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap;">
+                            <button btn='purple' class="example-button">أرجواني</button>
+                            <button btn='blue' class="example-button">أزرق</button>
+                            <button btn='red' class="example-button">أحمر</button>
+                            <button btn='green' class="example-button">أخضر</button>
+                            <button btn='yellow' class="example-button">أصفر</button>
+                            <button btn='orange' class="example-button">برتقالي</button>
+                            <button btn='pink' class="example-button">وردي</button>
+                            <button btn='teal' class="example-button">أزرق مخضر</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="background-colors">
+                <h2>ألوان الخلفية</h2>
+                <p>تعيين ألوان الخلفية باستخدام محددات السمات للألوان الأساسية والتدرجات المختلفة (على سبيل المثال، <code>red</code>، <code>red-500</code>).</p>
+                <h3>الألوان الأساسية</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `red`</strong>
+                        <p>تضبط الخلفية إلى أحمر نابض بالحياة.</p>
+                        <pre>&lt;div red&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" red></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `pink`</strong>
+                        <p>تضبط الخلفية إلى وردي نابض بالحياة.</p>
+                        <pre>&lt;div pink&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" pink></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `purple`</strong>
+                        <p>تضبط الخلفية إلى أرجواني عميق.</p>
+                        <pre>&lt;div purple&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" purple></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `deep-purple`</strong>
+                        <p>تضبط الخلفية إلى أرجواني أغمق.</p>
+                        <pre>&lt;div deep-purple&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" deep-purple></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `indigo`</strong>
+                        <p>تضبط الخلفية إلى أزرق نيلي.</p>
+                        <pre>&lt;div indigo&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" indigo></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `blue`</strong>
+                        <p>تضبط الخلفية إلى أزرق قياسي.</p>
+                        <pre>&lt;div blue&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blue></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `light-blue`</strong>
+                        <p>تضبط الخلفية إلى أزرق فاتح.</p>
+                        <pre>&lt;div light-blue&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light-blue></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `cyan`</strong>
+                        <p>تضبط الخلفية إلى أزرق سيان.</p>
+                        <pre>&lt;div cyan&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" cyan></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `teal`</strong>
+                        <p>تضبط الخلفية إلى أخضر مخضر.</p>
+                        <pre>&lt;div teal&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" teal></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `green`</strong>
+                        <p>تضبط الخلفية إلى أخضر نابض بالحياة.</p>
+                        <pre>&lt;div green&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" green></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `light-green`</strong>
+                        <p>تضبط الخلفية إلى أخضر فاتح.</p>
+                        <pre>&lt;div light-green&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light-green></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `lime`</strong>
+                        <p>تضبط الخلفية إلى أخضر ليموني.</p>
+                        <pre>&lt;div lime&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" lime></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `yellow`</strong>
+                        <p>تضبط الخلفية إلى أصفر ذهبي.</p>
+                        <pre>&lt;div yellow&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" yellow></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `amber`</strong>
+                        <p>تضبط الخلفية إلى أصفر كهرماني.</p>
+                        <pre>&lt;div amber&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" amber></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `orange`</strong>
+                        <p>تضبط الخلفية إلى برتقالي.</p>
+                        <pre>&lt;div orange&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" orange></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `deep-orange`</strong>
+                        <p>تضبط الخلفية إلى برتقالي عميق.</p>
+                        <pre>&lt;div deep-orange&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" deep-orange></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `brown`</strong>
+                        <p>تضبط الخلفية إلى بني.</p>
+                        <pre>&lt;div brown&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" brown></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `gray`</strong>
+                        <p>تضبط الخلفية إلى رمادي قياسي.</p>
+                        <pre>&lt;div gray&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" gray></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `blue-gray`</strong>
+                        <p>تضبط الخلفية إلى أزرق رمادي.</p>
+                        <pre>&lt;div blue-gray&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blue-gray></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `black`</strong>
+                        <p>تضبط الخلفية إلى أسود داكن.</p>
+                        <pre>&lt;div black&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" black></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `white`</strong>
+                        <p>تضبط الخلفية إلى أبيض.</p>
+                        <pre>&lt;div white&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" white style="border: 1px solid #ddd;"></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `light`</strong>
+                        <p>تضبط الخلفية إلى أرجواني/رمادي فاتح جداً.</p>
+                        <pre>&lt;div light&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" light></div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `dark`</strong>
+                        <p>تضبط الخلفية إلى رمادي/أزرق داكن.</p>
+                        <pre>&lt;div dark&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" dark></div>
+                    </div>
+                </div>
+
+                <h3>تدرجات الألوان (على سبيل المثال، `red-100` إلى `red-900`)</h3>
+                <p>يحتوي كل لون رئيسي (أحمر، أزرق، أخضر، أصفر، أرجواني، رمادي) على 10 درجات من 50 (الأفتح) إلى 900 (الأغمق).</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمات `red-50` إلى `red-900`</strong>
+                        <p>درجات مختلفة من الأحمر.</p>
+                        <pre>&lt;div red-50&gt;&lt;/div&gt;
+&lt;div red-500&gt;&lt;/div&gt;
+&lt;div red-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" red-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" red-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `blue-50` إلى `blue-900`</strong>
+                        <p>درجات مختلفة من الأزرق.</p>
+                        <pre>&lt;div blue-50&gt;&lt;/div&gt;
+&lt;div blue-500&gt;&lt;/div&gt;
+&lt;div blue-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" blue-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" blue-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `green-50` إلى `green-900`</strong>
+                        <p>درجات مختلفة من الأخضر.</p>
+                        <pre>&lt;div green-50&gt;&lt;/div&gt;
+&lt;div green-500&gt;&lt;/div&gt;
+&lt;div green-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" green-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" green-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `yellow-50` إلى `yellow-900`</strong>
+                        <p>درجات مختلفة من الأصفر.</p>
+                        <pre>&lt;div yellow-50&gt;&lt;/div&gt;
+&lt;div yellow-500&gt;&lt;/div&gt;
+&lt;div yellow-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" yellow-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" yellow-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `purple-50` إلى `purple-900`</strong>
+                        <p>درجات مختلفة من الأرجواني.</p>
+                        <pre>&lt;div purple-50&gt;&lt;/div&gt;
+&lt;div purple-500&gt;&lt;/div&gt;
+&lt;div purple-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" purple-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" purple-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `gray-50` إلى `gray-900`</strong>
+                        <p>درجات مختلفة من الرمادي.</p>
+                        <pre>&lt;div gray-50&gt;&lt;/div&gt;
+&lt;div gray-500&gt;&lt;/div&gt;
+&lt;div gray-900&gt;&lt;/div&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
+                            <div class="example-box" gray-50 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-200 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-500 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-700 style="width: 40px; height: 40px; margin: 5px;"></div>
+                            <div class="example-box" gray-900 style="width: 40px; height: 40px; margin: 5px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="text-colors">
+                <h2>ألوان النصوص</h2>
+                <p>تعيين ألوان النصوص باستخدام محددات السمات، مسبوقة بحرف `t` للألوان الأساسية والتدرجات المختلفة (على سبيل المثال، <code>tred</code>، <code>tred-500</code>).</p>
+                <h3>ألوان النصوص الأساسية</h3>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمة `tred`</strong>
+                        <p>تضبط لون النص إلى أحمر نابض بالحياة.</p>
+                        <pre>&lt;span tred&gt;...&lt;/span&gt;</pre>
+                        <p tred>نص أحمر</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tpink`</strong>
+                        <p>تضبط لون النص إلى وردي نابض بالحياة.</p>
+                        <pre>&lt;span tpink&gt;...&lt;/span&gt;</pre>
+                        <p tpink>نص وردي</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tpurple`</strong>
+                        <p>تضبط لون النص إلى أرجواني عميق.</p>
+                        <pre>&lt;span tpurple&gt;...&lt;/span&gt;</pre>
+                        <p tpurple>نص أرجواني</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tdeep-purple`</strong>
+                        <p>تضبط لون النص إلى أرجواني أغمق.</p>
+                        <pre>&lt;span tdeep-purple&gt;...&lt;/span&gt;</pre>
+                        <p tdeep-purple>نص أرجواني داكن</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tindigo`</strong>
+                        <p>تضبط لون النص إلى أزرق نيلي.</p>
+                        <pre>&lt;span tindigo&gt;...&lt;/span&gt;</pre>
+                        <p tindigo>نص نيلي</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tblue`</strong>
+                        <p>تضبط لون النص إلى أزرق قياسي.</p>
+                        <pre>&lt;span tblue&gt;...&lt;/span&gt;</pre>
+                        <p tblue>نص أزرق</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tlight-blue`</strong>
+                        <p>تضبط لون النص إلى أزرق فاتح.</p>
+                        <pre>&lt;span tlight-blue&gt;...&lt;/span&gt;</pre>
+                        <p tlight-blue>نص أزرق فاتح</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tcyan`</strong>
+                        <p>تضبط لون النص إلى أزرق سيان.</p>
+                        <pre>&lt;span tcyan&gt;...&lt;/span&gt;</pre>
+                        <p tcyan>نص سيان</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tteal`</strong>
+                        <p>تضبط لون النص إلى أخضر مخضر.</p>
+                        <pre>&lt;span tteal&gt;...&lt;/span&gt;</pre>
+                        <p tteal>نص أخضر مخضر</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tgreen`</strong>
+                        <p>تضبط لون النص إلى أخضر نابض بالحياة.</p>
+                        <pre>&lt;span tgreen&gt;...&lt;/span&gt;</pre>
+                        <p tgreen>نص أخضر</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tlight-green`</strong>
+                        <p>تضبط لون النص إلى أخضر فاتح.</p>
+                        <pre>&lt;span tlight-green&gt;...&lt;/span&gt;</pre>
+                        <p tlight-green>نص أخضر فاتح</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tlime`</strong>
+                        <p>تضبط لون النص إلى أخضر ليموني.</p>
+                        <pre>&lt;span tlime&gt;...&lt;/span&gt;</pre>
+                        <p tlime>نص ليموني</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tyellow`</strong>
+                        <p>تضبط لون النص إلى أصفر ذهبي.</p>
+                        <pre>&lt;span tyellow&gt;...&lt;/span&gt;</pre>
+                        <p tyellow>نص أصفر</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tamber`</strong>
+                        <p>تضبط لون النص إلى أصفر كهرماني.</p>
+                        <pre>&lt;span tamber&gt;...&lt;/span&gt;</pre>
+                        <p tamber>نص كهرماني</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `torange`</strong>
+                        <p>تضبط لون النص إلى برتقالي.</p>
+                        <pre>&lt;span torange&gt;...&lt;/span&gt;</pre>
+                        <p torange>نص برتقالي</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tdeep-orange`</strong>
+                        <p>تضبط لون النص إلى برتقالي عميق.</p>
+                        <pre>&lt;span tdeep-orange&gt;...&lt;/span&gt;</pre>
+                        <p tdeep-orange>نص برتقالي داكن</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tbrown`</strong>
+                        <p>تضبط لون النص إلى بني.</p>
+                        <pre>&lt;span tbrown&gt;...&lt;/span&gt;</pre>
+                        <p tbrown>نص بني</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tgray`</strong>
+                        <p>تضبط لون النص إلى رمادي قياسي.</p>
+                        <pre>&lt;span tgray&gt;...&lt;/span&gt;</pre>
+                        <p tgray>نص رمادي</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tblue-gray`</strong>
+                        <p>تضبط لون النص إلى أزرق رمادي.</p>
+                        <pre>&lt;span tblue-gray&gt;...&lt;/span&gt;</pre>
+                        <p tblue-gray>نص أزرق رمادي</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tblack`</strong>
+                        <p>تضبط لون النص إلى أسود داكن.</p>
+                        <pre>&lt;span tblack&gt;...&lt;/span&gt;</pre>
+                        <p tblack>نص أسود</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `twhite`</strong>
+                        <p>تضبط لون النص إلى أبيض.</p>
+                        <pre>&lt;span twhite&gt;...&lt;/span&gt;</pre>
+                        <p twhite style="background-color: #263238;">نص أبيض</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tlight`</strong>
+                        <p>تضبط لون النص إلى أرجواني/رمادي فاتح جداً.</p>
+                        <pre>&lt;span tlight&gt;...&lt;/span&gt;</pre>
+                        <p tlight style="background-color: #263238;">نص فاتح</p>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>سمة `tdark`</strong>
+                        <p>تضبط لون النص إلى رمادي/أزرق داكن.</p>
+                        <pre>&lt;span tdark&gt;...&lt;/span&gt;</pre>
+                        <p tdark>نص داكن</p>
+                    </div>
+                </div>
+
+                <h3>تدرجات ألوان النصوص (على سبيل المثال، `tred-100` إلى `tred-900`)</h3>
+                <p>يحتوي كل لون رئيسي (أحمر، أزرق، أخضر، أصفر، أرجواني، رمادي) على 10 درجات من 50 (الأفتح) إلى 900 (الأغمق).</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>سمات `tred-50` إلى `tred-900`</strong>
+                        <p>درجات مختلفة من النص الأحمر.</p>
+                        <pre>&lt;span tred-50&gt;نص&lt;/span&gt;
+&lt;span tred-500&gt;نص&lt;/span&gt;
+&lt;span tred-900&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tred-50 style="margin: 5px;">نص</span>
+                            <span tred-200 style="margin: 5px;">نص</span>
+                            <span tred-500 style="margin: 5px;">نص</span>
+                            <span tred-700 style="margin: 5px;">نص</span>
+                            <span tred-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `tblue-50` إلى `tblue-900`</strong>
+                        <p>درجات مختلفة من النص الأزرق.</p>
+                        <pre>&lt;span tblue-50&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tblue-50 style="margin: 5px;">نص</span>
+                            <span tblue-200 style="margin: 5px;">نص</span>
+                            <span tblue-500 style="margin: 5px;">نص</span>
+                            <span tblue-700 style="margin: 5px;">نص</span>
+                            <span tblue-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `tgreen-50` إلى `tgreen-900`</strong>
+                        <p>درجات مختلفة من النص الأخضر.</p>
+                        <pre>&lt;span tgreen-50&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tgreen-50 style="margin: 5px;">نص</span>
+                            <span tgreen-200 style="margin: 5px;">نص</span>
+                            <span tgreen-500 style="margin: 5px;">نص</span>
+                            <span tgreen-700 style="margin: 5px;">نص</span>
+                            <span tgreen-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `tyellow-50` إلى `tyellow-900`</strong>
+                        <p>درجات مختلفة من النص الأصفر.</p>
+                        <pre>&lt;span tyellow-50&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tyellow-50 style="margin: 5px;">نص</span>
+                            <span tyellow-200 style="margin: 5px;">نص</span>
+                            <span tyellow-500 style="margin: 5px;">نص</span>
+                            <span tyellow-700 style="margin: 5px;">نص</span>
+                            <span tyellow-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `tpurple-50` إلى `tpurple-900`</strong>
+                        <p>درجات مختلفة من النص الأرجواني.</p>
+                        <pre>&lt;span tpurple-50&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tpurple-50 style="margin: 5px;">نص</span>
+                            <span tpurple-200 style="margin: 5px;">نص</span>
+                            <span tpurple-500 style="margin: 5px;">نص</span>
+                            <span tpurple-700 style="margin: 5px;">نص</span>
+                            <span tpurple-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                     <div class="attribute-item">
+                        <strong>سمات `tgray-50` إلى `tgray-900`</strong>
+                        <p>درجات مختلفة من النص الرمادي.</p>
+                        <pre>&lt;span tgray-50&gt;نص&lt;/span&gt;</pre>
+                        <div flex-row style="flex-wrap: wrap; margin-top: 10px; background-color: #444; padding: 10px; border-radius: 5px;">
+                            <span tgray-50 style="margin: 5px;">نص</span>
+                            <span tgray-200 style="margin: 5px;">نص</span>
+                            <span tgray-500 style="margin: 5px;">نص</span>
+                            <span tgray-700 style="margin: 5px;">نص</span>
+                            <span tgray-900 style="margin: 5px;">نص</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer style="text-align: center; padding: 20px; color: #777; font-size: 0.9em; margin-top: 30px; background-color: #f0e6fa; border-radius: 15px 15px 0 0;">
+            <p>&copy; 2025 إطار عمل Flamingo CSS. تم توثيقه بواسطة عمرو خالد (مواليد 2010).</p>
+        </footer>
+    </div>
+</body>
+</html>
