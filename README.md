@@ -53,9 +53,9 @@ Framework Agnostic: Works seamlessly with your favorite JavaScript frameworks (R
 
 📦 Installation
 To get started with Butterfly, simply include the CSS file directly in your HTML's <head> section. There are no npm or yarn packages to install, keeping the integration straightforward and lightweight.
-<link rel="stylesheet" href="https://amr2010m.github.io/butterfly-css/float.css">
+<link rel="stylesheet" href="https://685be4ec7ffbeb278c926b16--spontaneous-otter-95ccbf.netlify.app/butterfly%20css/float.css">
 
-https://amr2010m.github.io/butterfly-css/float.css
-https://685a9def510be100aec47fe8--guileless-zuccutto-146058.netlify.app/
+
+https://685be4ec7ffbeb278c926b16--spontaneous-otter-95ccbf.netlify.app/
 
 
