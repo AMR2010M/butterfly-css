@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>butterfly css examples</title>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+    <meta name="google-site-verification" content="TNBKkaluYy9Yjf7SzBAyjOm6WpwnTPsrP8XOKyfxCsQ" />
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#8e24aa">
+    <meta name="msapplication-navbutton-color" content="#8e24aa">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#8e24aa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="butterfly css/float.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="blocks.css" rel="stylesheet">
+    <style>
+       body, html {
+          height: 800vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', Arial, sans-serif;
+            background: linear-gradient(120deg, #f8f7ff 60%, #e0d7ff 100%);
+            color: #3d0066;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        nav {
+            background-color: #9d00ff;
+            box-shadow: 0 4px 24px #8e24aa22;
+        }
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo-flex {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+        .logo-flex svg {
+            width: 48px;
+            height: 48px;
+            display: block;
+        }
+        .logo-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ea00ff;
+        }
+        .download-btn {
+            background: #ff00b7;
+            color: #ffffff;
+            border-radius: 1em;
+            padding: 0.6em 1.5em;
+            font-weight: bold;
+            border: none;
+            font-size: 1.1em;
+            margin-left: 1em;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px #8e24aa22;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background: #a200ff;
+            color: #3d0066;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        @media (max-width: 900px) {
+            .navbar-inner {
+                flex-direction: row;
+                height: auto;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 1em;
+            background: #8400ff;
+            padding: 1.5em 1em 1em 1em;
+            border-radius: 0 0 1.5em 1.5em;
+            box-shadow: 0 4px 24px #8e24aa22;
+        }
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+            padding: 0.5em 0;
+            border-radius: 0.5em;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mobile-menu a:hover {
+            background: #ff00c8;
+            color: #3d0066;
+        }
+        .mobile-download-btn {
+            background: #f700ff;
+            color: #ffffff;
+            border-radius: 1em;
+            padding: 0.6em 1.5em;
+            font-weight: bold;
+            border: none;
+            font-size: 1.1em;
+            margin-top: 1em;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        .mobile-download-btn:hover {
+            background: #ffffff;
+            color: #3d0066;
+        }
+        .main {
+            min-height: 494px;
+            width: 100%;
+           
+          
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .main-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .main-header h1 {
+            color: #8e24aa;
+            font-size: 3.5rem;
+            font-family: 'Cairo', Arial, sans-serif;
+            margin: 0.5rem 0 0.2rem 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .main-header h4 {
+            color: #3d0066;
+            font-size: 1.5rem;
+            font-family: 'Cairo', Arial, sans-serif;
+            margin: 0.2rem 0 0 0;
+            font-weight: 400;
+        }
+        .main-actions {
+            display: flex;
+            gap: 1.2em;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+        .main-actions .download-btn {
+            margin-left: 0;
+        }
+        .main-actions .pcr {
+            background: #fff;
+            color: #8e24aa;
+            border: 2px solid #8e24aa;
+            border-radius: 8px;
+            font-size: 1.1em;
+            padding: 0.6em 1.5em;
+            font-weight: bold;
+            margin-left: 0.5em;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .main-actions .pcr:hover {
+            background: #ffd600;
+            color: #3d0066;
+        }
+        .main-title {
+            color: #920ceb;
+            font-size: 2.5rem;
+            font-family: 'Cairo', Arial, sans-serif;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .alive {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 100px auto;
+            justify-items: center;
+            text-align: center;
+        }
+        @media (min-width: 1024px) {
+            .alive {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .alive h5 {
+            font-size: 1.5rem;
+            color: #fff;
+            font-family: 'Cairo', Arial, sans-serif;
+            margin: 0;
+        }
+        footer {
+            margin-top: auto;
+            background-color: #753d9a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+         
+            box-shadow: 0 -2px 24px #8e24aa22;
+        }
+        footer h1 {
+            opacity: 0.7;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        footer p, footer div {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        .footer-icons i {
+            font-size: 1.5em;
+            margin: 0 0.5em;}
+    </style>
+</head>
+<body  gradient-2>
+    
+ 
+     <ul navbar  style="background-color: #8400ff;">
+             <span class="logo-title" style="font-size: larger; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">  butterfly </span> 
+        <li>home</li>
+        <li>docs</li>
+        <li>about</li>
+       <li>blocks</li>
+     </ul>
+
+        <div class="main"  > 
+            
+            <div class="main-header">
+                <h1 style="color:#8c00ff; font-family: monospace; "> butterfly UI blocks </h1>
+                                <h4>+100 unique ready to use css blocks.</h4>
+               <input search-1 placeholder="Search for examples..." type="text" grow  style="margin-top: 3rem;">
+                
+
+            </div>
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player style="margin-bottom:-600px;" src="https://lottie.host/cee1d2d6-c425-442b-8e2c-19c603c32add/yxQ8kZqxLF.lottie" background="transparent" speed="1" style="width: 800px; height: 300px" loop autoplay></dotlottie-player>
+</body>
+</html>

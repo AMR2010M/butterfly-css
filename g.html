@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر دراجات ليليان ونازي | دراجات هوائية مميزة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333;
+            direction: rtl; /* Right-to-left direction */
+            text-align: right; /* Default text alignment for RTL */
+        }
+        /* Custom styles for gradients and shadows not easily done with Tailwind */
+        .hero-gradient {
+            background: linear-gradient(to bottom right, #5a67d8, #667eea); /* Blue to purple gradient */
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #667eea, #7952b3); /* Purple gradient */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .product-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #667eea;
+            margin-top: 8px;
+            margin-right: 0; /* Align right for RTL */
+            margin-left: auto; /* Push to right for RTL */
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center flex-wrap">
+            <a href="#" class="text-3xl font-extrabold text-indigo-700 hover:text-indigo-800 transition-colors duration-300 rounded-lg p-2">
+                متجر <span class="text-purple-600">الدراجات</span>
+            </a>
+            <nav class="flex items-center space-x-4 space-x-reverse mt-4 md:mt-0">
+                <a href="#home" class="text-gray-700 hover:text-indigo-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">الرئيسية</a>
+                <a href="#products" class="text-gray-700 hover:text-indigo-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">منتجاتنا</a>
+                <a href="#about" class="text-gray-700 hover:text-indigo-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">من نحن</a>
+                <a href="#contact" class="text-gray-700 hover:text-indigo-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">تواصل معنا</a>
+            </nav>
+            <div class="mt-4 md:mt-0">
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all duration-300">
+                    تسجيل الدخول
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient text-white py-20 md:py-32 rounded-b-3xl shadow-xl">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                    انطلق في مغامرتك القادمة مع <span class="text-yellow-300">دراجاتنا</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
+                    اكتشف مجموعتنا الواسعة من الدراجات عالية الجودة، المصممة لكل راكب ومغامرة.
+                </p>
+                <a href="#products" class="inline-block btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg text-lg">
+                    استكشف الدراجات الآن
+                </a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 bg-white rounded-xl shadow-lg m-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto w-fit">منتجاتنا المميزة</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Card 1 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/a78bfa/ffffff?text=دراجة+جبلية" alt="دراجة جبلية" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">دراجة جبلية احترافية</h3>
+                        <p class="text-gray-600 mb-4">مثالية للمسارات الوعرة والمغامرات الجبلية.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">8500 جنيه</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">أضف إلى السلة</button>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/fca5a5/ffffff?text=دراجة+طريق" alt="دراجة طريق" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">دراجة طريق رياضية</h3>
+                        <p class="text-gray-600 mb-4">خفيفة وسريعة، لمسافات طويلة وسباقات.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">12000 جنيه</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">أضف إلى السلة</button>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/a3e635/ffffff?text=دراجة+أطفال" alt="دراجة أطفال" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">دراجة أطفال ملونة</h3>
+                        <p class="text-gray-600 mb-4">متعة وأمان لأصغر راكب في العائلة.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">2500 جنيه</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">أضف إلى السلة</button>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/fcd34d/ffffff?text=دراجة+هجينة" alt="دراجة هجينة" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">دراجة هجينة متعددة الاستخدامات</h3>
+                        <p class="text-gray-600 mb-4">مثالية للمدينة والطرق الخفيفة.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">6000 جنيه</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">أضف إلى السلة</button>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/818cf8/ffffff?text=دراجة+كهربائية" alt="دراجة كهربائية" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">دراجة كهربائية حديثة</h3>
+                        <p class="text-gray-600 mb-4">قوة إضافية لتسلق التلال والرحلات الطويلة.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">18000 جنيه</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">أضف إلى السلة</button>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center product-card border border-gray-200">
+                        <img src="https://placehold.co/400x300/a3e635/ffffff?text=اكسسوارات" alt="اكسسوارات الدراجة" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-2">مجموعة اكسسوارات</h3>
+                        <p class="text-gray-600 mb-4">خوذات، قفازات، إضاءة والمزيد.</p>
+                        <span class="text-3xl font-extrabold text-purple-600">تختلف الأسعار</span>
+                        <button class="mt-4 btn-primary text-white py-2 px-6 rounded-full font-semibold block w-full">استكشف</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 bg-gradient-to-l from-indigo-500 to-purple-600 text-white rounded-xl shadow-lg m-8">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/fff/333?text=عن+متجرنا" alt="فريق متجر الدراجات" class="rounded-xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-center md:text-right">
+                    <h2 class="text-4xl font-bold mb-6 section-title text-white mx-auto md:mx-0 w-fit md:mr-auto">من نحن</h2>
+                    <p class="text-lg mb-4 leading-relaxed opacity-90">
+                        نحن في متجر الدراجات، نؤمن بأن ركوب الدراجات ليس مجرد هواية، بل أسلوب حياة. منذ عام 2010 (أنا مولود في 2010 أيضاً يا عمرو!)، التزمنا بتوفير أفضل الدراجات والإكسسوارات، مع خدمة عملاء لا مثيل لها.
+                    </p>
+                    <p class="text-lg leading-relaxed opacity-90">
+                        هدفنا هو مساعدة كل شخص، من المبتدئين إلى المحترفين، في العثور على الدراجة المثالية التي تناسب احتياجاتهم وشغفهم.
+                    </p>
+                    <p class="text-lg leading-relaxed opacity-90 font-semibold mt-4">
+                        نحن هنا لنقدم لك الدعم والمشورة، لأن شغفك هو شغفنا!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white rounded-xl shadow-lg m-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center section-title mx-auto w-fit">تواصل معنا</h2>
+
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200">
+                    <p class="text-lg text-gray-700 mb-6 text-center">
+                        لأي استفسارات أو دعم، لا تتردد في التواصل معنا. يسعدنا دائمًا خدمتك!
+                    </p>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-lg font-semibold mb-2">اسمك:</label>
+                            <input type="text" id="name" name="name" placeholder="عمرو خالد" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 text-lg" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-lg font-semibold mb-2">بريدك الإلكتروني:</label>
+                            <input type="email" id="email" name="email" placeholder="example@domain.com" class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 text-lg" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-lg font-semibold mb-2">رسالتك:</label>
+                            <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." class="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200 text-lg" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary text-white py-3 px-8 rounded-full font-semibold text-lg w-full">
+                            إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+                <div class="mt-12 text-center">
+                    <p class="text-xl font-bold text-indigo-700 mb-2">
+                        الموقع: <a href="https://maps.google.com" target="_blank" class="text-purple-600 hover:underline">123 شارع الدراجات، القاهرة، مصر</a>
+                    </p>
+                    <p class="text-xl font-bold text-indigo-700 mb-2">
+                        الهاتف: <a href="tel:+201234567890" class="text-purple-600 hover:underline">+20 123 456 7890</a>
+                    </p>
+                    <p class="text-xl font-bold text-indigo-700">
+                        البريد الإلكتروني: <a href="mailto:info@bikeshop.com" class="text-purple-600 hover:underline">info@bikeshop.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4 text-lg">
+                &copy; 2025 متجر الدراجات. جميع الحقوق محفوظة.
+            </p>
+            <div class="flex justify-center space-x-6 space-x-reverse">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">الخصوصية</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">الشروط والأحكام</a>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+                تصميم وتطوير بواسطة <span class="font-bold text-purple-400">عمرو خالد احمد السيد احمد كيلاني</span>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

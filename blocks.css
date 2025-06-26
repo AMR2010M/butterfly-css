@@ -1,0 +1,81 @@
+[search-1]{
+    width:30rem;
+    height: 3rem;
+  border :1px solid rgb(200, 0, 255);
+
+   
+    border-radius: 7px;
+   color: #360348;
+   font-size: x-large;
+    
+ box-shadow: 0 0 30px  rgb(170, 0, 255);
+}
+
+
+   
+  
+
+ 
+
+[navbar]{
+ 
+    height:5rem;
+    box-shadow: 0 0 10px #02000237;
+    width: 100%;
+    list-style: none;
+    display: flex;
+flex-direction: row;
+justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    
+}
+[navbar] li{
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+[navbar] a{
+  color: #ffffff;
+    text-decoration: none;
+}
+[logo]{
+  position: absolute;
+  left: 10px;
+  margin-right: 20px;
+}
+[list]{
+    width: 120px;
+    height:300px;
+    margin: 0px;
+ list-style: none;
+    display: flex;
+flex-direction:column;
+justify-content: center;
+    align-items: center
+    margin: 0;
+        position: absolute;
+        right:15px;
+        top: 88px;
+     overflow: hidden;
+     padding-right: 50px;
+}
+[list] li{
+  
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+[list] a{
+  color: #ffffff;
+    text-decoration: none;
+
+}
+
+
