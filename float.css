@@ -1028,3 +1028,14 @@
 [w-999]{width:999px;}[h-999]{height:999px;}
 [w-1000]{width:1000px;}[h-1000]{height:1000px;}
 
+[tlarge]{font-size: 70px;}
+[tsmall]{font-size: 20px;}
+[top]{
+    position: absolute;
+    top: 0;
+}
+[bottom]{
+position: absolute;
+bottom: 0;
+}
+
