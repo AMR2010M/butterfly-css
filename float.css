@@ -11,13 +11,6 @@
 
 
 
-
-
-
-
-
-
-
 [flex-auto]{
      display: flex;
     flex-direction: row;
@@ -241,6 +234,94 @@
 [scale]:hover{
     transform: scale(1.1,1.1);
 }
+.lolo{
+    height: 88%;
+}
+@media(max-width: 1100px) {
+    .lolo {
+        height: 96%;
+    }
+}
+@media(max-width: 1200px) {
+    .courses  div{
+        margin-bottom: 50px;
+    }
+}
+.courses {
+    margin-bottom: 80px;
+}
+[space]{
+    height: 100px;
+}
+[block]{
+    display: block;
+}
+[nof]{
+    overflow: hidden;
+}
+/* Border attributes for basic colors, 2px solid, using bp color for blue-violet */
+[b-blue] {
+    border: 2px solid rgb(111, 0, 255); /* blue violet (bp) */
+}
+[b-red] {
+    border: 2px solid red;
+}
+[b-green] {
+    border: 2px solid green;
+}
+[b-yellow] {
+    border: 2px solid yellow;
+}
+[b-black] {
+    border: 2px solid black;
+}
+[b-white] {
+    border: 2px solid white;
+}
+[b-gray] {
+    border: 2px solid gray;
+}
+[b-orange] {
+    border: 2px solid orange;
+}
+[b-purple] {
+    border: 2px solid purple;
+}
+[b-pink] {
+    border: 2px solid pink;
+}
+[b-bp] {
+    border: 2px solid rgb(111, 0, 255); /* blue violet (bp) */
+}
+[jc-start] {
+    justify-content: start;
+}
+[jc-end] {
+    justify-content:end;
+}
+[ai-start] {
+    align-items: start;
+}
+[ai-end] {
+    align-items: end;
+}
+[jc-center] {
+    justify-content: center;
+}
+[ai-center] {
+    align-items: center;
+}
+[m-auto] {
+    margin: auto;
+}
+[ol]{
+    opacity: 0.5;
+}
+
+
+
+
+
 
 
 [rounded]{border-radius: 7px;}
