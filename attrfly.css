@@ -20,7 +20,7 @@
     
 }
 @media(max-width: 1200px) {
-    [re] {
+    [responsive] {
         flex-direction: column;
          justify-content: center;
     align-items: center;
