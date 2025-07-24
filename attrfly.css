@@ -27,7 +27,7 @@
     }
 }
 [bp]{
-    background-color: rgb(61, 1, 139);
+    background-color: rgb(111, 0, 255);
 }
 [tbp]{
     color: rgb(111, 0, 255);;
@@ -1460,4 +1460,7 @@ bottom: 0;
 
 [w-full]{
     width: 100%;
+}
+[z-index]{
+
 }
