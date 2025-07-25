@@ -5,7 +5,7 @@
 
 
 [columns]{display: flex; flex-direction: column; justify-content: space-evenly;  align-items: center;}
-[rows]{display: flex; flex-direction: column; justify-content: space-evenly; align-items: center;}
+[rows]{display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;}
 
 
 
