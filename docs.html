@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #e0f7fa; /* Light cyan background for the body */
+            background-color: #ffffff; /* Light cyan background for the body */
             color: #263238; /* Dark grey for general text */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         header {
-            background: linear-gradient(135deg, #4FC3F7 0%, #00B0FF 100%); /* Blue gradient */
+            background: linear-gradient(135deg, #ff0080 0%, #ff00dd 100%); /* Blue gradient */
             color: #fff;
             padding: 50px 20px;
             text-align: center;
@@ -329,10 +329,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <pre>&lt;button btn='purple'&gt;...&lt;/button&gt;</pre>
                 </p>
                 <p>
-                    The `float.css` file contains CSS rules that are internally designed to recognize these attributes without the need for square brackets in your HTML. This allows for a clean and intuitive way to add styles. Please make sure you use the attributes exactly as shown in the examples below for them to work correctly!
+                   
                 </p>
             </section>
-
+ <section id="rotate-utilities">
+                <h2>Rotate Utilities</h2>
+                <p>Apply specific rotations to elements. These attributes provide rotation in 1-degree increments from 0 to 360 degrees. Responsive variants are also available.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`rotate="0"` to `rotate="360"` attributes</strong>
+                        <p>Rotates the element by the specified degree (e.g., `rotate="45"` for 45 degrees, `rotate="180"` for 180 degrees). Values are in degrees without units in the attribute itself.</p>
+                        <pre>&lt;div rotate="45"&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" rotate="45">45°</div>
+                    </div>
+                    <div class="attribute-item">
+                        <strong>`sm-rotate="X"`, `md-rotate="X"`, `lg-rotate="X"`, `xl-rotate="X"`, `dt-rotate="X"` attributes</strong>
+                        <p>Responsive rotation utilities. Apply rotation only at or above specific breakpoints (Small, Medium, Large, Extra Large, Desktop). `X` represents the degree from 0 to 360.</p>
+                        <pre>&lt;div sm-rotate="90"&gt;&lt;/div&gt;
+&lt;div dt-rotate="270"&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" sm-rotate="90">Responsive Rotate</div>
+                    </div>
+                </div>
+            </section>
             <section id="layout-utilities">
                 <h2>Layout Utilities</h2>
                 <div class="attribute-list">
@@ -366,21 +384,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </section>
 
             <section id="background-utilities">
-                <h2>Background Utilities</h2>
+                <h2>dark mode</h2>
                 <div class="attribute-list">
                     <div class="attribute-item">
-                        <strong>`bg='auto'` attribute</strong>
-                        <p>Sets background to `center`, `no-repeat`, and `cover`.</p>
-                        <pre>&lt;div bg='auto'&gt;&lt;/div&gt;</pre>
-                        <div bg='auto' style="height: 100px; background-image: url('https://placehold.co/300x150/4FC3F7/FFFFFF?text=Background');"></div>
-                    </div>
+                        <strong>`d{color}/lwhite such as dpurple'` attribute</strong>
+                        <p>Sets background to `dark purple`,if 'dark-btn' swithed to dark. and light purple if light</p>
+                        <pre>&lt;div  dpurple lpurple&gt; &lt;/div&gt;</pre>
+                      
                     <div class="attribute-item">
-                        <strong>`glow` attribute</strong>
-                        <p>Applies an inset box shadow with a linear gradient, creating a glow effect.</p>
-                        <pre>&lt;div glow&gt;&lt;/div&gt;</pre>
-                        <div glow style="height: 100px; background-color: #00B0FF; border-radius: 10px;"></div>
-                    </div>
+                        <strong>`tl{color}/dt{color}` attribute</strong>
+                        <p>for text color in dark,light mode.</p>
+                        <pre>&lt;p dtwhite tlblue&gt;&lt;/p&gt;
+                            
+                            &lt;button dark-btn btn='black' &gt;&lt;/button&gt;
+                        </pre>
+                       
                 </div>
+                 
             </section>
 
             <section id="clip-path-shapes">
@@ -1591,7 +1611,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </body>
 </html>
-
 
 
 
