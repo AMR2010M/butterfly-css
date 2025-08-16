@@ -12,24 +12,35 @@
 
 
 
-[responsive]{
-     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    
+[responsive] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px; /* spacing between divs */
 }
 
-@media(max-width: 1200px) {
-    [responsive] {
-        flex-direction: column;
-         justify-content: center;
-    align-items: center;
-    }
-    [responsive]div{
-    margin-bottom: 10px;
+[responsive] div {
+  flex: 1 1 30%; /* default: 3 on desktop */
+  max-width: 30%;
 }
+
+/* Tablet: 2 per row */
+@media (max-width: 1200px) and (min-width: 768px) {
+  [responsive] div {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
 }
+
+/* Mobile: 1 per row */
+@media (max-width: 767px) {
+  [responsive] div {
+    flex: 1 1 90%;
+    max-width: 95%;
+  }
+}
+
 [bp]{
     background-color: rgb(111, 2, 255);
 }
@@ -1464,4 +1475,5 @@ bottom: 0;
 
 [w-full]{
     width: 100%;
+
 }
