@@ -9,9 +9,9 @@
 
 
 
+[h-screen]{height:100vh;}
 
-
-
+[w-screen]{width:100vh;}
 [responsive] {
   display: flex;
   flex-wrap: wrap;
@@ -1477,3 +1477,4 @@ bottom: 0;
     width: 100%;
 
 }
+
