@@ -278,6 +278,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#installation">Installation</a></li>
             <li><a href="#layout-utilities">Layout Utilities</a></li>
+              <li><a href="#responsive">responsive box </a></li>
+                <li><a href="#dark">dark mode</a></li>
             <li><a href="#background-utilities">Background Utilities</a></li>
             <li><a href="#clip-path-shapes">Clip-Path Shapes</a></li>
             <li><a href="#animations">Standard Animations</a></li>
@@ -381,7 +383,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="background-utilities">
+            <section id="dark">
                 <h2>dark mode</h2>
                 <div class="attribute-list">
                     <div class="attribute-item">
@@ -398,7 +400,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </pre>
                        
                 </div>
-                 
+          
+                      
+                    <div class="attribute-item">
+                        <strong>`tl{color}/dt{color}` attribute</strong>
+                        <p>for text color in dark,light mode.</p>
+                        <pre>&lt;p dtwhite tlblue&gt;&lt;/p&gt;
+                            
+                            &lt;button dark-btn btn='black' &gt;&lt;/button&gt;
+                        </pre>
+                       
+                </div>
+                       <div class="attribute-item">
+                        <strong>`dark mode cusimazation with js'` </strong>
+                       
+                        <pre>  document.addEventListener("darkModeApplied", (mode) => {
+    if (mode.detail.dark) {
+        console.log("Dark mode is active");
+        // custom dark mode logic
+    } else {
+        console.log("Light mode is active");
+        // custom light mode logic
+    }
+});</pre></div>
             </section>
 
       
@@ -951,7 +975,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="gradients">
+            <section id="responsive">
                 <h2>responisive box</h2>
                 
                 <div class="attribute-list">
