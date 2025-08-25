@@ -34,7 +34,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title> butterfly css</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
-<body>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<body style="overflow-x: hidden;">
 
 <div class="bg-white"  ball-move-1 >
   <header class="absolute inset-x-0 top-0 z-50 py-4 lg:py-5">
@@ -135,11 +137,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Modern Features Section -->
 <section class="py-20 "id="features" >
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center  mb-16" tpink >Our Features</h2>
+    <h2 class="text-4xl f text-center  mb-16" tpink >Our Features</h2>
 
     <div class="grid gap-10 md:grid-cols-3">
       <!-- Card 1 -->
-      <div  class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+      <div  data-aos="fade-right" handdrawn class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-blue-100 rounded-full">
           <!-- Icon -->
           <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
@@ -148,12 +150,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div >
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast typing</h3>
+        <h3   class="text-xl font-semibold text-gray-800 mb-2" >Fast typing</h3>
         <p class="text-gray-500 text-sm">attribute-based styling makes it so fast especially with very descriptive and short attributes</p>
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+      <div handdrawn  class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-green-100 rounded-full">
           <!-- Icon -->
           <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
@@ -167,7 +169,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
       <!-- Card 3 -->
-      <div  class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
+      <div data-aos="fade-left" handdrawn class="bg-white/80 backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-purple-100 rounded-full">
           <!-- Icon -->
           <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
@@ -299,16 +301,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="h-270 lg:h-220 xl:h-150" columns>
  <h1 center tmedium bold mb-50 monospace tpink>TestiMonials</h1>
  <div responsive >
-      <div w90p center h-250  white rounded  shadow p-20 style="box-shadow: 0 0 20px rgb(255, 0, 140);"nof mb-30>
+      <div w90p center h-250  white rounded  shadow p-20 style="box-shadow: 0 0 10px rgb(255, 0, 140);"nof mb-30 data-aos="fade-right">
         <p center tgray tsmall>It's a great product for a team that is new to motion and animation would guide them in the right direction and understand the importance of interaction in modern websites and apps</p>
         <h1 >ankush</h1>
       </div>
 
-       <div w-0p center h-250  white rounded  shadow style="box-shadow: 0 0 20px rgb(255, 0, 140);"p-40 nof mb-30>
+       <div w-0p center h-250  white rounded  shadow style="box-shadow: 0 0 10px rgb(255, 0, 140);"p-40 nof mb-30 data-aos="fade-">
          <p center tgray tsmall mb-50>looks cool enough to me, I'll may use this in the future.</p>
         <h1 >rmcvxzz</h1>
        </div>
-         <div w-0p center h-250  white rounded  shadow style="box-shadow: 0 0 20px rgb(255, 0, 140);"p-30 nof mb-30>
+         <div w-0p center h-250  white rounded  shadow style="box-shadow: 0 0 10px rgb(255, 0, 140);"p-30 nof mb-30 data-aos="fade-left">
             <p center tgray tsmall>The facilitating of frontend development, specially more in the design side is very interesting. The colours, background and animations are very important for UX.</p>
         <h1 >ruistribo</h1>
        </div>
@@ -504,6 +506,9 @@ document.addEventListener("keydown", function (event) {
   }
 }); </script>
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
+<script>
+  AOS.init();
+</script>
 </html>
 
 
