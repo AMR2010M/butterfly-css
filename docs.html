@@ -13,7 +13,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <title>butterfly css documentatation </title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <!-- Link to your external butterfly CSS file -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@main/attributes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
     <style>
         /* Base styles for the documentation page layout and theme */
         body {
@@ -86,8 +87,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         h2 {
-            color: #00B0FF; /* Bright blue for headings */
-            border-bottom: 3px solid #80D8FF; /* Lighter blue border */
+            color: #ff006f; /* Bright blue for headings */
+            border-bottom: 3px solid #ff0073; /* Lighter blue border */
             padding-bottom: 12px;
             margin-bottom: 30px;
             font-size: 2.2em;
@@ -101,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         h3 {
-            color: #4FC3F7; /* Medium blue for subheadings */
+            color: #f74f8f; /* Medium blue for subheadings */
             margin-top: 35px;
             margin-bottom: 18px;
             font-size: 1.8em;
@@ -114,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-radius: 6px;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
             font-size: 0.98em;
-            color: #0288D1; /* Darker blue text for inline code */
+            color: #ff0a8d; /* Darker blue text for inline code */
             white-space: nowrap; /* Prevent inline code from wrapping */
         }
 
@@ -153,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .attribute-item strong {
-            color: #00B0FF; /* Bright blue for attribute names */
+            color: #ff00a6; /* Bright blue for attribute names */
             font-size: 1.15em;
             display: block;
             margin-bottom: 10px;
@@ -162,18 +163,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .attribute-item p {
             font-size: 1em;
             margin: 0;
-            color: #455A64; /* Slightly darker grey for item text */
+          
         }
 
         .example-box {
             width: 100px;
             height: 100px;
-            background-color: #00B0FF; /* Main blue for examples */
+            background-color: #ff0077; /* Main blue for examples */
             margin: 18px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: #000000;
             font-size: 1.2em;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -207,10 +208,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .sidebar h3 {
-            color: #00B0FF; /* Bright blue for sidebar title */
+            color: #ff0099; /* Bright blue for sidebar title */
             margin-top: 0;
             margin-bottom: 25px;
-            border-bottom: 2px solid #80D8FF; /* Lighter blue separator */
+            border-bottom: 2px solid #fc00b5; /* Lighter blue separator */
             padding-bottom: 12px;
             font-weight: 700;
         }
@@ -236,13 +237,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .sidebar ul li a:hover {
-            background-color: #e1f5fe; /* Very light blue on hover */
-            color: #0288D1; /* Darker blue text on hover */
+            background-color: #ff00845b; /* Very light blue on hover */
+            color: #b50661; /* Darker blue text on hover */
             transform: translateX(5px);
         }
 
         .sidebar ul li a.active {
-            background-color: #00B0FF; /* Bright blue for active link */
+            background-color: #f700ff; /* Bright blue for active link */
             color: #fff;
             font-weight: bold;
             box-shadow: 0 2px 8px rgba(0, 176, 255, 0.3);
@@ -267,14 +268,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     </style>
 </head>
-<body>
+<body dblack lwhite>
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFG2XVDF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <aside class="sidebar">
+    <aside class="sidebar"dblack lwhite dtwhite tlblack>
         <h3>Documentation Sections</h3>
         <ul>
+          <button btn="rose"dark-btn hover-5> change mode</button>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#installation">Installation</a></li>
             <li><a href="#layout-utilities">Layout Utilities</a></li>
@@ -296,14 +298,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
     </aside>
 
-    <div id="main-content">
-        <header>
-            <h1>butterfly css</h1>
+    <div id="main-content" >
+        <div dtwhite tlblack>
+            <h1 >butterfly css</h1>
             <p>an attribute-based CSS framework by Amr kilany.</p>
-        </header>
+        </div>
 
         <main class="container">
-            <section id="introduction">
+            <section id="introduction" dblack lwhite dtwhite tlblack>
                 <h2>Introduction</h2>
                 <p>
                    butterfly css is a lightweight, attribute-based CSS framework designed to simplify common styling tasks and add engaging visual effects to your web projects. By simply adding specific attributes to your HTML elements, you can apply predefined styles for backgrounds, shapes, animations, hover effects, buttons, and a wide range of colors.
@@ -313,7 +315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </section>
 
-            <section id="installation">
+            <section id="installation" dblack lwhite dtwhite tlblack>
                 <h2>Installation</h2>
                 <p>To use butterfly CSS, simply add a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section of your HTML document, pointing to your hosted <code>float.css</code> file:</p>
                 <pre>
@@ -332,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                    
                 </p>
             </section>
- <section id="rotate-utilities">
+ <section id="rotate-utilities"dblack lwhite dtwhite tlblack>
                 <h2>Rotate Utilities</h2>
                 <p>Apply specific rotations to elements. These attributes provide rotation in 1-degree increments from 0 to 360 degrees. Responsive variants are also available.</p>
                 <div class="attribute-list">
@@ -351,7 +353,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </section>
-            <section id="layout-utilities">
+            <section id="layout-utilities"dblack lwhite dtwhite tlblack>
                 <h2>Layout Utilities</h2>
                 <div class="attribute-list">
                     <div class="attribute-item">
@@ -383,7 +385,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="dark">
+            <section id="dark"dblack lwhite dtwhite tlblack>
                 <h2>dark mode</h2>
                 <div class="attribute-list">
                     <div class="attribute-item">
@@ -427,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       
 
-            <section id="animations">
+            <section id="animations"dblack lwhite dtwhite tlblack>
                 <h2>Standard Animations</h2>
                 <p>These attributes apply various continuous animations to elements. These are general-purpose motion effects.</p>
                 <div class="attribute-list">
@@ -500,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="coloring-animations">
+            <section id="coloring-animations"dblack lwhite dtwhite tlblack>
                 <h2>Coloring Animations</h2>
                 <p>These attributes apply animated background color changes using predefined palettes.</p>
                 <div class="attribute-list">
@@ -542,7 +544,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="ball-animations">
+            <section id="ball-animations" dblack lwhite dtwhite tlblack>
                 <h2>Floating Ball Animations</h2>
                 <p>These attributes create glowing, animated balls that float across the element using `::before` pseudo-elements. The parent element should have `position: relative` and `overflow: hidden` for best results.</p>
                 <div class="attribute-list">
@@ -590,7 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="special-effects">
+            <section id="special-effects"dblack lwhite dtwhite tlblack>
                 <h2>Special Effects</h2>
                 <p>These attributes apply unique visual effects to elements, often using pseudo-elements or SVG filters.</p>
                 <div class="attribute-list">
@@ -628,7 +630,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="rotate-utilities">
+            <section id="rotate-utilities"dblack lwhite dtwhite tlblack>
                 <h2>Rotate Utilities</h2>
                 <p>Apply specific rotations to elements. These attributes provide rotation in 1-degree increments from 0 to 360 degrees. Responsive variants are also available.</p>
                 <div class="attribute-list">
@@ -648,7 +650,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="width-height-utilities">
+            <section id="width-height-utilities"dblack lwhite dtwhite tlblack>
                 <h2>Width & Height Utilities</h2>
                 <p>These attributes allow you to set fixed widths and heights for elements in pixels.</p>
                 <div class="attribute-list">
@@ -666,7 +668,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </section>
-      <section id="clip-path-shapes">
+            
+      <section id="clip-path-shapes"dblack lwhite dtwhite tlblack>
                 <h2>Clip-Path Shapes</h2>
                 <p>These attributes apply various geometric shapes using `clip-path`.</p>
                 <div class="attribute-list">
@@ -761,7 +764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                    
                 </div>
             </section>
-            <section id="hover-effects">
+            <section id="hover-effects"dblack lwhite dtwhite tlblack>
                 <h2>Hover Effects</h2>
                 <p>These attributes apply a specific effect when the element is hovered over.</p>
                 <div class="attribute-list">
@@ -895,19 +898,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <strong>`hover-22` attribute</strong> (Grayscale)
                         <p>Applies a grayscale filter (`filter: grayscale(1)`) on hover.</p>
                         <pre>&lt;div hover-22&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" hover-22 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Grey');">Hover</div>
+                        <div class="example-box" hover-22 tyle="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Grey');">Hover</div>
                     </div>
                     <div class="attribute-item">
                         <strong>`hover-23` attribute</strong> (Saturate)
                         <p>Increases saturation (`filter: saturate(2)`) on hover.</p>
                         <pre>&lt;div hover-23&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" hover-23 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Sat');">Hover</div>
+                        <div class="example-box" hover-23 syle="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Sat');">Hover</div>
                     </div>
                     <div class="attribute-item">
                         <strong>`hover-24` attribute</strong> (Hue rotate)
                         <p>Rotates hue by 90 degrees (`filter: hue-rotate(90deg)`) on hover.</p>
                         <pre>&lt;div hover-24&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" hover-24 style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Hue');">Hover</div>
+                        <div class="example-box" hover-24 syle="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Hue');">Hover</div>
                     </div>
                     <div class="attribute-item">
                         <strong>`hover-25` attribute</strong> (Shadow neon)
@@ -970,7 +973,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="responsive">
+            <section id="responsive" dblack lwhite dtwhite tlblack>
                 <h2>responisive box</h2>
                 
                 <div class="attribute-list">
@@ -984,7 +987,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 
             </section>
-            <section id="gradients">
+            <section id="gradients"dblack lwhite dtwhite tlblack>
                 <h2>Gradients</h2>
                 <p>Apply modern linear gradients as background colors.</p>
                 <div class="attribute-list">
@@ -1051,7 +1054,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="components">
+            <section id="components"dblack lwhite dtwhite tlblack>
                 <h2>Components</h2>
                 <h3>Card</h3>
                 <div class="attribute-list">
@@ -1080,64 +1083,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 &lt;button btn='green'&gt;Green&lt;/button&gt;
 &lt;button btn='rose'&gt;Rose&lt;/button&gt;</pre>
                         <div flex-row style="flex-wrap: wrap;">
-                            <button btn='purple' class="example-button">Purple</button>
-                            <button btn='blue' class="example-button">Blue</button>
-                            <button btn='red' class="example-button">Red</button>
-                            <button btn='green' class="example-button">Green</button>
-                            <button btn='yellow' class="example-button">Yellow</button>
-                            <button btn='orange' class="example-button">Orange</button>
-                            <button btn='pink' class="example-button">Pink</button>
-                            <button btn='teal' class="example-button">Teal</button>
-                            <button btn='cyan' class="example-button">Cyan</button>
-                            <button btn='indigo' class="example-button">Indigo</button>
-                            <button btn='deep-purple' class="example-button">Deep Purple</button>
-                            <button btn='lime' class="example-button">Lime</button>
-                            <button btn='amber' class="example-button">Amber</button>
-                            <button btn='deep-orange' class="example-button">Deep Orange</button>
-                            <button btn='brown' class="example-button">Brown</button>
-                            <button btn='grey' class="example-button">Grey</button>
-                            <button btn='blue-grey' class="example-button">Blue-Grey</button>
-                            <button btn='black' class="example-button">Black</button>
-                            <button btn='white' class="example-button">White</button>
-                            <button btn='silver' class="example-button">Silver</button>
-                            <button btn='gold' class="example-button">Gold</button>
-                            <button btn='navy' class="example-button">Navy</button>
-                            <button btn='aqua' class="example-button">Aqua</button>
-                            <button btn='olive' class="example-button">Olive</button>
-                            <button btn='maroon' class="example-button">Maroon</button>
-                            <button btn='violet' class="example-button">Violet</button>
-                            <button btn='magenta' class="example-button">Magenta</button>
-                            <button btn='coral' class="example-button">Coral</button>
-                            <button btn='peach' class="example-button">Peach</button>
-                            <button btn='mint' class="example-button">Mint</button>
-                            <button btn='sky' class="example-button">Sky</button>
-                            <button btn='rose' class="example-button">Rose</button>
-                            <button btn='plum' class="example-button">Plum</button>
-                            <button btn='sand' class="example-button">Sand</button>
-                            <button btn='lemon' class="example-button">Lemon</button>
-                            <button btn='forest' class="example-button">Forest</button>
-                            <button btn='sea' class="example-button">Sea</button>
-                            <button btn='wine' class="example-button">Wine</button>
-                            <button btn='chocolate' class="example-button">Chocolate</button>
-                            <button btn='mustard' class="example-button">Mustard</button>
-                            <button btn='ice' class="example-button">Ice</button>
-                            <button btn='lavender' class="example-button">Lavender</button>
-                            <button btn='crimson' class="example-button">Crimson</button>
-                            <button btn='azure' class="example-button">Azure</button>
-                            <button btn='charcoal' class="example-button">Charcoal</button>
-                            <button btn='beige' class="example-button">Beige</button>
-                            <button btn='apricot' class="example-button">Apricot</button>
-                            <button btn='slate' class="example-button">Slate</button>
-                            <button btn='bronze' class="example-button">Bronze</button>
-                            <button btn='clay' class="example-button">Clay</button>
-                            <button btn='butterfly' class="example-button">butterfly</button>
+                            <button btn='purple' >Purple</button>
+                            <button btn='blue' >Blue</button>
+                            <button btn='red' >Red</button>
+                            <button btn='green' >Green</button>
+                            <button btn='yellow' >Yellow</button>
+                            <button btn='orange' >Orange</button>
+                            <button btn='pink' >Pink</button>
+                            <button btn='teal'>Teal</button>
+                            <button btn='cyan'>Cyan</button>
+                            <button btn='indigo' >Indigo</button>
+                            <button btn='deep-purple' >Deep Purple</button>
+                            <button btn='lime' >Lime</button>
+                            <button btn='amber'>Amber</button>
+                            <button btn='deep-orange' >Deep Orange</button>
+                            <button btn='brown'>Brown</button>
+                            <button btn='grey' >Grey</button>
+                            <button btn='blue-grey' >Blue-Grey</button>
+                            <button btn='black'>Black</button>
+                            <button btn='white' >White</button>
+                            <button btn='silver'>Silver</button>
+                            <button btn='gold' class="examplebutton">Gold</button>
+                            <button btn='navy' class="example-utton">Navy</button>
+                            <button btn='aqua' class="examplebutton">Aqua</button>
+                            <button btn='olive' >Olive</button>
+                            <button btn='maroon'>Maroon</button>
+                            <button btn='violet' >Violet</button>
+                            <button btn='magenta' >Magenta</button>
+                            <button btn='coral' >Coral</button>
+                            <button btn='peach' >Peach</button>
+                            <button btn='mint' >Mint</button>
+                            <button btn='sky' >Sky</button>
+                            <button btn='rose'>Rose</button>
+                            <button btn='plum' >Plum</button>
+                            <button btn='sand'>Sand</button>
+                            <button btn='lemon' >Lemon</button>
+                            <button btn='forest' >Forest</button>
+                            <button btn='sea' >Sea</button>
+                            <button btn='wine' >Wine</button>
+                            <button btn='chocolate' >Chocolate</button>
+                            <button btn='mustard' >Mustard</button>
+                            <button btn='ice' class="examplebutton">Ice</button>
+                            <button btn='lavender' class="exampl-button">Lavender</button>
+                            <button btn='crimson' class="eample-button">Crimson</button>
+                            <button btn='azure' class="examle-button">Azure</button>
+                            <button btn='charcoal' class="exaple-button">Charcoal</button>
+                            <button btn='beige' class="exampe-button">Beige</button>
+                            <button btn='apricot' class="eample-button">Apricot</button>
+                            <button btn='slate' class="eample-button">Slate</button>
+                            <button btn='bronze' cass="example-button">Bronze</button>
+                            <button btn='clay' clss="example-button">Clay</button>
+                            <button btn='butterfly' >butterfly</button>
                         </div>
                         <p>This includes a full spectrum of colors for `btn='{color}'` attributes. Please refer to the `float.css` file for the exact color definitions.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="background-colors">
+            <section id="background-colors"dblack lwhite dtwhite tlblack>
                 <h2>Background Colors</h2>
                 <p>Set background colors using attribute selectors for basic colors and various shades (e.g., `red`, `red-500`). These apply `!important` to override other styles.</p>
                 <h3>Basic Colors</h3>
@@ -1372,7 +1375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </section>
 
-            <section id="text-colors">
+            <section id="text-colors"dblack lwhite dtwhite tlblack>
                 <h2>Text Colors</h2>
                 <p>Set text colors using attribute selectors, prefixed with `t` for basic colors and various shades (e.g., `tred`, `tred-500`). These apply `!important` to override other styles.</p>
                 <h3>Basic Text Colors</h3>
@@ -1604,7 +1607,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </footer>
     </div>
 </body>
+<script>
+const attributeLists = document.querySelectorAll('.attribute-list');
+const attributeItems = document.querySelectorAll('.attribute-item');
+
+    attributeLists.forEach(list => {
+            list.setAttribute('dblack', '');
+            list.setAttribute('lwhite', '');
+            list.setAttribute('dtwhite', '');
+            list.setAttribute('tlblack', '');
+        });
+
+        // Loop through all elements with the class 'attribute-item'
+        attributeItems.forEach(item => {
+            item.setAttribute('dblack', '');
+            item.setAttribute('lwhite', '');
+            item.setAttribute('dtwhite', '');
+            item.setAttribute('tlblack', '');
+        });
+        
+</script>
 </html>
+
 
 
 
