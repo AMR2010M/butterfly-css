@@ -107,3 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+const fs = require('fs');
+
+let css = '';
+
+// Generate width attributes [w-x] (1 to 500)
+for (let i = 1; i <= 500; i++) {
+    css += `[w-${i}] { width: ${i}px; }\n`;
+}
+
+// Generate height attributes [h-x] (1 to 500)
+for (let i = 1; i <= 500; i++) {
+    css += `[h-${i}] { height: ${i}px; }\n`;
+}
+
+// Write to file
+fs.writeFileSync('attributes-width-height.css', css);
+
+console.log('CSS file generated: attributes-width-height.css');
