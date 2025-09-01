@@ -334,25 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                    
                 </p>
             </section>
- <section id="rotate-utilities"dblack lwhite dtwhite tlblack>
-                <h2>Rotate Utilities</h2>
-                <p>Apply specific rotations to elements. These attributes provide rotation in 1-degree increments from 0 to 360 degrees. Responsive variants are also available.</p>
-                <div class="attribute-list">
-                    <div class="attribute-item">
-                        <strong>`rotate="0"` to `rotate="360"` attributes</strong>
-                        <p>Rotates the element by the specified degree (e.g., `rotate="45"` for 45 degrees, `rotate="180"` for 180 degrees). Values are in degrees without units in the attribute itself.</p>
-                        <pre>&lt;div rotate="45"&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" rotate="45">45°</div>
-                    </div>
-                    <div class="attribute-item">
-                        <strong>`sm-rotate="X"`, `md-rotate="X"`, `lg-rotate="X"`, `xl-rotate="X"`, `dt-rotate="X"` attributes</strong>
-                        <p>Responsive rotation utilities. Apply rotation only at or above specific breakpoints (Small, Medium, Large, Extra Large, Desktop). `X` represents the degree from 0 to 360.</p>
-                        <pre>&lt;div sm-rotate="90"&gt;&lt;/div&gt;
-&lt;div dt-rotate="270"&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" sm-rotate="90">Responsive Rotate</div>
-                    </div>
-                </div>
-            </section>
+
             <section id="layout-utilities"dblack lwhite dtwhite tlblack>
                 <h2>Layout Utilities</h2>
                 <div class="attribute-list">
@@ -381,6 +363,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div flex-row style="background-color: #e0f2f7; padding: 10px; border-radius: 5px; min-height: 80px;">
                             <span center>Centered</span>
                         </div>
+                    </div>
+                      <div class="attribute-item">
+                        <strong>`flex-auto` attribute</strong>
+                        <p> switches between flex-row and flex-column on with screen morre and less than 1200 px for layout not cards for example you can use if you want a text next to image on computer be text under img if you want responsive cars see responsive box section</p>
+                        <pre>&lt;div flex-auto&gt &lt;/div&gt;</pre>
+                      
                     </div>
                 </div>
             </section>
@@ -1628,6 +1616,7 @@ const attributeItems = document.querySelectorAll('.attribute-item');
         
 </script>
 </html>
+
 
 
 
