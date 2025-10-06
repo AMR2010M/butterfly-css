@@ -75,13 +75,7 @@ The Beginner Coder: If you're a beginner who wants to implement advanced feature
 
 The Speed Dev: If you value a fast-typing, easy-to-recall syntax that is fundamentally different from traditional utility frameworks.
 
-⚠️ A Note on Scope
-butterfly CSS is likely not for you if you seek:
+docs:https://butterfly-css.netlify.app/
 
-A Full Feature Package: It does not offer the exhaustive list of granular utilities found in large frameworks like Tailwind CSS.
-
-A Very Lightweight Utility: At its current size (approx. 170kb for the CSS), it is feature-rich but not the absolute lightest "zero-dependency" solution available.
-
-A Large Community Project: We're currently a growing project, not a massive, established ecosystem.
 
 Dive into the full documentation to explore every available attribute and start adding stunning flair to your next project!
