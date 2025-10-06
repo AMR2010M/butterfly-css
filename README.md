@@ -9,12 +9,17 @@ Inject personality, not boilerplate. This is styling stripped down to its essent
 Forget build tools and environment setups. To activate all features—including our easy dark mode toggler—just drop these two CDN links into the <head> of your HTML file.
 
 HTML
+''
+<pre><code>
+&lt;head&gt;
+    &lt;!-- 1. Core Styles and Attributes --&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css"&gt;
 
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+    &lt;!-- 2. Dark Mode Functionality (Optional) --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
 
-    <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
-</head>
 ✨ The Attribute Advantage
 butterfly CSS flips the script. Instead of juggling dozens of utility classes, you use simple, semantic HTML attributes to apply powerful styling directives.
 
