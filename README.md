@@ -5,10 +5,10 @@ butterfly css is a new way to build websites that fly out of the box!
 **Butterfly CSS** is a new way to build websites that fly out of the box! With butterfly, you can make advanced or boring things instantly in a unique syntax.
 
 ---
+>[!TIP]
+>To use **Butterfly CSS**, simply add the following tags in the `<head>` section of your HTML document:
 
-### 🚀 How to Use
 
-To use **Butterfly CSS**, simply add the following tags in the `<head>` section of your HTML document:
 
 ```html
 <link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css)">
@@ -16,6 +16,7 @@ To use **Butterfly CSS**, simply add the following tags in the `<head>` section 
 <script src="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js)"></script>
 
 ```
+</div>
 
 🌟 Features
 Intuitive Syntax: Create advanced or boring things instantly with a unique, attribute-based syntax.
@@ -49,7 +50,7 @@ A full package of features like Tailwind.
 A very lightweight/minimalist library.
 
 A framework with a massive established community.
-full example(pricing cards):
+**full example(pricing cards):**
 ```
      <div space></div>
  <h2 class="text-4xl f text-center  mb-16" tpink  > free pricing no cost  💰    </h2>
