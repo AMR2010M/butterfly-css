@@ -1,81 +1,56 @@
-🦋 butterfly CSS
-The Mini, Attribute-Based Framework for Instant Web Flair.
+butterfly css is a new way to build websites that fly out of the box!
+# 🦋 Butterfly CSS
+### Build websites that fly out of the box!
 
-Tired of endless utility classes? butterfly CSS is a compact, opinionated, and attribute-based framework designed to give your projects unique styles, stunning effects, and complex animations with a single tag modifier.
+**Butterfly CSS** is a new way to build websites that fly out of the box! With butterfly, you can make advanced or boring things instantly in a unique syntax.
 
-Inject personality, not boilerplate. This is styling stripped down to its essential function: making things look good, fast.
+---
 
-🚀 Instant Setup (Zero Configuration)
-Forget build tools and environment setups. To activate all features—including our easy dark mode toggler—just drop these two CDN links into the <head> of your HTML file.
+### 🚀 How to Use
 
-HTML
-''
-<pre><code>
-&lt;head&gt;
-    &lt;!-- 1. Core Styles and Attributes --&gt;
-    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css"&gt;
+To use **Butterfly CSS**, simply add the following tags in the `<head>` section of your HTML document:
 
-    &lt;!-- 2. Dark Mode Functionality (Optional) --&gt;
-    &lt;script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-</code></pre>
+```html
+<link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css)">
+```
+<script src="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js)"></script>
+**Features**
+with butterfly you can make advanced or boring things instantly in a unique syntax
 
-✨ The Attribute Advantage
-butterfly CSS flips the script. Instead of juggling dozens of utility classes, you use simple, semantic HTML attributes to apply powerful styling directives.
+Examples:
+Layout: To apply flexbox styles for a row: <div flex-row>...</div>
 
-This intuitive syntax is easy to remember and dramatically speeds up development, letting you focus on content, not class lists.
+Components: For a purple button: <button btn='purple'>...</button>
 
-Usage Example
-Feature	butterfly CSS Syntax	What it Does
-Shadow	<div s=blue>	Applies a simple blue shadow (s is short for shadow).
-Background	<div bg=auto>	Sets background to cover, center, and no-repeat.
-Responsiveness	<div responsive>	Makes the element scale gracefully on different screen sizes.
-Dark Mode	<body dblack>	Applies dark mode defaults (dark background, light text).
+🌟 Features
+Intuitive Syntax: Create advanced or boring things instantly with a unique, attribute-based syntax.
 
-التصدير إلى "جداول بيانات Google"
-💡 Standout Features
-Effortless Dark Mode 🌑
-Implementing a fully functional, stylish dark mode has never been simpler. Use just a few key attributes:
+Smart Dark Mode: Easy for everyone with only 3 attributes: dblack, lwhite, and dark-btn.
 
-Use dblack on the <body> to set default dark colors.
+Instant Responsiveness: Create a responsive box with only the responsive attribute in the parent.
 
-Use lwhite to specify elements that should use light-mode colors (white text, light background) even when the body is dark.
+Flex-Auto: Changes automatically between row and column on different screen sizes.
 
-Add a dark mode toggle button with the dark-btn attribute.
+Unique Animations: Built-in handdrawn, birthday-paper, and ball-move-1 animations.
 
-Unique Animations & Effects 💫
-Move beyond standard transitions. butterfly CSS includes unique, creative animations that make your site truly memorable, such as:
+Visual Flair: 10 pre-set gradients to make your site pop.
 
-handdrwn
+No Setup Required: No environment setup—just a 170kb CDN and JS for dark mode.
 
-birthday-paper
+Smart Backgrounds: Use bg=auto for instant cover, center, and no-repeat settings.
 
-ball-move-1
+Quick Shadows: Use s{color} for shadows and much more than you fancy.
 
-...and many more!
+🎯 Use Cases
+Make your website stand out from repetitive designs built on Tailwind or others.
 
-Built-in Responsiveness 📱
-Achieve complex responsive layouts with minimal effort:
+Perfect for beginners who want advanced animations and dark mode in seconds.
 
-The responsive attribute on a parent container ensures its contents adapt fluidly to different screens.
+Designed for fast-typing with an easy-to-remember syntax.
 
-flex-auto intelligently switches between a row and a column layout based on the viewport size.
+🛑 It's NOT for you if you want:
+A full package of features like Tailwind.
 
-Style Helpers
-Access easy-to-use helpers for common tasks:
+A very lightweight/minimalist library.
 
-Apply shadows instantly using the s{color} attribute (e.g., s=red).
-
-Choose from 10 pre-defined gradients to add vibrant depth to your backgrounds.
-
-🎯 Who Is butterfly CSS For?
-The Unique Seeker: If you want your website to stand out from the endless stream of "Tailwind-look" sites.
-
-The Beginner Coder: If you're a beginner who wants to implement advanced features (like animations and dark mode) easily and instantly.
-
-The Speed Dev: If you value a fast-typing, easy-to-recall syntax that is fundamentally different from traditional utility frameworks.
-
-docs:https://butterfly-css.netlify.app/
-
-
-Dive into the full documentation to explore every available attribute and start adding stunning flair to your next project!
+A framework with a massive established community.
