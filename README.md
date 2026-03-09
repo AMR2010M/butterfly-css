@@ -53,7 +53,7 @@ A framework with a massive established community.
 **full example(pricing cards):**
 ```
      <div space></div>
- <h2 class="text-4xl f text-center  mb-16" tpink  > free pricing no cost  💰    </h2>
+ 
 
 <!-- Main container with responsive layout to handle mobile, tablet, and desktop views -->
 <div flex-auto w-90p center>
