@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+
+
+     <!DOCTYPE html>
 <html lang="en">
 <head>
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KESYR7PYM"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KESYR7PYM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,12 +14,16 @@
 </script>
      <meta name="theme-color" content="rgb(255, 0, 140)" />
   
-     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+  
+     <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WFG2XVDF');</script>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- End Google Tag Manager -->
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <meta property="og:site_name" content="Butterfly CSS">
@@ -27,7 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="google-site-verification" content="om2GYpvQtLKyKnvP2Dmwh4dhkiwEOusNswKv95y46p0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="title" content="butterfly css ">
 <meta name="description" content="an attribute based css framework that simplifies building responsive and creative websites without needing bulky frameworks. by focusing on minimal yet powerful  refreshing CSS attributes  ">
 <meta name="keywords" content="butterfly css, butterfly attributes,easy dark mode,css animations,ball move animations,handdrawn animation,amr khaled kilany">
 <meta name="robots" content="index, follow">
@@ -41,37 +48,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
                 
        <style>
-      /* --- الإضافات التصحيحية بـ CSS عادي --- */
-      
-      /* منع أي عنصر من تجاوز عرض الشاشة نهائياً */
-      * {
-          box-sizing: border-box;
-      }
-
-      body {
-          overflow-x: hidden; /* يمنع التمرير العرضي */
-          width: 100%;
-          margin: 0;
-          padding: 0;
-      }
-
-      /* جعل الكروت ذات العرض الثابت مرنة في الموبايل */
-      [card], [w-320], [w-350] {
-          max-width: 95vw !important; /* لا يتجاوز عرض الشاشة */
-          height: auto !important;
-      }
-
-      /* حل مشكلة النصوص التي لا تنكسر */
-      .whitespace-nowrap {
-          white-space: normal !important; /* يسمح للنص بالنزول لسطر جديد في الشاشات الصغيرة */
-      }
-      
-      /* جعل الحاويات المرنة تقبل النزول لسطر جديد */
-      [flex-auto], .flex {
-          flex-wrap: wrap !important;
-      }
-
-      /* --- كود الـ CSS الأصلي الخاص بك --- */
       @media(max-width:800px){
       .mhd{
         display: none;
@@ -83,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     [flex-auto]{
     flex-direction: row;
 }
-@media(max-width:850px){
+@media(max-width:790px){
     [flex-auto]{
     flex-direction: column;
 }
@@ -95,15 +71,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 }
 
+
+
+
+
 /* Styling the thumb (draggable part) */
 ::-webkit-scrollbar-thumb {
   background-color:rgb(255, 0, 140) ; 
+ 
 }
     </style>
 </head>
 <body style="overflow-x: hidden; " white tblack ball-move-2   >
 
-<nav  class=" border-gray-200 py-2.5 "  nof twhite style=" box-shadow:0px 0px 100px rgb(255, 0, 115);background-color: rgb(255, 0, 140);">
+<nav  class=" border-gray-200 py-2.5 "   nof twhite style=" box-shadow:0px 0px 100px rgb(255, 0, 115);background-color: rgb(255, 0, 140);">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="#" class="flex items-center" flex-row>
 
@@ -115,20 +96,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
             <button data-collapse-toggle="mobile-menu-2" type="button"
-                class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  focus:outline-none   "
-                aria-controls="mobile-menu-2" aria-expanded="true">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
+				class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  focus:outline-none   "
+				aria-controls="mobile-menu-2" aria-expanded="true">
+				<span class="sr-only">Open main menu</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+						clip-rule="evenodd"></path>
+				</svg>
+				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+			</button>
         </div>
         <div class="items-center justify-between w-full hidden lg:flex lg:w-auto lg:order-1" id="mobile-menu-2" >
             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"  >
@@ -169,7 +150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="text-center ">
             <h1
                 class="text-4xl  tracking-tight text-pink-400 sm:text-5xl md:text-6xl" monospace tbold>
-              
+             
                 <div class="mt-1">
                     <span class="relative mt-3 whitespace-nowrap text-blue-600"><svg aria-hidden="true" viewBox="0 0 418 42"
                         class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-pink-400/50"
@@ -183,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
             </h1>
             <p class="mx-auto mt-3 max-w-xl text-lg text-gray-500 sm:mt-5 md:mt-5">
-             build stunning 🩷responsive animated websites at lightspeed⚡ with powerful intuitive  attributes from(<span tpink>handdrawn</span> ,<span tpink>ball-move-1,..🎾</span>)to,(<span tpink>btn=pink,navbar,responsive🍩 </span>)
+              build stunning 🩷responsive animated websites at lightspeed⚡ with powerful intuitive  attributes from(<span tpink>handdrawn</span> ,<span tpink>ball-move-1,..🎾</span>)to,(<span tpink>btn=pink,navbar,responsive🍩 </span>)
             </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
                 <div class="rounded-md shadow" handdrawn hover-29><a
@@ -205,8 +186,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <h2 class="text-4xl f text-center  mb-16" tpink monospace > 🎨 Our Features</h2>
 
     <div class="grid gap-10 md:grid-cols-3">
+      <!-- Card 1 -->
       <div  spink handdrawn  lwhite class=" backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-pink-300 rounded-full">
+          <!-- Icon -->
           <svg class="w-6 h-6 text-red-800" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -217,8 +200,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class=" text-md" monospace>attribute-based styling makes it so fast especially with very descriptive and short attributes</p>
       </div>
 
+      <!-- Card 2 -->
       <div handdrawn   lwhite spink class=" backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-pink-300 rounded-full">
+          <!-- Icon -->
           <svg class="w-6 h-6 text-red-800" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -229,8 +214,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class=" text-md"monospace>make stunning animation with just typing an attribute like <span class="text-pink-400">ball-move-1</span>, <span class="text-pink-400">handdrawn</span>,<span class="text-pink-400">light-fouce,</span>,<span class="text-pink-400">birthday-paper</span>,<span class="text-pink-400">pulse</span>, etc.</p>
       </div>
 
+      <!-- Card 3 -->
       <div spink handdrawn  lwhite class=" backdrop-blur-lg border border-gray-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition duration-300">
         <div class="flex items-center justify-center w-12 h-12 mb-4 bg-pink-300 rounded-full">
+          <!-- Icon -->
           <svg class="w-6 h-6 text-red-800" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -249,7 +236,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div space></div>
 
  <h2 class="text-4xl f text-center  mb-16" tpink > our magical dark mode ✨</h2>
-<div style="position: relative; padding-bottom: calc(56.25% + 41px); height: 0; width: 90%;" center spink black rounded><iframe  src="https://demo.arcade.software/2i5dTe1Aa0VrKHEWxn3S?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true" title="Arcade Flow (Mon Aug 18 2025)" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><div space></div>
+<!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(56.25% + 41px); height: 0; width: 90%;" center spink black rounded><iframe  src="https://demo.arcade.software/2i5dTe1Aa0VrKHEWxn3S?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true" title="Arcade Flow (Mon Aug 18 2025)" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
+    <!-- Modern Features Section -->
+     <div space></div>
 <section class=" pb-6"  >
     <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         <div class="container mx-auto px-6 p-6 ">
@@ -412,10 +401,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        
 
        <div space></div>
- <h2 class="text-4xl f text-center  mb-16" tpink   > free pricing no cost  💰    </h2>
+ <h2 class="text-4xl f text-center  mb-16" tpink  > free pricing no cost  💰    </h2>
 
+<!-- Main container with responsive layout to handle mobile, tablet, and desktop views -->
 <div flex-auto w-90p center>
-     <div w-300
+     <div w-320
         card
         min-h-450
     white
@@ -453,8 +443,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button button  hover-1 mt-20 style="background-color: rgb(255, 0, 111);">Get Started</button>
     </div>
 
+    <!-- Plan 2: Pro Tier (Featured) -->
     <div
-    w-330
+    w-350
     min-h-500
         card
         white
@@ -493,6 +484,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button button  hover-1 mt-20 style="background-color: rgb(255, 0, 111);">Get Started</button>
     </div>
 
+    <!-- Plan 3: Enterprise Tier -->
     <div
         card
         b-pink
@@ -502,7 +494,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         columns
         ai-center
         jc-center
-        w-300
+        w-320
         p-40
         rounded
         handdrawn
@@ -533,18 +525,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  <button button gradient-7 hover-1 mt-20 style="background-color: rgb(255, 0, 111);" >Contact us</button></a>
     </div>
 </div>
-
+<div >
  
   <div space></div>
     
 
-<section   w-full   nof  flex-auto ctu >
+<section   w-full  center nof  flex-auto ctu >
     
    <img    src="لقطة شاشة 2026-03-13 025154.png"   center  >
-    <img    src="Untitled design (3).jpg" heart ctul style="width: 28%; margin-bottom: -50px;" class="xtu">  
+    <img    src="Untitled design (3).jpg" heart ctul style="width: 30%; margin-bottom: -70px;" class="xtu">  
 </section>
-<div space></div>
-
+ <div  w-full center center w-full  p-50 >
+    <button button handdrawn pink style="width: 15rem;" mr-50>docs</button>
+        <button  handdrawn button pink style="width: 15rem;">github</button>
+   </div>
+ <div space></div>
+</div>
 <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"  coloring-25>
   <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
     <div class="sm:col-span-2">
@@ -618,7 +614,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">lisence</a>
       </li>
       <li>
-        <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms & Conditions</a>
+        <a href="/" class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</a>
       </li>
     </ul>
   </div>
@@ -678,3 +674,99 @@ document.addEventListener("keydown", function (event) {
   }
 }); </script>
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
+<script>
+  AOS.init();
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
