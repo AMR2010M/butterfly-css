@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="manifest" href="/site.webmanifest">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@main/iv.cssy" rel="stylesheet">
 <meta name="google-site-verification" content="om2GYpvQtLKyKnvP2Dmwh4dhkiwEOusNswKv95y46p0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,8 +72,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 
-
-
+  
+[hsp]{
+  height: 100px;
+}
+html, body {
+  /* منع التمرير الأفقي تماماً */
+  overflow-x: hidden; 
+  /* التأكد من أن العرض هو عرض الشاشة فقط */
+  width: 100%;
+  /* منع أي مشاكل ناتجة عن البادينج */
+  margin: 0;
+  padding: 0;
+  /* لضمان ثبات العناصر المطلقة */
+  position: relative;
+}
 
 /* Styling the thumb (draggable part) */
 ::-webkit-scrollbar-thumb {
@@ -146,7 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 
 <div class="flex h-screen justify-center items-center ">
-    <div class="mx-auto  flex justify-center px-4  sm:px-6  lg:mt-20 lg:px-8">
+    <div class="mx-auto  flex justify-center px-4  sm:px-6  lg:mt-20 lg:px-8 " style="max-width: 70%;">
         <div class="text-center ">
             <h1
                 class="text-4xl  tracking-tight text-pink-400 sm:text-5xl md:text-6xl" monospace tbold>
@@ -233,7 +246,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  
 </div>
 
-<div space></div>
+<div hsp></div>
 
  <h2 class="text-4xl f text-center  mb-16" tpink > our magical dark mode ✨</h2>
 <!--ARCADE EMBED START--><div style="position: relative; padding-bottom: calc(56.25% + 41px); height: 0; width: 90%;" center spink black rounded><iframe  src="https://demo.arcade.software/2i5dTe1Aa0VrKHEWxn3S?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true" title="Arcade Flow (Mon Aug 18 2025)" frameborder="0" loading="lazy" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="clipboard-write" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; color-scheme: light;" ></iframe></div><!--ARCADE EMBED END-->
@@ -401,11 +414,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        
 
        <div space></div>
- <h2 class="text-4xl f text-center  mb-16" tpink  > free pricing no cost  💰    </h2>
+        <div space></div>
+ <h2 class="text-4xl f text-center  mb-16" tpink   > free pricing no cost  💰    </h2>
 
-<!-- Main container with responsive layout to handle mobile, tablet, and desktop views -->
 <div flex-auto w-90p center>
-     <div w-320
+     <div 
         card
         min-h-450
     white
@@ -443,9 +456,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button button  hover-1 mt-20 style="background-color: rgb(255, 0, 111);">Get Started</button>
     </div>
 
-    <!-- Plan 2: Pro Tier (Featured) -->
     <div
-    w-350
+    
     min-h-500
         card
         white
@@ -484,7 +496,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <button button  hover-1 mt-20 style="background-color: rgb(255, 0, 111);">Get Started</button>
     </div>
 
-    <!-- Plan 3: Enterprise Tier -->
     <div
         card
         b-pink
@@ -494,7 +505,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         columns
         ai-center
         jc-center
-        w-320
+      
         p-40
         rounded
         handdrawn
@@ -525,7 +536,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  <button button gradient-7 hover-1 mt-20 style="background-color: rgb(255, 0, 111);" >Contact us</button></a>
     </div>
 </div>
-<div >
+
  
   <div space></div>
     
@@ -533,12 +544,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section   w-full  center nof  flex-auto ctu >
     
    <img    src="لقطة شاشة 2026-03-13 025154.png"   center  >
-    <img    src="Untitled design (3).jpg" heart ctul style="width: 30%; margin-bottom: -70px;" class="xtu">  
+    <img    src="Untitled design (3).jpg" heart ctul style="width: 28%; margin-bottom: -70px;" class="xtu">  
 </section>
- <div  w-full center center w-full  p-50 >
-    <button button handdrawn pink style="width: 15rem;" mr-50>docs</button>
-        <button  handdrawn button pink style="width: 15rem;">github</button>
-   </div>
+
  <div space></div>
 </div>
 <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"  coloring-25>
@@ -678,7 +686,6 @@ document.addEventListener("keydown", function (event) {
   AOS.init();
 </script>
 </html>
-
 
 
 
