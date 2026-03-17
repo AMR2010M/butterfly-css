@@ -1,100 +1,102 @@
-(function() {
-    const style = document.createElement('style');
-    document.head.appendChild(style);
+document.addEventListener('DOMContentLoaded', () => {
+    // Global dark variable accessible anywhere
+    window.dark = null;
 
-    const generateButterflyStyles = () => {
-        let cssRules = "";
-        document.querySelectorAll('*').forEach(el => {
-            Array.from(el.attributes).forEach(attr => {
-                const name = attr.name;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-                // العرض والارتفاع
-                if (name.startsWith('w-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { width: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('h-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { height: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('min-h-')) {
-                    const val = name.split('-')[2]; // نأخذ الرقم بعد ثاني شرطة
-                    if(!isNaN(val)) cssRules += `[${name}] { min-height: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('max-h-')) {
-                    const val = name.split('-')[2];
-                    if(!isNaN(val)) cssRules += `[${name}] { max-height: ${val}rem !important; }\n`;
-                }
+    // Initialize localStorage 'dark' state
+    if (localStorage.getItem('dark') === null) {
+        localStorage.setItem('dark', prefersDark.matches ? '1' : '0');
+    }
 
-                // المارجن بكل اتجاهاته
-                if (name.startsWith('m-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { margin: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('mt-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { margin-top: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('mb-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { margin-bottom: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('ml-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { margin-left: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('mr-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { margin-right: ${val}rem !important; }\n`;
-                }
+    const colorConfig = {
+        // Backgrounds (dark)
+        'dpurple': { type: 'background', dark: 'rgba(42, 1, 97, 1)' },
+        'dblack': { type: 'background', dark: 'rgba(0, 0, 0, 1)' },
+        'dred': { type: 'background', dark: 'rgba(125, 0, 15) ' },
+        'dblue': { type: 'background', dark: 'rgba(0, 0, 139, 1)' },
+        'dgreen': { type: 'background', dark: 'rgba(0, 100, 0, 1)' },
+        'dyellow': { type: 'background', dark: 'rgba(128, 128, 0, 1)' },
+        'dorange': { type: 'background', dark: 'rgba(255, 140, 0, 1)' },
 
-                // البادينج بكل اتجاهاته
-                if (name.startsWith('p-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { padding: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('pt-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { padding-top: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('pb-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { padding-bottom: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('pl-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { padding-left: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('pr-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { padding-right: ${val}rem !important; }\n`;
-                }
+        // Backgrounds (light)
+        'lwhite': { type: 'background', light: 'rgba(255, 255, 255, 1)' },
+        'lgray': { type: 'background', light: 'rgba(184, 183, 185, 1)' },
+        'lpurple': { type: 'background', light: 'rgba(132, 0, 255, 1)' },
+        'lblue': { type: 'background', light: 'rgba(220, 230, 255, 1)' },
+        'lgreen': { type: 'background', light: 'rgba(220, 255, 220, 1)' },
+        'lred': { type: 'background', light: 'rgba(255, 220, 220, 1)' },
+        'lyellow': { type: 'background', light: 'rgba(255, 255, 224, 1)' },
+        'lorange': { type: 'background', light: 'rgba(255, 230, 200, 1)' },
+        'lblack': { type: 'background', light: 'rgba(0, 0, 0, 1)' },
 
-                // الدوران والشفافية والترتيب (القيم الرقمية الأخرى)
-                if (name.startsWith('rotate-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { transform: rotate(${val}deg) !important; }\n`;
-                }
-                if (name.startsWith('opacity-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { opacity: ${val / 100} !important; }\n`;
-                }
-                if (name.startsWith('z-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { z-index: ${val} !important; }\n`;
-                }
-                if (name.startsWith('rad-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { border-radius: ${val}rem !important; }\n`;
-                }
-                if (name.startsWith('gap-')) {
-                    const val = name.split('-')[1];
-                    if(!isNaN(val)) cssRules += `[${name}] { gap: ${val}rem !important; }\n`;
-                }
-            });
-        });
-        style.innerHTML = cssRules;
+        // Text (dark)
+        'dtwhite': { type: 'text', dark: 'rgba(255, 255, 255, 1)' },
+        'dtred': { type: 'text', dark: 'rgba(255, 0, 0, 1)' },
+        'dtblue': { type: 'text', dark: 'rgba(173, 216, 230, 1)' },
+        'dtgreen': { type: 'text', dark: 'rgba(144, 238, 144, 1)' },
+        'dtyellow': { type: 'text', dark: 'rgba(255, 255, 0, 1)' },
+        'dtorange': { type: 'text', dark: 'rgba(255, 165, 0, 1)' },
+
+        // Text (light)
+        'tlblack': { type: 'text', light: 'rgba(0, 0, 0, 1)' },
+        'tlred': { type: 'text', light: 'rgba(255, 0, 0, 1)' },
+        'tlblue': { type: 'text', light: 'rgba(0, 0, 255, 1)' },
+        'tlgreen': { type: 'text', light: 'rgba(0, 128, 0, 1)' },
+        'tlyellow': { type: 'text', light: 'rgba(128, 128, 0, 1)' },
+        'tlorange': { type: 'text', light: 'rgba(255, 69, 0, 1)' },
+        'tlwhite': { type: 'text', light: 'rgba(255, 255, 255, 1)' },
+        'ltblue': { type: 'text', light: 'rgba(0, 0, 255, 1)' },
     };
 
-    window.addEventListener('DOMContentLoaded', generateButterflyStyles);
-})();
+    function applyTheme(mode) {
+        const allElementsWithColorAttrs = new Set();
+        for (const attr in colorConfig) {
+            document.querySelectorAll(`[${attr}]`).forEach(el => {
+                allElementsWithColorAttrs.add(el);
+            });
+        }
+
+        // Reset styles
+        allElementsWithColorAttrs.forEach(el => {
+            el.style.backgroundColor = '';
+            el.style.color = '';
+        });
+
+        // Apply styles
+        for (const attr in colorConfig) {
+            document.querySelectorAll(`[${attr}]`).forEach(el => {
+                const cfg = colorConfig[attr];
+                if (mode === '1' && cfg.dark) {
+                    if (cfg.type === 'background') el.style.backgroundColor = cfg.dark;
+                    if (cfg.type === 'text') el.style.color = cfg.dark;
+                }
+                if (mode === '0' && cfg.light) {
+                    if (cfg.type === 'background') el.style.backgroundColor = cfg.light;
+                    if (cfg.type === 'text') el.style.color = cfg.light;
+                }
+            });
+        }
+
+        window.dark = (mode === '1');
+        document.dispatchEvent(new CustomEvent("darkModeApplied", {
+            detail: { dark: window.dark }
+        }));
+    }
+
+    function toggleTheme() {
+        const newMode = (localStorage.getItem('dark') === '0') ? '1' : '0';
+        localStorage.setItem('dark', newMode);
+        applyTheme(newMode);
+    }
+
+    // Apply on load
+    applyTheme(localStorage.getItem('dark'));
+
+    // Listen for manual toggle
+    document.querySelectorAll('[dark-btn]').forEach(btn => {
+        btn.addEventListener('click', toggleTheme);
+    });
+
+});
+
