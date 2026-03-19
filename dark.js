@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Backgrounds (dark)
         'dpurple': { type: 'background', dark: 'rgba(42, 1, 97, 1)' },
         'dblack': { type: 'background', dark: 'rgba(0, 0, 0, 1)' },
-        'dred': { type: 'background', dark: 'rgba(255, 0, 0, 1)' },
+        'dred': { type: 'background', dark: 'rgba(125, 0, 15) ' },
         'dblue': { type: 'background', dark: 'rgba(0, 0, 139, 1)' },
         'dgreen': { type: 'background', dark: 'rgba(0, 100, 0, 1)' },
         'dyellow': { type: 'background', dark: 'rgba(128, 128, 0, 1)' },
@@ -98,14 +98,4 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', toggleTheme);
     });
 
-    // Listen for system theme changes (only if user hasn’t chosen manually)
-    prefersDark.addEventListener('change', e => {
-        if (localStorage.getItem('dark') === null) {
-            const mode = e.matches ? '1' : '0';
-            localStorage.setItem('dark', mode);
-            applyTheme(mode);
-        }
-    });
 });
-
-const fs = require('fs');
