@@ -11,10 +11,9 @@ butterfly css is a new way to build websites that fly out of the box!
 
 
 ```html
-<link rel="stylesheet" href="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css)">
-
-<script src="[https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js](https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js)"></script>
-
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/iv.css">
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/df.js"></script>
+                    <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/vf.js"></script>
 ```
 </div>
 
