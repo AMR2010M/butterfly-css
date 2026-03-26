@@ -121,15 +121,9 @@ const queryString = window.location.search;
 // 2. إنشاء كائن للتعامل مع هذه البيانات
 const urlParams = new URLSearchParams(queryString);
 
-// 3. استخراج القيمة باستخدام اسم المفتاح (id)
-const post_id = urlParams.get('id');
-if(user){
-    console.log('hello');
-}
-else{
-    window.location.href="/signin";
 
-}
+const post_id = urlParams.get('id');
+
  async function fetchpoems () {
     
 const{data:profile,error:pe}=await supabase.from('hobby').select('*').eq('id',post_id).single();
