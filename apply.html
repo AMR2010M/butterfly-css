@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoemBook Sign Up</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <section class="flex flex-col items-center pt-6">
+  <div
+    class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Create an
+        account
+      </h1>
+     
+        <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your full name</label>
+          <input type="text"   id="username" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="user_name" required="true">
+        </div>
+          <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">bio</label>
+          <input type="text"   id="bio" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="user_name" required="true">
+        </div>
+        <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Your email</label>
+          <input type="email"  id="emailinput" name="name"class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="email" required="true">
+        </div>
+       <div>
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >profile photo </label>
+          <input  id="myimg" type="file" name="name"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="password " required="true">
+        </div>
+       
+        <div>
+          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Password</label>
+          <input type="password" name="password" id="passinput"  placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+        </div>
+        <button type="button"  id='submit' class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an account</button>
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400">Already have an account? <a
+            class="font-medium text-blue-600 hover:underline dark:text-blue-500" href="/signin.html">Sign in here</a>
+        </p>
+      
+    </div>
+  </div>
+</section>
+
+  <script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabaseUrl = 'https://skhatgfvgvyociqfamsp.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNraGF0Z2Z2Z3Z5b2NpcWZhbXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDY3MjMsImV4cCI6MjA3NTUyMjcyM30.m0L9G26jHf79KNL_YCDNJHS2hWYHuJ4WCzLAHKhj2XI";
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+ 
+    const submit = document.getElementById('submit');
+    submit.onclick = async function() {
+          const bio = document.getElementById('bio').value;
+      const email = document.getElementById('emailinput').value;
+      const password = document.getElementById('passinput').value;
+           const username = document.getElementById('username').value;
+
+
+      const { data, error } = await supabase.auth.signUp({
+        email:email,
+        password: password,
+        options: { 
+        redirectTo: "https://zealmajaz.vercel.app/signin.html"
+    }
+      });
+
+      if (error) {
+        console.error("Supabase Error:", error.message);
+        alert('Sign up failed. Error: ' + error.message);
+      } else {
+       var myimg=document.getElementById('myimg');
+ const file = myimg.files[0];
+ const {error:imgerror} = await supabase.storage.from('myprofile').upload(`public/${file.name}`,file,{ cacheControl: '3600',  upsert: true, });
+ if(imgerror){alert(imgerror.message)}
+
+ else{const {data:{ publicUrl }} = supabase.storage.from('myprofile').getPublicUrl(`public/${file.name}`);
+
+    const {error}=  await supabase.from('profiles').insert({
+     user_email:email , 
+user_name:username,
+profile_img:publicUrl,
+bio:bio
+
+    });
+    if(error){
+        alert(error.message);
+
+    }
+    else{
+       alert('check for confirm email')
+    }
+}
+
+     
+        
+      }}
+ 
+   
+  </script>
+</body>
+</html>

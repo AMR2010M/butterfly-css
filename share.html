@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+                  
+                  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+          <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+</head>
+<body body dyellow lyellow>
+    <button btn="black" dark-btn></button>
+<nav class="bg-neutral-primary  w-full z-20 top-0 start-0 border-b border-default">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <a class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img class="h-15 w-15  full"   src="unnamed.jpg">
+      <span class="self-center text-xl text-heading font-semibold whitespace-nowrap" tblue>ZE AL MAJAZ</span>
+  </a>
+  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+        <span class="sr-only">Open user menu</span>
+        <img class="w-12 h-12 rounded-full" id='circleimg' alt="user photo">
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44" id="user-dropdown">
+        <div class="px-4 py-3 text-sm border-b border-default">
+          <span class="block text-heading font-medium" id="cn"></span>
+      
+        </div>
+        <ul class="p-2 text-sm text-body font-medium" aria-labelledby="user-menu-button" blue-50>
+          <li>
+            <a href="/quran" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">profile</a>
+          </li>
+          <li>
+            <a href="/community" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">settings</a>
+          </li>
+          <li>
+            <a href="/hobby" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">friends</a>
+          </li>
+          <li>
+            
+            <a href="/jobs" class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">sign out</a>
+          </li>
+        </ul>
+      </div>
+      <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-user" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+      </button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+      <li>
+        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">quran</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">community</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">articles</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">videos</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+      <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white" tblue>create a new post</h2>
+      <form b-gray rounded>
+      
+          <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+            
+                 
+              </div>
+              
+              <div class="sm:col-span-2">
+                   <textarea  id="thj" rows="8" class="block p-2.5 rounded-lg h-50 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your title here"></textarea>
+                      <textarea  id="hook" rows="8" class="block p-2.5 rounded-lg  h-80 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your hook here"></textarea>
+                  <textarea  id="poem" rows="8" class="block p-2.5 rounded-lg  h-80 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your post here"></textarea>
+                  
+<div class="flex items-center justify-center w-full rounded-lg"  >
+  <div class="flex flex-col items-center justify-center w-full h-40 bg-neutral-secondary-medium border border-dashed border-default-strong rounded-base">
+    <div class="flex flex-col items-center justify-center text-body pt-5 pb-6">
+      <svg class="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/></svg>
+      <p class="mb-2 text-sm">upload img</p>
+    
+      <!-- Upload Button -->
+      <input  id="myimg" type="file" blue type="button"  class="inline-flex items-center text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+      
+    </input>
+    </div>
+  </div>
+  <!-- Hidden File Input (Outside Label) -->
+
+</div>
+</div></form>
+                  <button id="submit"   blue class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+              Add post
+          </button>
+              </div>
+              
+          </div>
+          
+     
+  </div>
+</section>
+    </div>
+</body>
+<script type="module">
+var submit=document.getElementById('submit');
+
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    const supabaseUrl = 'https://skhatgfvgvyociqfamsp.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNraGF0Z2Z2Z3Z5b2NpcWZhbXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDY3MjMsImV4cCI6MjA3NTUyMjcyM30.m0L9G26jHf79KNL_YCDNJHS2hWYHuJ4WCzLAHKhj2XI";
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+     const { data: { user } } = await supabase.auth.getUser();
+    if(user){
+    console.log('hello'+user);
+   
+
+  const {data:info,error:ex}=await supabase.from('profiles').select('profile_img,bio,user_name').eq('user_email',user.email).single();
+  var ci =document.getElementById('circleimg');
+  var cn =document.getElementById('cn');
+ci.src=info.profile_img;
+cn.innerText=info.user_name;
+
+}
+else{
+    window.location.href="/signin";
+}
+submit.onclick= async function(){
+     var poem=document.getElementById('poem').value;
+      var hk=document.getElementById('hook').value;
+     var ty=document.getElementById('thj').value;
+var myimg=document.getElementById('myimg');
+ const file = myimg.files[0];
+
+   var newname=user.email+Date.now();
+ const {error:imgerror} = await supabase.storage.from('imgs').upload(`public/${newname}`,file,{ cacheControl: '3600',  upsert: true, });
+ if(imgerror){alert(imgerror)}
+
+ else{const {data:{ publicUrl }} = supabase.storage.from('imgs').getPublicUrl(`public/${newname}`);
+
+    const {error}=  await supabase.from('hobby').insert({
+
+details: poem,
+hook:hk,
+
+img: publicUrl ,
+ author:'butterfly css blog',
+ title:ty
+    });
+    if(error){
+      alert(JSON.stringify(error,2));
+
+    }
+    else{
+        window.location.href="/community.html";
+    }
+}
+}
+  
+</script>
+
+</html>

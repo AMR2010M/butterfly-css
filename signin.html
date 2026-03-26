@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoemBook Sign Up</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+</head>
+<body>
+  <div dblack lwhite center w-80p rounded h-500 p-60 nof flex-column>
+    <h1 tblue>welcome back to muslim community!</h1>
+    <input type="email" w-90p h-10p blue-50 placeholder="email" mb-40 center rounded id="emailinput">
+    <input type="password" w-90p h-10p blue-50 placeholder="password" mb-40 center rounded id="passinput">
+    <button type="submit" btn="blue" center id="submit" dark-btn>submit</button>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabaseUrl = 'https://skhatgfvgvyociqfamsp.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNraGF0Z2Z2Z3Z5b2NpcWZhbXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDY3MjMsImV4cCI6MjA3NTUyMjcyM30.m0L9G26jHf79KNL_YCDNJHS2hWYHuJ4WCzLAHKhj2XI";
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const submit = document.getElementById('submit');
+    submit.onclick = async function() {
+      const email = document.getElementById('emailinput').value;
+      const password = document.getElementById('passinput').value;
+
+      console.log("Client Status:", supabase);
+      console.log("Attempting sign-up for:", email);
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+
+      if (error) {
+        console.error("Supabase Error");
+        alert(error);
+       
+      } else {
+       window.location.href='index.html';
+      }
+    }
+    let devtoolsOpen = false;
+
+setInterval(() => {
+    const widthThreshold = window.outerWidth - window.innerWidth > 100;
+    const heightThreshold = window.outerHeight - window.innerHeight > 100;
+    if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+            devtoolsOpen = true;
+        }
+    } else {
+        devtoolsOpen = false;
+    }
+}, 1000);
+document.addEventListener('keydown', function(e) {
+    // Check if Ctrl (or Cmd) + U is pressed
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+        e.preventDefault();  // Stop the default action
+       
+    }
+});
+document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+       
+    }
+});
+  </script>
+</body>
+</html>
+

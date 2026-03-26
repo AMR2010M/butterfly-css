@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/v4.css">
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/df.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                    <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/vf.js"></script>
+                       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                       <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+                       <script src="https://cdn.jsdelivr.net/npm/@microlink/vanilla@main/dist/microlink.min.js"></script>
+    <style>
+       #x a {
+    color: #ff00b7 !important; /* لون أزرق جذاب */
+    text-decoration: underline !important; /* وضع خط تحت الرابط */
+
+ 
+    border: 2px solid pink;
+}
+
+#x a:hover {
+    color: #ff0073 !important;
+}
+  .post{
+    width:30%;
+ }
+  @media(max-width:790px){
+.nav a{
+    display: none !important;;
+ }
+ .post{
+    width:70%;
+  
+ }
+  }
+ 
+
+    </style>
+</head>
+<body    >
+   
+  <nav  w- class=" border-gray-200 py-2.5 "   nof twhite style="background-color: rgb(255, 0, 140);">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+        <a href="#" class="flex items-center" flex-row>
+
+            <span class="self-center text-xl font-semibold whitespace-nowrap">butterblog  </span>
+        </a>
+        <div class="flex items-center lg:order-2">
+            <div class="hidden mt-2 mr-4 sm:inline-block">
+                <span></span>
+            </div>
+
+            <button data-collapse-toggle="mobile-menu-2" type="button"
+				class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  focus:outline-none   "
+				aria-controls="mobile-menu-2" aria-expanded="true">
+				<span class="sr-only">Open main menu</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+						clip-rule="evenodd"></path>
+				</svg>
+				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+			</button>
+        </div>
+        
+        <div class="items-center justify-between w-full hidden lg:flex lg:w-auto lg:order-1" id="mobile-menu-2" >
+            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"  >
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 text-white rounded lg:bg-transparent  lg:p-0 "
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="/docs"
+                        class="block py-2 pl-3 pr-4 border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0  ">Docs</a>
+                </li>
+                <li>
+                    <a href="https://dev.to/butterflycss"
+                        class="block py-2 pl-3 pr-4  border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">blog</a>
+                </li>
+                <li>
+                    <a href="https://github.com/AMR2010M/butterfly-css"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0">github</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">team</a>
+                </li>
+                <li>
+                    <a href="https://dev.to/butterflycss/share-your-impression-and-get-featured-on-butterfly-css-website-26g9"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">love</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div white id="x"  >
+<div space></div>
+
+        
+    </div>
+    
+<script type="module">
+const x=document.getElementById('x');
+const con=document.getElementById('profilecontainer');
+ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabaseUrl = 'https://skhatgfvgvyociqfamsp.supabase.co';
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNraGF0Z2Z2Z3Z5b2NpcWZhbXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDY3MjMsImV4cCI6MjA3NTUyMjcyM30.m0L9G26jHf79KNL_YCDNJHS2hWYHuJ4WCzLAHKhj2XI";
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+const {data:{user}}= await supabase.auth.getUser();
+const queryString = window.location.search;
+
+// 2. إنشاء كائن للتعامل مع هذه البيانات
+const urlParams = new URLSearchParams(queryString);
+
+// 3. استخراج القيمة باستخدام اسم المفتاح (id)
+const post_id = urlParams.get('id');
+if(user){
+    console.log('hello');
+}
+else{
+    window.location.href="/signin";
+
+}
+ async function fetchpoems () {
+    
+const{data:profile,error:pe}=await supabase.from('hobby').select('*').eq('id',post_id).single();
+const profilediv=`
+ <h1 center tpink style='  font-size: 1.5rem;margin:50px ' tbold monospace  class='mt-20' >${profile.title}</h1>
+<div w-80p   nof center style='white-space: pre-wrap; padding:30px;'  handdrawn >
+    
+   <p >${profile.details}</p> </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+
+
+
+
+`;
+marked.setOptions({
+  gfm: true, // تفعيل خاصية GitHub Flavored Markdown
+  breaks: true, // الحفاظ على الأسطر كما هي
+  autolinks: true // تحويل أي لينك مكتوب لرابط ملون تلقائياً
+});
+x.innerHTML = marked.parse(profilediv, {
+    gfm: true,        // تفعيل تنسيق GitHub
+    breaks: true,     // الحفاظ على الأسطر
+    pedantic: false,
+    smartLists: true,
+    smartypants: false
+});
+
+
+
+
+ 
+ }
+ fetchpoems();
+
+
+    
+       
+
+ x.addEventListener('click', async (event) => {
+  if (event.target.classList.contains('like')) {
+     const { data:mydata, error } = await supabase.from('poems').select('likes,id').eq('id',event.target.id).single();
+        var updatedlikes=mydata.likes+1;
+const { error: updateError } = await supabase.from('poems').update({likes:updatedlikes }).eq('id', mydata.id);
+document.getElementById('text'+mydata.id).innerText=updatedlikes;
+
+    }
+  }
+ );
+ let devtoolsOpen = false;
+
+setInterval(() => {
+    const widthThreshold = window.outerWidth - window.innerWidth > 100;
+    const heightThreshold = window.outerHeight - window.innerHeight > 100;
+    if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+            devtoolsOpen = true;
+        }
+    } else {
+        devtoolsOpen = false;
+    }
+}, 1000);
+document.addEventListener('keydown', function(e) {
+    // Check if Ctrl (or Cmd) + U is pressed
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'u') {
+        e.preventDefault();  // Stop the default action
+       
+    }
+});
+
+</script>
+</html>
