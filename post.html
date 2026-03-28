@@ -129,7 +129,7 @@ const post_id = urlParams.get('id');
 const{data:profile,error:pe}=await supabase.from('hobby').select('*').eq('id',post_id).single();
 const profilediv=`
  <h1 center tpink style='  font-size: 1.5rem;margin:50px ' tbold monospace  class='mt-20' >${profile.title}</h1>
-<div w-80p   nof center style='white-space: pre-wrap; padding:30px;'  handdrawn >
+<div w-80p   nof center style='white-space: pre-wrap; padding:30px;'   >
     
    <p >${profile.details}</p> </div>
     
