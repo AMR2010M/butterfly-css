@@ -30,7 +30,7 @@ Unique Animations: Built-in handdrawn, birthday-paper, and ball-move-1 animation
 
 Visual Flair: 10 pre-set gradients to make your site pop.
 
-No Setup Required: No environment setup—just a 170kb CDN and JS for dark mode.
+No Setup Required: No environment setup—just a 35kb CDN and JS for dark mode.
 
 Smart Backgrounds: Use bg=auto for instant cover, center, and no-repeat settings.
 
