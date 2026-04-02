@@ -46,7 +46,6 @@ Designed for fast-typing with an easy-to-remember syntax.
 🛑 It's NOT for you if you want:
 A full package of features like Tailwind.
 
-A very lightweight/minimalist library.
 
 A framework with a massive established community.
 **full example(pricing cards):**
