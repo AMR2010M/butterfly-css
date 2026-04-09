@@ -44,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="author" content="Amr khaled  Kilany">
 <title> butterflyCSS| Create Responsive Animated sites quickly by attributes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/v4.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -154,15 +155,87 @@ html, body {
 }
 
 /* Styling the thumb (draggable part) */
-::-webkit-scrollbar-thumb {
-  background-color:rgb(255, 0, 140) ; 
- 
+
+/* --- الفراشة الأيقونية المثالية (توقيع Butterfly CSS) --- */
+[butterfly="fly"] {
+  position: relative;
+  width: 6px; /* جسم فائق النحافة والأناقة */
+  height: 40px;
+  background: #2a1a4a; /* لون الجسم داكن وواضح */
+  border-radius: 100px;
+  animation: butterfly-perfect-flying 25s ease-in-out infinite; /* حركة انسيابية طويلة */
+  z-index: 1000;
+  transform-style: preserve-3d;
+  
+}
+
+/* --- تصميم الجناحين (الدقة التشريحية والألوان الجريئة) --- */
+[butterfly="fly"]::before,
+[butterfly="fly"]::after {
+  content: '';
+  position: absolute;
+  top: -5px; /* لضبط موضع الأجنحة مع الجسم */
+  width: 35px; /* أجنحة كبيرة ومستديرة */
+  height: 35px;
+  background: #ff007f; /* لون Neon Pink مصمت وجريء */
+  border-radius: 60% 60% 0% 100%; /* شكل الجناح العلوي الدقيق */
+  z-index: -1;
+  transform-origin: right center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* ظل عميق للإبراز */
+  /* إضافة الجناح السفلي باستخدام ظل صلب ومستدير */
+  box-shadow: 0 5px 15px rgba(11, 1, 1, 0.561), 0 15px 0 -5px #ff007f; 
+  /* زخارف مصمتة وواضحة جداً على حواف الأجنحة */
+  background-image: 
+    radial-gradient(circle at 12px 12px, #fff 1.8px, transparent 2px),
+    radial-gradient(circle at 25px 25px, #fff 1.2px, transparent 1.5px);
+}
+
+/* --- الجناح الأيسر (علوي وسفلي متصل) --- */
+[butterfly="fly"]::before {
+  right: 80%; /* ملاصق للجسم */
+  animation: flap-left-perfect 0.2s ease-in-out infinite alternate;
+}
+
+/* --- الجناح الأيمن (علوي وسفلي متصل - تناظر مثالي) --- */
+[butterfly="fly"]::after {
+  left: 80%; /* ملاصق للجسم */
+  border-radius: 60% 60% 100% 0%; /* شكل الجناح الأيمن التناظري */
+  transform-origin: left center;
+  /* عكس الألوان للجناح الأيمن للتباين */
+  background: #ff0077; /* لون Purple مصمت */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4), 0 15px 0 -5px #ff007f;
+  /* عكس النقاط للجناح الأيمن */
+  background-image: 
+    radial-gradient(circle at 23px 12px, #fff 1.8px, transparent 2px),
+    radial-gradient(circle at 10px 25px, #ffd4d4 1.2px, transparent 1.5px);
+  animation: flap-right-perfect 0.2s ease-in-out infinite alternate;
+}
+
+/* --- حركات الخفقان (نعومة مطلقة وتأثير ثلاثي الأبعاد) --- */
+@keyframes flap-left-perfect {
+  0% { transform: rotateY(0deg) skewY(-12deg); }
+  100% { transform: rotateY(75deg) skewY(12deg); }
+}
+
+@keyframes flap-right-perfect {
+  0% { transform: rotateY(0deg) skewY(12deg); }
+  100% { transform: rotateY(-75deg) skewY(-12deg); }
+}
+
+/* --- مسار الطيران الانسيابي والمعقد (الأفضل) --- */
+@keyframes butterfly-perfect-flying {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  15%  { transform: translate(180px, -80px) rotate(25deg) scale(1.1); }
+  35%  { transform: translate(250px, 30px) rotate(-15deg) scale(1.0); }
+  55%  { transform: translate(120px, 200px) rotate(10deg) scale(0.9); }
+  75%  { transform: translate(-80px, 120px) rotate(35deg) scale(1.1); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
     </style>
 </head>
 <body style="overflow-x: hidden; " white tblack    >
 
-<nav  class=" border-gray-200 py-2.5 "   nof twhite style=" box-shadow:0px 0px 100px rgb(255, 0, 115);background-color: rgb(255, 0, 140);">
+<nav  class=" border-gray-200 py-2.5 "   nof twhite style=" box-shadow:0px 0px 100px#ff007f;background-color: #ff007f;">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="#" class="flex items-center" flex-row>
 
@@ -209,8 +282,8 @@ html, body {
                         class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0">github</a>
                 </li>
                 <li>
-                    <a href="https://www.youtube.com/watch?v=B38VjNjl78I"
-                        class="block py-2 pl-3 pr-4 border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">demo</a>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">team</a>
                 </li>
                 <li>
                     <a href="https://dev.to/butterflycss/share-your-impression-and-get-featured-on-butterfly-css-website-26g9"
@@ -228,7 +301,8 @@ html, body {
         <div class="text-center ">
             
                  <div h-50 w-full flex-column tpink tbold >
-    <a pl-10 pr-10 href="https://dev.to/butterflycss/butterfly-css-v4-featuresthe-first-framework-for-kids-2132"b-gray ol w-50p style="border-radius: 30px;"hover-10>🤩v4 is here  check it!</a>
+                    <div butterfly="fly"></div>
+    <a pl-10 pr-10 href="https://dev.to/butterflycss/butterfly-css-v4-featuresthe-first-framework-for-kids-2132"b-gray ol w-60p style="border-radius: 30px;"hover-10>🤩v4 is here  check it!</a>
 </div>
        
             <h1
@@ -244,10 +318,12 @@ html, body {
                         </path>
                     </svg>
                     <span class="relative text-pink-300 text-5xl"monospace > butterfly css  </span>
+                    
+                    
                     </span>
                 </div>
             </h1>
-            
+          
             <p class="mx-auto mt-3 max-w-xl text-lg text-gray-500 sm:mt-5 md:mt-5">
                 
               build stunning 🩷responsive animated websites at lightspeed⚡ with powerful intuitive  attributes from(<span tpink>handdrawn</span> ,<span tpink>ball-move-1,..🎾</span>)to,(<span tpink>btn=pink,navbar,responsive🍩 </span>)
@@ -588,7 +664,7 @@ html, body {
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8" w-full>
         <div class="md:flex md:justify-between"w-full>
           <div class="mb-6 md:mb-0">
-              <a href="" class="flex items-center">
+              <a href="https://flowbite.com/" class="flex items-center">
               
                   <span  tpink class="text-heading self-center text-2xl font-semibold whitespace-nowrap">butterfly css</span>
               </a>
