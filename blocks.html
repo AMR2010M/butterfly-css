@@ -1,0 +1,599 @@
+
+
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9KESYR7PYM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9KESYR7PYM');
+</script>
+     <meta name="theme-color" content="rgb(255, 0, 140)" />
+  
+
+  
+     <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WFG2XVDF');</script>
+<!-- End Google Tag Manager -->
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta property="og:site_name" content="Butterfly CSS">
+<link rel="manifest" href="/site.webmanifest">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@main/iv.cssy" rel="stylesheet">
+<meta name="google-site-verification" content="om2GYpvQtLKyKnvP2Dmwh4dhkiwEOusNswKv95y46p0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="title" content="butterfly css ">
+<meta name="description" content="an attribute based css framework that simplifies building responsive and creative websites without needing bulky frameworks. by focusing on minimal yet powerful  refreshing CSS attributes  ">
+<meta name="keywords" content="butterfly css, butterfly attributes,easy dark mode,css animations,ball move animations,handdrawn animation,amr khaled kilany">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="2 days">
+<meta name="author" content="Amr khaled  Kilany">
+<title> butterflyCSS| Create Responsive Animated sites quickly by attributes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/attributes.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/v4.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Butterfly CSS",
+  "alternateName": "butterflycss",
+  "url": "https://butterfly-css.netlify.app/",
+  "description": "An attribute based CSS framework that simplifies building responsive and creative websites without needing bulky frameworks.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Butterfly CSS",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://butterfly-css.netlify.app/favicon-32x32.png" 
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Egypt"
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Amr Khaled Kilany"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://butterfly-css.netlify.app/"
+  },
+  "hasPart": [
+    {
+      "@type": "WebPage",
+      "name": "Documentation",
+      "url": "https://butterfly-css.netlify.app/docs"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Blog",
+      "url": "https://butterfly-css.netlify.app/blog"
+    },
+    {
+      "@type": "WebPage",
+      "name": "GitHub Repository",
+      "url": "https://github.com/AMR2010M/butterfly-css"
+    }
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://butterfly-css.netlify.app/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
+                
+       <style>
+      @media(max-width:800px){
+      .mhd{
+        display: none;
+      }}
+
+[ctu]img{
+    width: 30%;
+}
+    [flex-auto]{
+    flex-direction: row;
+}
+@media(max-width:790px){
+    [flex-auto]{
+    flex-direction: column;
+}
+[ctu]img{
+    width: 100%;
+}
+.xtu{
+    width: 100%!important;;
+}
+}
+
+@keyframes scroll {
+  0% { 
+    transform: translateX(0%); 
+  }
+  100% { 
+    transform: translateX(100%); 
+  }
+}
+.animate-scroll{
+  animation: scroll 36s linear infinite;
+}
+.animate-scroll{
+  animation: scroll 88s linear infinite;
+}
+  
+  
+[hsp]{
+  height: 100px;
+}
+html, body {
+  /* منع التمرير الأفقي تماماً */
+  overflow-x: hidden; 
+  /* التأكد من أن العرض هو عرض الشاشة فقط */
+  width: 100%;
+  /* منع أي مشاكل ناتجة عن البادينج */
+  margin: 0;
+  padding: 0;
+  /* لضمان ثبات العناصر المطلقة */
+  position: relative;
+}
+
+/* Styling the thumb (draggable part) */
+
+/* --- الفراشة الأيقونية المثالية (توقيع Butterfly CSS) --- */
+[butterfly="fly"] {
+  position: relative;
+  width: 6px; /* جسم فائق النحافة والأناقة */
+  height: 40px;
+  background: #2a1a4a; /* لون الجسم داكن وواضح */
+  border-radius: 100px;
+  animation: butterfly-perfect-flying 25s ease-in-out infinite; /* حركة انسيابية طويلة */
+  z-index: 1000;
+  transform-style: preserve-3d;
+  
+}
+
+/* --- تصميم الجناحين (الدقة التشريحية والألوان الجريئة) --- */
+[butterfly="fly"]::before,
+[butterfly="fly"]::after {
+  content: '';
+  position: absolute;
+  top: -5px; /* لضبط موضع الأجنحة مع الجسم */
+  width: 35px; /* أجنحة كبيرة ومستديرة */
+  height: 35px;
+  background: #ff007f; /* لون Neon Pink مصمت وجريء */
+  border-radius: 60% 60% 0% 100%; /* شكل الجناح العلوي الدقيق */
+  z-index: -1;
+  transform-origin: right center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* ظل عميق للإبراز */
+  /* إضافة الجناح السفلي باستخدام ظل صلب ومستدير */
+  box-shadow: 0 5px 15px rgba(11, 1, 1, 0.561), 0 15px 0 -5px #ff007f; 
+  /* زخارف مصمتة وواضحة جداً على حواف الأجنحة */
+  background-image: 
+    radial-gradient(circle at 12px 12px, #fff 1.8px, transparent 2px),
+    radial-gradient(circle at 25px 25px, #fff 1.2px, transparent 1.5px);
+}
+
+/* --- الجناح الأيسر (علوي وسفلي متصل) --- */
+[butterfly="fly"]::before {
+  right: 80%; /* ملاصق للجسم */
+  animation: flap-left-perfect 0.2s ease-in-out infinite alternate;
+}
+
+/* --- الجناح الأيمن (علوي وسفلي متصل - تناظر مثالي) --- */
+[butterfly="fly"]::after {
+  left: 80%; /* ملاصق للجسم */
+  border-radius: 60% 60% 100% 0%; /* شكل الجناح الأيمن التناظري */
+  transform-origin: left center;
+  /* عكس الألوان للجناح الأيمن للتباين */
+  background: #ff0077; /* لون Purple مصمت */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4), 0 15px 0 -5px #ff007f;
+  /* عكس النقاط للجناح الأيمن */
+  background-image: 
+    radial-gradient(circle at 23px 12px, #fff 1.8px, transparent 2px),
+    radial-gradient(circle at 10px 25px, #ffd4d4 1.2px, transparent 1.5px);
+  animation: flap-right-perfect 0.2s ease-in-out infinite alternate;
+}
+
+/* --- حركات الخفقان (نعومة مطلقة وتأثير ثلاثي الأبعاد) --- */
+@keyframes flap-left-perfect {
+  0% { transform: rotateY(0deg) skewY(-12deg); }
+  100% { transform: rotateY(75deg) skewY(12deg); }
+}
+
+@keyframes flap-right-perfect {
+  0% { transform: rotateY(0deg) skewY(12deg); }
+  100% { transform: rotateY(-75deg) skewY(-12deg); }
+}
+
+/* --- مسار الطيران الانسيابي والمعقد (الأفضل) --- */
+@keyframes butterfly-perfect-flying {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+  15%  { transform: translate(180px, -80px) rotate(25deg) scale(1.1); }
+  35%  { transform: translate(250px, 30px) rotate(-15deg) scale(1.0); }
+  55%  { transform: translate(120px, 200px) rotate(10deg) scale(0.9); }
+  75%  { transform: translate(-80px, 120px) rotate(35deg) scale(1.1); }
+  100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+    </style>
+</head>
+<body style="overflow-x: hidden; " white tblack    >
+
+<nav  class=" border-gray-200 py-2.5 "   nof twhite style=" box-shadow:0px 0px 100px#ff007f;background-color: #ff007f;">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+        <a href="#" class="flex items-center" flex-row>
+
+            <span class="self-center text-xl font-semibold whitespace-nowrap">butterfly css  </span>
+        </a>
+        <div class="flex items-center lg:order-2">
+            <div class="hidden mt-2 mr-4 sm:inline-block">
+                <span></span>
+            </div>
+
+            <button data-collapse-toggle="mobile-menu-2" type="button"
+				class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  focus:outline-none   "
+				aria-controls="mobile-menu-2" aria-expanded="true">
+				<span class="sr-only">Open main menu</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+						clip-rule="evenodd"></path>
+				</svg>
+				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+			</button>
+        </div>
+        
+        <div class="items-center justify-between w-full hidden lg:flex lg:w-auto lg:order-1" id="mobile-menu-2" >
+            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"  >
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 text-white rounded lg:bg-transparent  lg:p-0 "
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="/docs"
+                        class="block py-2 pl-3 pr-4 border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0  ">Docs</a>
+                </li>
+                <li>
+                    <a href="/blog"class="block py-2 pl-3 pr-4  border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">blog</a>
+                </li>
+                <li>
+                    <a href="https://github.com/AMR2010M/butterfly-css"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0">github</a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">team</a>
+                </li>
+                <li>
+                    <a href="https://dev.to/butterflycss/share-your-impression-and-get-featured-on-butterfly-css-website-26g9"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">love</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
+<div class="flex h-screen justify-center items-center "ball-move-2>
+    <div class="mx-auto  flex justify-center px-4  sm:px-6  lg:mt-20 lg:px-8 " style="max-width: 70%;">
+        <div class="text-center ">
+            
+                 <div h-50 w-full flex-column tpink tbold >
+                    <div butterfly="fly"></div>
+    <a pl-10 pr-10 href="https://dev.to/butterflycss/butterfly-css-v4-featuresthe-first-framework-for-kids-2132"b-gray ol w-60p style="border-radius: 30px;"hover-10>🤩v4 is here  check it!</a>
+</div>
+       
+            <h1
+
+                class="text-4xl  tracking-tight text-pink-400 sm:text-5xl md:text-6xl" monospace tbold>
+             
+                <div class="mt-1">
+                    <span class="relative mt-3 whitespace-nowrap text-blue-600"><svg aria-hidden="true" viewBox="0 0 418 42"
+                        class="absolute top-3/4 left-0 right-0 m-auto h-[0.58em] w-fit fill-pink-400/50"
+                        preserveAspectRatio="none">
+                        <path
+                            d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z">
+                        </path>
+                    </svg>
+                    <span class="relative text-pink-300 text-5xl"monospace > butterblocks  </span>
+                    
+                    
+                    </span>
+                </div>
+            </h1>
+          
+            <p class="mx-auto mt-3 max-w-xl text-lg text-gray-500 sm:mt-5 md:mt-5">
+                
+            stop building from scratch and start creating!🚀 Build professional websites in minutes with ButterBlocks! Grab ready-to-use (handdrawn-blocks🎨, magic-headers🍭, pro-pricing-cards💎...) and stack them at lightspeed⚡ using intuitive attributes
+            </p>
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center">
+                <div class="rounded-md shadow" handdrawn hover-29><a
+                        class="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-300 px-8 py-3 text-base font-medium text-white md:py-4 md:px-10 md:text-lg"
+                        href="/docs">Get started  🚀
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div space></div>
+    <section responsive>
+
+<div center h-300 rounded bg="auto"  handdrawn>
+
+  <video w-full h-90p autoplay loop  playsinline muted src="Hgh5W4j8Fv1RM8n36S.webm"></video>
+</div>
+<div center h-300 rounded hover-23  bg="auto"  handdrawn style="background-image: url('Gemini_Generated_Image_83ss7083ss7083ss.png');"></div>
+<div center h-300 rounded hover-23  bg="auto"  handdrawn style="background-image: url('Gemini_Generated_Image_2a162j2a162j2a16.png');"></div>
+</section>
+<h1 center tpink monospace style="font-size: 40px;"> more sections coming(under construction)</h1></h1>
+  <section responsive>
+
+
+<div center h-300 rounded bg="auto"  handdrawn>
+
+  <video w-full h-90p autoplay loop  playsinline muted src="Hgh5W4j8Fv1RM8n36S.webm"></video>
+</div>
+
+<div center h-300 rounded bg="auto"  handdrawn>
+
+  <video w-full h-90p autoplay loop  playsinline muted src="Hgh5W4j8Fv1RM8n36S.webm"></video>
+</div><div center h-300 rounded bg="auto"  handdrawn>
+
+  <video w-full h-90p autoplay loop mutedp laysinline src="K095pP2W7lpz20a632.webm"></video>
+</div>
+<div space></div>
+
+    </section>
+   
+</div>
+
+<section   w-full  center nof  flex-auto ctu >
+    
+   <img    src="لقطة شاشة 2026-03-13 025154.png"   center  >
+    <img    src="Untitled design (3).jpg" heart ctul style="width: 28%; margin-bottom: -70px;" class="xtu">  
+</section>
+
+ <div space></div>
+<footer class="bg-neutral-primary-soft" handdrawn mb-10 center w-100p >
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8" w-full>
+        <div class="md:flex md:justify-between"w-full>
+          <div class="mb-6 md:mb-0">
+              <a href="https://flowbite.com/" class="flex items-center">
+              
+                  <span  tpink class="text-heading self-center text-2xl font-semibold whitespace-nowrap">butterfly css</span>
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Resources</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="/blog" class="hover:underline">blog</a>
+                      </li>
+                      <li>
+                          <a href="/docs" class="hover:underline">documentaion</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Follow us</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/AMR2010M/butterfly-css/tree/main" class="hover:underline ">Github</a>
+                      </li>
+                      <li>
+                          <a href="https://discord.com/channels/1491149596389281854/1491149597274542144" class="hover:underline">Discord</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Legal</h2>
+                  <ul class="text-body font-medium">
+                      <li class="mb-4">
+                          <a href="https://github.com/AMR2010M/butterfly-css/blob/main/LICENSE" class="hover:underline">lisence</a>
+                      </li>
+                      <li>
+                          <a href="https://github.com/AMR2010M/butterfly-css/blob/main/SECURITY.md" class="hover:underline">security & maintainance</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-body sm:text-center">© 2026 <a href="https://github.com/AMR2010M"  tpink class="hover:underline">created by AMR KILANY @amrz-labs</a>. made in egypt.
+          </span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <a href="#" class="text-body hover:text-heading">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">Facebook page</span>
+            </a>
+            <a href="#" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="https://discord.com/channels/1491149596389281854/1491149597274542144" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
+                <span class="sr-only">Discord community</span>
+            </a>
+            <a href="https://x.com/AmrKilany2010" class="text-body hover:text-heading ms-5">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"/></svg>
+            <span class="sr-only">x page</span>
+            </a>
+            <a href="https://github.com/AMR2010M" class="text-body hover:text-heading ms-5">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/></svg>
+                <span class="sr-only">GitHub account</span>
+            </a>
+           
+          </div>
+      </div>
+    </div>
+</footer>
+
+</body>
+<script> const mobileMenuButton = document.getElementById("open-menu");
+const closeMenuButton = document.getElementById("close-menu");
+const mobileMenu = document.getElementById("mobile-menu");
+const backdrop = document.getElementById("backdrop");
+
+// Ensure the mobile menu and backdrop are hidden on load
+if (mobileMenu) mobileMenu.classList.add("hidden");
+if (backdrop) backdrop.classList.add("hidden");
+
+// Function to open the mobile menu
+function openMenu() {
+  if (mobileMenu) {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.setAttribute("aria-hidden", "false");
+  }
+  if (backdrop) {
+    backdrop.classList.remove("hidden");
+    backdrop.setAttribute("aria-hidden", "false");
+  }
+  closeMenuButton.focus(); // Focus the close button for better accessibility
+}
+
+// Function to close the mobile menu
+function closeMenu() {
+  if (mobileMenu) {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.setAttribute("aria-hidden", "true");
+  }
+  if (backdrop) {
+    backdrop.classList.add("hidden");
+    backdrop.setAttribute("aria-hidden", "true");
+  }
+
+  mobileMenuButton.focus(); // Return focus to the open button
+}
+
+// Event listeners for opening and closing the menu
+if (mobileMenuButton) {
+  mobileMenuButton.addEventListener("click", openMenu);
+}
+if (closeMenuButton) {
+  closeMenuButton.addEventListener("click", closeMenu);
+}
+if (backdrop) {
+  backdrop.addEventListener("click", closeMenu); // Close the menu when clicking on the backdrop
+}
+
+// Handle keyboard accessibility (ESC to close menu)
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeMenu();
+  }
+}); </script>
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
+<script>
+  AOS.init();
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
