@@ -154,41 +154,7 @@ html, body {
   position: relative;
 }
 
-/* Styling the thumb (draggable part) */
 
-/* --- الفراشة الأيقونية المثالية (توقيع Butterfly CSS) --- */
-[butterfly="fly"] {
-  position: relative;
-  width: 6px; /* جسم فائق النحافة والأناقة */
-  height: 40px;
-  background: #2a1a4a; /* لون الجسم داكن وواضح */
-  border-radius: 100px;
-  animation: butterfly-perfect-flying 25s ease-in-out infinite; /* حركة انسيابية طويلة */
-  z-index: 1000;
-  transform-style: preserve-3d;
-  
-}
-
-/* --- تصميم الجناحين (الدقة التشريحية والألوان الجريئة) --- */
-[butterfly="fly"]::before,
-[butterfly="fly"]::after {
-  content: '';
-  position: absolute;
-  top: -5px; /* لضبط موضع الأجنحة مع الجسم */
-  width: 35px; /* أجنحة كبيرة ومستديرة */
-  height: 35px;
-  background: #ff007f; /* لون Neon Pink مصمت وجريء */
-  border-radius: 60% 60% 0% 100%; /* شكل الجناح العلوي الدقيق */
-  z-index: -1;
-  transform-origin: right center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* ظل عميق للإبراز */
-  /* إضافة الجناح السفلي باستخدام ظل صلب ومستدير */
-  box-shadow: 0 5px 15px rgba(11, 1, 1, 0.561), 0 15px 0 -5px #ff007f; 
-  /* زخارف مصمتة وواضحة جداً على حواف الأجنحة */
-  background-image: 
-    radial-gradient(circle at 12px 12px, #fff 1.8px, transparent 2px),
-    radial-gradient(circle at 25px 25px, #fff 1.2px, transparent 1.5px);
-}
 
     </style>
 </head>
