@@ -41,6 +41,7 @@ Make your website stand out from repetitive designs built on Tailwind or others.
 
 Perfect for beginners who want advanced animations and dark mode in seconds.
 
+
 Designed for fast-typing with an easy-to-remember syntax.
 
 🛑 It's NOT for you if you want:
@@ -48,3 +49,4 @@ A full package of features like Tailwind.
 
 
 A framework with a massive established community.
+this repo is featured on gitbutter
