@@ -347,8 +347,8 @@ w-70p  handdrawn spink
                 <p>
                     For example, to make any thing turn into  a butterfly inside its home :
                     <pre>
-                        &lt;div home  brown nof  birthday-paper gt;
-                        &lt;div bytterfly='fly' gt;&lt;/div&gt;
+                        &lt;div home  brown nof  birthday-paper &gt;
+                        &lt;div butterfly='fly' &gt;&lt;/div&gt;
                     .&lt;/div&gt
                     </pre>
                     And for a  button, it would be:
@@ -534,7 +534,7 @@ w-70p  handdrawn spink
                 <div class="attribute-list">
                  
                     <div class="attribute-item">
-                        <strong>`coloring-1` to `coloring-50` attributes</strong>
+                        <strong>coloring attributes(beta)</strong>
                         <p>Each attribute applies a specific 3-color background animation over 3 seconds. For example, `coloring-1` animates between `#ff00b74f`, `#c800ff33`, and `#ffffff`.</p>
                         <pre>&lt;div coloring-1&gt;&lt;/div&gt;</pre>
                         <div class="example-box" coloring-1>Coloring-1</div>
@@ -551,17 +551,7 @@ w-70p  handdrawn spink
                         <pre>&lt;div coloring-3&gt;&lt;/div&gt;</pre>
                         <div class="example-box" coloring-3>Coloring-3</div>
                     </div>
-                    <div class="attribute-item">
-                        <strong>`coloring-X` attributes</strong>
-                        <p>Continue for `coloring-4` through `coloring-50`, each offering a unique 3-color background animation. Refer to the CSS file for exact color values.</p>
-                        <pre>&lt;div coloring-4&gt;&lt;/div&gt;
-&lt;div coloring-50&gt;&lt;/div&gt;</pre>
-                        <div flex-row style="flex-wrap: wrap; margin-top: 10px;">
-                            <div class="example-box" coloring-4 style="width: 40px; height: 40px; margin: 5px;"></div>
-                            <div class="example-box" coloring-25 style="width: 40px; height: 40px; margin: 5px;"></div>
-                            <div class="example-box" coloring-50 style="width: 40px; height: 40px; margin: 5px;"></div>
-                        </div>
-                    </div>
+                  
                 </div>
             </section>
 
@@ -1723,7 +1713,6 @@ const attributeItems = document.querySelectorAll('.attribute-item');
         
 </script>
 </html>
-
 
 
 
