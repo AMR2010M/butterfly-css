@@ -1,15 +1,1 @@
-# Security Policy
-
-## Supported Versions
-
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-
-| > 3.0   | :supported |
-
-## Reporting a Vulnerability
-
-plss, if u found any security problem inform us in issues 
+Security Policy & Privacy Transparency1. Supported VersionsWe are committed to maintaining the integrity of the Butterfly CSS ecosystem. Currently, we provide security patches and maintenance for the following versions:VersionStatusSecurity Updatesv3.xMaintained:white_check_mark: Activev2.xLegacy:warning: Limited< v2.0End of Life:x: Not Supported2. Reporting a VulnerabilityImportant: Please do not disclose security vulnerabilities in public GitHub issues.To ensure the safety of all users, we follow a responsible disclosure policy. If you discover a security flaw, please report it through one of the following private channels:Email: [Your Email Address Here]GitHub Private Advisory: Submit a private vulnerability report via the "Security" tab in this repository.We aim to acknowledge all reports within 48 hours and provide a resolution timeline shortly after.3. Data Privacy & Service MonitoringTo maintain a high level of service and ensure the stability of our infrastructure, we use statistical tools to analyze traffic. Please be aware of the following:Visit Recording: For quality assurance and service optimization, visits to this site may be recorded or logged. This data helps us identify technical bottlenecks and improve the overall user experience.Analytics: We use industry-standard statistical methods to track site usage (e.g., page views, duration, and navigation paths).Data Usage: This information is used strictly for internal improvement and ensuring the security of our platform against malicious activities. We do not sell or share individual user data with third parties.4. For Developers (Technical Security)Client-Side Integrity: Butterfly CSS is designed to be a lightweight, attribute-based framework. We ensure that our distributed files (CDNs/NPM) are free from obfuscated code or malicious injections.Minimal Footprint: Our goal is to provide styling power without compromising the security of your web applications.
