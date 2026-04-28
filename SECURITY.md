@@ -1,1 +1,37 @@
-Security Policy & Privacy Transparency1. Supported VersionsWe are committed to maintaining the integrity of the Butterfly CSS ecosystem. Currently, we provide security patches and maintenance for the following versions:VersionStatusSecurity Updatesv3.xMaintained:white_check_mark: Activev2.xLegacy:warning: Limited< v2.0End of Life:x: Not Supported2. Reporting a VulnerabilityImportant: Please do not disclose security vulnerabilities in public GitHub issues.To ensure the safety of all users, we follow a responsible disclosure policy. If you discover a security flaw, please report it through one of the following private channels:Email: [Your Email Address Here]GitHub Private Advisory: Submit a private vulnerability report via the "Security" tab in this repository.We aim to acknowledge all reports within 48 hours and provide a resolution timeline shortly after.3. Data Privacy & Service MonitoringTo maintain a high level of service and ensure the stability of our infrastructure, we use statistical tools to analyze traffic. Please be aware of the following:Visit Recording: For quality assurance and service optimization, visits to this site may be recorded or logged. This data helps us identify technical bottlenecks and improve the overall user experience.Analytics: We use industry-standard statistical methods to track site usage (e.g., page views, duration, and navigation paths).Data Usage: This information is used strictly for internal improvement and ensuring the security of our platform against malicious activities. We do not sell or share individual user data with third parties.4. For Developers (Technical Security)Client-Side Integrity: Butterfly CSS is designed to be a lightweight, attribute-based framework. We ensure that our distributed files (CDNs/NPM) are free from obfuscated code or malicious injections.Minimal Footprint: Our goal is to provide styling power without compromising the security of your web applications.
+# Security & Privacy Policy
+
+## 1. Supported Versions
+We are committed to maintaining a secure ecosystem for all Butterfly CSS users. Currently, the following versions receive active security patches and maintenance:
+
+| Version | Status | Security Updates |
+| :--- | :--- | :--- |
+| **v>3** | Maintained | ✅ Active |
+
+---
+
+## 2. Reporting a Vulnerability
+**Important:** Please do not disclose security vulnerabilities through public GitHub issues. 
+
+To protect our community, we follow a responsible disclosure process. If you discover a potential security flaw, please report it privately:
+* **Email:** [Your Email Here]
+* **GitHub Private Advisory:** Navigate to the "Security" tab of this repository and select "Report a vulnerability" to submit a private draft.
+
+We acknowledge all reports within **48 hours** and will provide a transparent resolution timeline.
+
+---
+
+## 3. Data Privacy & Service Monitoring
+To ensure a high level of service, stability, and optimal performance, we monitor site activity. Please be aware of the following:
+
+* **Visit Recording:** For quality assurance and to improve the user experience, visits to this site may be recorded or logged. This data helps us identify technical bottlenecks and optimize service delivery.
+* **Statistical Analysis:** We use industry-standard tools to track usage patterns (e.g., navigation paths, session duration, and regional traffic) to better understand our users' needs.
+* **Data Protection:** This information is used strictly for internal optimization and to protect our infrastructure from malicious activities. We do not sell or share individual user data with third parties.
+
+---
+
+## 4. For Developers (Technical Security)
+* **Client-Side Integrity:** Butterfly CSS is distributed with integrity checks to ensure that files (via CDN or NPM) are free from malicious injections or unauthorized modifications.
+* **No Hidden Execution:** Our framework is designed to be transparent and lightweight. We do not execute hidden scripts that could compromise your application's security or performance.
+
+---
+*Last Updated: April 2026*
