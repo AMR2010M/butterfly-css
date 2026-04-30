@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/butterflycss.css">
+<script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/df.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+                    <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/vf.js"></script>
+    <title>buttershow</title>
+    <style>
+        :root {
+            --pink: #ed2981;
+            --bg: #ffe4f0;
+            --black: #2b2b2b;
+            --code-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--black);
+            z-index: 10;
+        }
+
+        .logo { font-weight: 900; font-size: 1.5rem; color: var(--pink); }
+
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* جهة اليمين: الشرح والكود */
+        .details-area {
+            flex: 1;
+            background: #fdfdfd;
+            border-left: 4px solid var(--black);
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        /* جهة اليسار: صورة المعاينة */
+        .preview-area {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border: 4px solid var(--black);
+            border-radius: 20px;
+            box-shadow: 15px 15px 0px var(--black);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+
+        .template-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 4px solid var(--black);
+        }
+
+        .img-caption {
+            padding: 15px;
+            background: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* أزرار التبديل */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            border: 3px solid var(--black);
+            background: white;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--black);
+            transition: 0.1s;
+        }
+
+        .tab-btn.active {
+            background: var(--pink);
+            color: white;
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px;
+        }
+
+        /* صندوق الكود */
+        .code-wrapper {
+            position: relative;
+            margin-top: 10px;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: #58e1ff; /* لون مميز للكود */
+            padding: 20px;
+            border-radius: 12px;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            border: 2px solid var(--black);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--pink);
+            color: white;
+            border: 2px solid var(--black);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .explanation ul { padding-right: 20px; }
+        .explanation li { margin-bottom: 10px; }
+
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; overflow-y: auto; }
+            .details-area { border-left: none; border-top: 4px solid var(--black); }
+        }
+    </style>
+</head>
+<body>
+
+
+<nav  class=" border-gray-200 py-2.5 "   nof twhite style=" box-shadow:0px 0px 100px#ff007f;background-color: #ff007f;">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+        <a href="#" class="flex items-center" flex-row>
+
+            <span class="self-center text-xl font-semibold whitespace-nowrap">butterfly blocks </span>
+        </a>
+        <div class="flex items-center lg:order-2">
+            <div class="hidden mt-2 mr-4 sm:inline-block">
+                <span></span>
+            </div>
+
+            <button data-collapse-toggle="mobile-menu-2" type="button"
+				class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden  focus:outline-none   "
+				aria-controls="mobile-menu-2" aria-expanded="true">
+				<span class="sr-only">Open main menu</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+						clip-rule="evenodd"></path>
+				</svg>
+				<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd"
+						d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+			</button>
+        </div>
+        
+        <div class="items-center justify-between w-full hidden lg:flex lg:w-auto lg:order-1" id="mobile-menu-2" >
+            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"  >
+                <li>
+                    <a href="#"
+                        class="block py-2 pl-3 pr-4 text-white rounded lg:bg-transparent  lg:p-0 "
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="/docs"
+                        class="block py-2 pl-3 pr-4 border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0  ">Docs</a>
+                </li>
+                <li>
+                    <a href="https://dev.to/butterflycss"class="block py-2 pl-3 pr-4  border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">blog</a>
+                </li>
+                <li>
+                    <a href="https://github.com/AMR2010M/butterfly-css"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0">github</a>
+                </li>
+                <li>
+                    <a href="/blocks"
+                        class="block py-2 pl-3 pr-4 border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">blocks</a>
+                </li>
+                <li>
+                    <a href="https://dev.to/butterflycss/share-your-impression-and-get-featured-on-butterfly-css-website-26g9"
+                        class="block py-2 pl-3 pr-4  border-b  hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-pink-700 lg:p-0 ">love</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="main-container">
+    
+    <!-- جهة المعاينة (صورة) -->
+    <div class="preview-area" handdrawn spink>
+        <div class="image-container">
+            <!-- استبدل الرابط أدناه برابط صورتك الفعلي -->
+            <img src="لقطة شاشة 2026-04-26 022210.png" alt="معاينة القالب" class="template-img">
+            <div class="img-caption"> buttermonials </div>
+        </div>
+    </div>
+
+    <!-- جهة الشرح والكود -->
+    <div class="details-area" >
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('info')">features</button>
+            <button class="tab-btn" onclick="showTab('code')"> code</button>
+        </div>
+
+  <div id="info-tab" class="explanation">
+    <h2 style="color: var(--pink)">buttermonils</h2>
+    
+    <p>
+        Elevate your social proof with a touch of personality! This template is designed to break the boring, 
+        rigid structure of corporate websites by introducing a playful and organic aesthetic. 🎨
+    </p>
+    
+    <ul>
+        <li>
+            <b>Authentic Hand-Drawn Vibe ✍️:</b> Powered by the unique <code>handdrawn</code> attribute, 
+            giving your components an artistic, sketchy border that feels human and approachable.
+        </li>
+        <li>
+            <b>Dynamic Geometry 🔄:</b> Take full creative control! Use the <code>rotate</code> attribute 
+            to tilt your cards and create a lively, "scattered notes" effect that captures attention.
+        </li>
+        <li>
+            <b>Ultra-Lightweight Engine 🚀:</b> Say goodbye to bulky frameworks. This template generates 
+            up to <b>80% less code</b> than traditional libraries, ensuring lightning-fast load times.
+        </li>
+        <li>
+            <b>Seamless Responsiveness 📱:</b> Built with a <code>responsive</code> core to look 
+            flawless on everything from mobile screens to large desktop monitors.
+        </li>
+    </ul>
+    
+    <p style="font-style: italic; color: #666; margin-top: 15px;">
+        "Perfect for creative agencies, indie hackers, and modern portfolios." 🎀
+    </p>
+</div>
+
+        <div id="code-tab" style="display: none;">
+            <div class="code-wrapper">
+                <button class="copy-btn">copy</button>
+                <pre id="code-snippet">
+                    &lt;!DOCTYPE html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/butterflycss.css"&gt;
+    &lt;script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/df.js"&gt;&lt;/script&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/vf.js"&gt;&lt;/script&gt;
+    &lt;title&gt;ButterBlocks Showcase&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h2 class="text-4xl f text-center mb-16" tpink&gt; loved by the community 💞 &lt;/h2&gt;
+
+&lt;section responsive&gt;
+    &lt;div handdrawn nof rotate="2" h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="7f553cbe-0536-4719-a220-090ff9ad0c8b.avif" h-4.5 mr-2 w-4&gt;Mu Joe
+        &lt;/p&gt;
+        &lt;h1 center w-90p h-50p tsmall p-1&gt;Whoa, Butterfly CSS I'm *truely* digging the focus on animations – making CSS so much less painful Kinda genius imo, to streamline the whole process&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div handdrawn nof rotate="-1" h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="Untitled design (3).jpg" h-4.5 mr-2 w-4&gt; ankush
+        &lt;/p&gt;
+        &lt;h1 center tsmall w-90p h-50p p-1&gt;"Butterfly CSS's biggest strength is its simplicity and power packed into a lightweight, beginner-friendly package."&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div handdrawn nof rotate="2" h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="f0s489x1bhmhm3ctzjfpk9plb2da.jpeg" h-4.5 mr-2 w-4&gt;Andrew Carter
+        &lt;/p&gt;
+        &lt;h1 center w-90p tsmall h-50p p-1&gt;Really impressive work! I like how Butterfly CSS simplifies building creative websites without bulky frameworks. minimal yet powerful CSS feels refreshing"&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div handdrawn rotate="-2" nof h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="Untitled design (3).jpg" h-4.5 mr-2 w-4&gt;DocuBloom
+        &lt;/p&gt;
+        &lt;h1 center tsmall w-90p h-50p p-1&gt;"It's a great product for a team that is new to motion and animation would guide them in the right direction "&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div handdrawn nof h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="Untitled design (3).jpg" h-4.5 mr-2 w-4&gt; Mai Easa
+        &lt;/p&gt;
+        &lt;h1 center w-90p tsmall h-50p p-1&gt; that's excellent. I liked the way the library is presented and the examples that help beginners. Honestly, the library is very good.&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div handdrawn nof h-20 p-1 columns&gt;
+        &lt;p top tred tsmall center rows mt-1&gt;
+            &lt;img circle src="Untitled design (3).jpg" h-4.5 mr-2 w-4&gt; Imad Limrani
+        &lt;/p&gt;
+        &lt;h1 center w-90p tsmall h-50p p-1&gt;Wonderful, keep it up, my dear brother.&lt;/h1&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div space h-5&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+            </div>
+            <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">* ملاحظة: تأكد من تضمين ملف Butterfly.css في مشروعك.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(tabName) {
+        const info = document.getElementById('info-tab');
+        const code = document.getElementById('code-tab');
+        const btns = document.querySelectorAll('.tab-btn');
+
+        if (tabName === 'info') {
+            info.style.display = 'block';
+            code.style.display = 'none';
+            btns[0].classList.add('active');
+            btns[1].classList.remove('active');
+        } else {
+            info.style.display = 'none';
+            code.style.display = 'block';
+            btns[1].classList.add('active');
+            btns[0].classList.remove('active');
+        }
+    }
+
+    // وظيفة النسخ
+    document.querySelector('.copy-btn').addEventListener('click', function() {
+        const code = document.getElementById('code-snippet').innerText;
+        navigator.clipboard.writeText(code);
+        this.innerText = 'تم النسخ!';
+        setTimeout(() => this.innerText = 'نسخ', 2000);
+    });
+</script>
+
+</body>
+</html>
