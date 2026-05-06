@@ -24,18 +24,17 @@ https://github.com/user-attachments/assets/6a39fb56-c7fc-487e-a120-1287e02d3a12
 ## 🚀 Key Features
 
 ### 📱 Adaptive & Responsive Power
-*   **FLEX-AUTO & RESPONSIVE:** Intelligent layouts that instantly snap from row to column at 1200px. Mobile-ready design without the CSS headache.
+*   **RESPONSIVE:** Intelligent attribute that instantly snaps your layout automaticly
 *   **LAYOUT MASTER:** Align everything perfectly using simple attributes—no more writing `display: flex` manually.
 
 ### ✨ Animation & Special Effects
-*   **DYNAMIC MOTION:** Make elements soar with the iconic `fly` attribute or add high-end "glassmorphism" with floating orbs.
+*   **DYNAMIC MOTION:** Make elements soar with the iconic `fly` attribute or add high-end floating orbs.
 *   **INSTANT VIBES:** Trigger birthday confetti or use the **Standard Pack** (spin, bounce, pulse) with just one word.
 
 ### 🎨 Visual & Styling Sorcery
 *   **PRO DARK MODE:** Seamless theme switching with smart color-pairing (e.g., `dpurple` / `lpurple`).
 *   **SHAPE SHIFTER:** Morph elements into Hearts, Stars, or Hexagons using simple Clip-Path attributes.
-*   **ARTISTIC FLAIR:** 10 stunning gradients and a unique "hand-drawn" filter for a sketchy, creative personality.
-
+*  
 ### 🛠️ Utility & Performance
 *   **INSANELY LIGHT:** A tiny **35kb** footprint for lightning-fast loading and clean, modular performance.
 *   **PRECISION SIZING:** Control widths and heights (REMs or %) directly within your HTML.
