@@ -19,6 +19,11 @@ https://github.com/user-attachments/assets/6a39fb56-c7fc-487e-a120-1287e02d3a12
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/df.js"></script>
                     <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/vf.js"></script>
 ```
+
+or get it on your device:
+```
+ gh repo clone AMR2010M/butterflycss
+```
 </div>
 
 ## 🚀 Key Features
