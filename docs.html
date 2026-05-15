@@ -1457,6 +1457,12 @@ editor.addEventListener('input', updatePreview);
 
 // التحديث لأول مرة عند تحميل الصفحة
 window.addEventListener('DOMContentLoaded', updatePreview);
+    document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('code, pre').forEach(el => {
+        el.setAttribute('translate', 'no');
+        el.classList.add('notranslate');
+    });
+});
 </script>
 
 </html>
