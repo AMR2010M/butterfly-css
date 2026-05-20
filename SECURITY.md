@@ -13,7 +13,7 @@ We are committed to maintaining a secure ecosystem for all Butterfly CSS users. 
 **Important:** Please do not disclose security vulnerabilities through public GitHub issues. 
 
 To protect our community, we follow a responsible disclosure process. If you discover a potential security flaw, please report it privately:
-* **Email:** [Your Email Here]
+* **Email:**company.butterflycss@gmail.com
 * **GitHub Private Advisory:** Navigate to the "Security" tab of this repository and select "Report a vulnerability" to submit a private draft.
 
 We acknowledge all reports within **48 hours** and will provide a transparent resolution timeline.
