@@ -73,7 +73,7 @@ buttermonials:
 </head>
 <body>
 
-<h2 class="text-4xl f text-center mb-16" tpink> loved by the community 💞 </h2>
+
 
 <section responsive>
     <div handdrawn nof rotate="2" h-20 p-1 columns>
