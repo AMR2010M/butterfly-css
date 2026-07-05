@@ -798,7 +798,13 @@ conflicts.</h1>
 </footer>
 
 </body>
-<script> const mobileMenuButton = document.getElementById("open-menu");
+<script> 
+	<script>
+  if (window.location.hostname !== 'butterflycss.amrzlabs.com') {
+    window.location.href = 'https://butterflycss.amrzlabs.com';
+  }
+</script>
+	const mobileMenuButton = document.getElementById("open-menu");
 const closeMenuButton = document.getElementById("close-menu");
 const mobileMenu = document.getElementById("mobile-menu");
 const backdrop = document.getElementById("backdrop");
@@ -853,7 +859,7 @@ document.addEventListener("keydown", function (event) {
 }); </script>
 <script src="https://cdn.jsdelivr.net/gh/AMR2010M/butterfly-css@latest/dark.js"></script>
 <script>
-  AOS.init();
+
 </script>
 </html>
 
