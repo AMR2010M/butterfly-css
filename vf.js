@@ -91,6 +91,10 @@
                     const val = name.split('-')[1];
                     if(!isNaN(val)) cssRules += `[${name}] { gap: ${val}rem !important; }\n`;
                 }
+                  if (name.startsWith('fs-')) {
+                    const val = name.split('-')[1];
+                    if(!isNaN(val)) cssRules += `[${name}] {font-size:: ${val}rem !important; }\n`;
+                }
             });
         });
         style.innerHTML = cssRules;
