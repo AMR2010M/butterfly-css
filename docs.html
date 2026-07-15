@@ -417,7 +417,47 @@ butterfly css is a new way to build websites that fly out of the box! by attribu
                    
                 </p>
         
-
+ <section id="special-effects"dblack lwhite dtwhite tlblack>
+                <h2>Special Effects</h2>
+                <p>These attributes apply unique visual effects to elements, often using pseudo-elements or SVG filters.</p>
+                <div class="attribute-list">
+                    <div class="attribute-item">
+                        <strong>`birthday-paper` attribute</strong>
+                        <p>Creates a confetti-like falling paper animation over the element. The parent element should have `position: relative` and `overflow: hidden`.</p>
+                        <pre>&lt;div style="..." birthday-paper&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 200px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" birthday-paper>
+                            Happy Birthday!
+                        </div>
+                    </div>
+                    
+                  
+                    <div class="attribute-item">
+                        <strong>`handdrawn` attribute</strong>
+                        <p>Gives the element a hand-drawn or sketchy appearance using an SVG filter,(note it makes the element font very sketchy you can override the font family)</p>
+                        <pre>&lt;div handdrawn&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" handdrawn style="width: 150px; height: 80px; font-size: 1.1em; color: #3d0066; background-color: #fffbe9;">
+                            Sketchy Box
+                        </div>
+                    </div>
+                   
+                    <div class="attribute-item">
+                        <strong>`blur` attribute</strong>
+                        <p>Applies a `filter: blur(2px)` to the element.</p>
+                        <pre>&lt;div blur&gt;&lt;/div&gt;</pre>
+                        <div class="example-box" blur style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Blurred');">Blurred</div>
+                    </div>
+                      <div class="attribute-item">
+                        <strong>`butterfly=fly ` attribute(note its designed for big sizes layouts like hero section because in small layouts it escapes) </strong>
+                        <a href='https://dev.to/butterflycss/the-easiest-way-to-make-butterfly-animation-without-writing-a-single-line-of-css-or-js-mbb'>see tutorial here`.</a>
+                        <pre>&lt;div style="..." butterfly='fly'&gt;&lt;/div&gt;</pre>
+                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" >
+                            <div h-5 w-5>
+                            <div butterfly="fly">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section id="responsive" dblack lwhite dtwhite tlblack>
                 <h2>responisive box</h2>
                 
@@ -532,47 +572,7 @@ butterfly css is a new way to build websites that fly out of the box! by attribu
 
    
 
-            <section id="special-effects"dblack lwhite dtwhite tlblack>
-                <h2>Special Effects</h2>
-                <p>These attributes apply unique visual effects to elements, often using pseudo-elements or SVG filters.</p>
-                <div class="attribute-list">
-                    <div class="attribute-item">
-                        <strong>`birthday-paper` attribute</strong>
-                        <p>Creates a confetti-like falling paper animation over the element. The parent element should have `position: relative` and `overflow: hidden`.</p>
-                        <pre>&lt;div style="..." birthday-paper&gt;&lt;/div&gt;</pre>
-                        <div style="position: relative; overflow: hidden; height: 200px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" birthday-paper>
-                            Happy Birthday!
-                        </div>
-                    </div>
-                    
-                  
-                    <div class="attribute-item">
-                        <strong>`handdrawn` attribute</strong>
-                        <p>Gives the element a hand-drawn or sketchy appearance using an SVG filter,(note it makes the element font very sketchy you can override the font family)</p>
-                        <pre>&lt;div handdrawn&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" handdrawn style="width: 150px; height: 80px; font-size: 1.1em; color: #3d0066; background-color: #fffbe9;">
-                            Sketchy Box
-                        </div>
-                    </div>
-                   
-                    <div class="attribute-item">
-                        <strong>`blur` attribute</strong>
-                        <p>Applies a `filter: blur(2px)` to the element.</p>
-                        <pre>&lt;div blur&gt;&lt;/div&gt;</pre>
-                        <div class="example-box" blur style="background-image: url('https://placehold.co/100x100/A0A0A0/FFFFFF?text=Blurred');">Blurred</div>
-                    </div>
-                      <div class="attribute-item">
-                        <strong>`butterfly=fly ` attribute(note its designed for big sizes layouts like hero section because in small layouts it escapes) </strong>
-                        <a href='https://dev.to/butterflycss/the-easiest-way-to-make-butterfly-animation-without-writing-a-single-line-of-css-or-js-mbb'>see tutorial here`.</a>
-                        <pre>&lt;div style="..." butterfly='fly'&gt;&lt;/div&gt;</pre>
-                        <div style="position: relative; overflow: hidden; height: 150px; width: 100%; border: 1px solid #ddd; border-radius: 10px; background-color: #fce4ec; display: flex; align-items: center; justify-content: center; font-size: 1.5em; color: #d81b60;" >
-                            <div h-5 w-5>
-                            <div butterfly="fly">
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           
 
             <section id="animations"dblack lwhite dtwhite tlblack>
                 <h2>Standard Animations</h2>
