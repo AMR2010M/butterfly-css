@@ -133,64 +133,6 @@
 </body>
 
 <script type="module">
-const x=document.getElementById('x');
-  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-
-    const supabaseUrl = 'https://skhatgfvgvyociqfamsp.supabase.co';
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNraGF0Z2Z2Z3Z5b2NpcWZhbXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5NDY3MjMsImV4cCI6MjA3NTUyMjcyM30.m0L9G26jHf79KNL_YCDNJHS2hWYHuJ4WCzLAHKhj2XI";
-
-    const supabase = createClient(supabaseUrl, supabaseKey);
-window.addEventListener('DOMContentLoaded', async () => {
-  const { data: { user } } = await supabase.auth.getUser();
-
-});
- async function fetchpoems () {
-    
-
-const{data,error}=await supabase.from('hobby').select('*').order('created_at', { ascending: false });;
-if(error){
-    console.error(error);
-}
-else{
-   for( const hobby of data){
-
-        const myhobby=`
-       <a href='post.html?id=${hobby.id}' hover-21 cursor rre center  w-80p spink  flex-auto class='h-80 mb-8'  nof mb-2 rows  white rounded handdrawn>
-       <img   handdrawn src='${hobby.img}' h-100p  xde >
-<div columns w-70p h-full class='pb-10 p-3'>
-    <h1 tpink  bold  center class='mb-6 text-3xl '>${hobby.title}</h1>
-      <p tblack center >${hobby.hook}
-      
-        </p>
-    </div>
-        </a>
-          
-         `;
-x.innerHTML+=myhobby;
-
-
-}
-
-}
-
- 
- }
- fetchpoems();
-
-
-    
-       
-
- x.addEventListener('click', async (event) => {
-  if (event.target.classList.contains('like')) {
-     const { data:mydata, error } = await supabase.from('poems').select('likes,id').eq('id',event.target.id).single();
-        var updatedlikes=mydata.likes+1;
-const { error: updateError } = await supabase.from('poems').update({likes:updatedlikes }).eq('id', mydata.id);
-document.getElementById('text'+mydata.id).innerText=updatedlikes;
-
-    }
-  }
- );
-   
+window.location.href='https://dev.to/butterflycss';
 </script>
 </html>
